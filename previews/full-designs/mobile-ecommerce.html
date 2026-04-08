@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile E-Commerce App</title>
+<style>
+  :root { }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: var(--kit-font, Inter, system-ui, sans-serif);
+    background: var(--kit-surface, #F8FAFC);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 16px; }
+    .screen { overflow-x: hidden;position:relative;
+    width: 390px;
+    background: var(--kit-bg, #FFFFFF);
+    border-radius: var(--kit-radius-lg, 16px);
+    box-shadow: var(--kit-shadow-lg, 0 10px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04));
+    display: flex;
+    flex-direction: column;
+    position: relative; }
+  .screen-label {
+    text-align: center;
+    font-size: var(--kit-text-sm, 13px);
+    font-weight: var(--kit-font-semibold, 600);
+    color: var(--kit-text-3, #94A3B8);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
+  .screen-content {
+    flex: 1;
+    padding-bottom: 72px; }
+  /* Bottom Nav */
+  .bottom-nav {
+    height: 64px;
+    background: var(--kit-bg, #FFFFFF);
+    border-top: 1px solid var(--kit-border, #E2E8F0);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 8px; }
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 4px 12px; }
+  .nav-item span {
+    font-size: 10px;
+    font-weight: var(--kit-font-medium, 500);
+    color: var(--kit-text-3, #94A3B8); }
+  .nav-item.active span {
+    color: var(--kit-primary, #6366F1); }
+  .nav-item svg {
+    color: var(--kit-text-3, #94A3B8); }
+  .nav-item.active svg {
+    color: var(--kit-primary, #6366F1); }
+</style>
+</head>
+<body>
+
+<!-- ==================== SCREEN 1: HOME ==================== -->
+<div class="screen-label">Home</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Status Bar -->
+    <div style="height:44px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">9:41</span>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="10" x2="23" y2="14"/></svg>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div style="padding:8px 20px 16px;display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Deliver to</div>
+        <div style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);display:flex;align-items:center;gap:4px;">
+          New York, NY
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;">
+        <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;position:relative;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <div style="position:absolute;top:6px;right:8px;width:8px;height:8px;background:var(--kit-danger,#EF4444);border-radius:var(--kit-radius-full,9999px);border:2px solid var(--kit-bg,#FFFFFF);"></div>
+        </div>
+        <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;position:relative;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <div style="position:absolute;top:4px;right:4px;min-width:16px;height:16px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-full,9999px);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:var(--kit-font-bold,700);color:var(--kit-primary-fg,#FFFFFF);padding:0 4px;">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div style="padding:0 20px 16px;">
+      <div style="display:flex;align-items:center;gap:10px;height:44px;background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:0 14px;border:1px solid var(--kit-border,#E2E8F0);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-3,#94A3B8);">Search products, brands...</span>
+      </div>
+    </div>
+
+    <!-- Category Chips -->
+    <div style="padding:0 20px 20px;display:flex;gap:8px;">
+      <div style="padding:8px 16px;background:var(--kit-primary,#6366F1);color:var(--kit-primary-fg,#FFFFFF);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;cursor:pointer;">All</div>
+      <div style="padding:8px 16px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;cursor:pointer;">Electronics</div>
+      <div style="padding:8px 16px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;cursor:pointer;">Fashion</div>
+      <div style="padding:8px 16px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;cursor:pointer;">Home</div>
+      <div style="padding:8px 16px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;cursor:pointer;">Beauty</div>
+    </div>
+
+    <!-- Banner -->
+    <div style="padding:0 20px 20px;">
+      <div style="width:100%;height:140px;background:linear-gradient(135deg,var(--kit-primary,#6366F1),var(--kit-accent,#F59E0B));border-radius:var(--kit-radius-lg,16px);padding:24px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.1);"></div>
+        <div style="font-size:var(--kit-text-xs,12px);color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:1px;">Flash Sale</div>
+        <div style="font-size:var(--kit-text-2xl,24px);font-weight:var(--kit-font-bold,700);color:var(--kit-text-inverse);margin:4px 0;">Up to 50% Off</div>
+        <div style="font-size:var(--kit-text-sm,13px);color:rgba(255,255,255,0.8);">Limited time offer — ends tonight</div>
+      </div>
+    </div>
+
+    <!-- Section Title -->
+    <div style="padding:0 20px 12px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Popular Products</span>
+      <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-primary,#6366F1);cursor:pointer;">See All</span>
+    </div>
+
+    <!-- Product Grid 2-col -->
+    <div style="padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <!-- Product 1 -->
+      <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);overflow:hidden;">
+        <div style="position:relative;">
+          <img src="https://placehold.jp/170x170" alt="Wireless Headphones" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <div style="position:absolute;top:8px;left:8px;background:var(--kit-danger,#EF4444);color:var(--kit-text-inverse);font-size:10px;font-weight:var(--kit-font-semibold,600);padding:2px 8px;border-radius:var(--kit-radius,8px);">-20%</div>
+          <div style="position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-bg,#FFFFFF);display:flex;align-items:center;justify-content:center;box-shadow:var(--kit-shadow-sm,0 1px 2px rgba(0,0,0,0.05));">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div style="padding:10px;">
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Wireless Headphones</div>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size:11px;color:var(--kit-text-3,#94A3B8);">4.5 (128)</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:6px;">
+            <span style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$79</span>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);text-decoration:line-through;">$99</span>
+          </div>
+        </div>
+      </div>
+      <!-- Product 2 -->
+      <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);overflow:hidden;">
+        <div style="position:relative;">
+          <img src="https://placehold.jp/170x170" alt="Smart Watch Pro" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <div style="position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-bg,#FFFFFF);display:flex;align-items:center;justify-content:center;box-shadow:var(--kit-shadow-sm,0 1px 2px rgba(0,0,0,0.05));">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--kit-danger,#EF4444)" stroke="var(--kit-danger,#EF4444)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div style="padding:10px;">
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Smart Watch Pro</div>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size:11px;color:var(--kit-text-3,#94A3B8);">4.8 (256)</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:6px;">
+            <span style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$249</span>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);text-decoration:line-through;">$299</span>
+          </div>
+        </div>
+      </div>
+      <!-- Product 3 -->
+      <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);overflow:hidden;">
+        <div style="position:relative;">
+          <img src="https://placehold.jp/170x170" alt="Running Shoes" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <div style="position:absolute;top:8px;left:8px;background:var(--kit-success,#22C55E);color:var(--kit-text-inverse);font-size:10px;font-weight:var(--kit-font-semibold,600);padding:2px 8px;border-radius:var(--kit-radius,8px);">New</div>
+        </div>
+        <div style="padding:10px;">
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">Running Shoes</div>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size:11px;color:var(--kit-text-3,#94A3B8);">4.3 (89)</span>
+          </div>
+          <div style="margin-top:6px;">
+            <span style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$129</span>
+          </div>
+        </div>
+      </div>
+      <!-- Product 4 -->
+      <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);overflow:hidden;">
+        <div style="position:relative;">
+          <img src="https://placehold.jp/170x170" alt="Backpack" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+          <div style="position:absolute;top:8px;left:8px;background:var(--kit-danger,#EF4444);color:var(--kit-text-inverse);font-size:10px;font-weight:var(--kit-font-semibold,600);padding:2px 8px;border-radius:var(--kit-radius,8px);">-15%</div>
+        </div>
+        <div style="padding:10px;">
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">Urban Backpack</div>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size:11px;color:var(--kit-text-3,#94A3B8);">4.6 (204)</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:6px;">
+            <span style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$59</span>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);text-decoration:line-through;">$69</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Search</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Cart</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 2: PRODUCT DETAIL ==================== -->
+<div class="screen-label">Product Detail</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Product Details</span>
+      <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+      </div>
+    </div>
+
+    <!-- Product Image Hero -->
+    <div style="width:100%;height:340px;background:var(--kit-surface,#F8FAFC);position:relative;">
+      <img src="https://placehold.jp/390x340" alt="Product" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <!-- Image Dots -->
+      <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:6px;">
+        <div style="width:8px;height:8px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-primary,#6366F1);"></div>
+        <div style="width:8px;height:8px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-border,#E2E8F0);"></div>
+        <div style="width:8px;height:8px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-border,#E2E8F0);"></div>
+        <div style="width:8px;height:8px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-border,#E2E8F0);"></div>
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div style="padding:20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-primary,#6366F1);background:var(--kit-surface,#F8FAFC);padding:4px 10px;border-radius:var(--kit-radius-full,9999px);">Electronics</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:8px;">Wireless Noise Cancelling Headphones</div>
+
+      <!-- Rating -->
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <div style="display:flex;gap:2px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--kit-border,#E2E8F0)" stroke="var(--kit-border,#E2E8F0)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">4.5</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">(128 reviews)</span>
+      </div>
+
+      <!-- Price -->
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:20px;">
+        <span style="font-size:var(--kit-text-2xl,24px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$79.99</span>
+        <span style="font-size:var(--kit-text-md,16px);color:var(--kit-text-3,#94A3B8);text-decoration:line-through;">$99.99</span>
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-danger,#EF4444);">-20%</span>
+      </div>
+
+      <!-- Size Selector -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:10px;">Color</div>
+        <div style="display:flex;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface);border:3px solid var(--kit-primary,#6366F1);cursor:pointer;"></div>
+          <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface);border:2px solid var(--kit-border,#E2E8F0);cursor:pointer;"></div>
+          <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-primary,#6366F1);border:2px solid var(--kit-border,#E2E8F0);cursor:pointer;"></div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div style="margin-bottom:24px;">
+        <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;">Description</div>
+        <div style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);line-height:1.6;">Premium wireless headphones with advanced active noise cancellation, 30-hour battery life, and hi-res audio. Comfortable memory foam ear cups for all-day listening.</div>
+      </div>
+
+      <!-- Add to Cart -->
+      <div style="display:flex;gap:12px;">
+        <div style="width:48px;height:48px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div style="flex:1;height:48px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-md,12px);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary-fg,#FFFFFF)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Add to Cart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Search</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Cart</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 3: CART ==================== -->
+<div class="screen-label">Cart</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">My Cart (3)</span>
+      <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-danger,#EF4444);font-weight:var(--kit-font-medium,500);cursor:pointer;">Clear</span>
+    </div>
+
+    <!-- Cart Items -->
+    <div style="padding:16px 20px;display:flex;flex-direction:column;gap:16px;">
+      <!-- Item 1 -->
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div style="width:80px;min-width:80px;height:80px;border-radius:var(--kit-radius-md,12px);overflow:hidden;">
+          <img src="https://placehold.jp/80x80" alt="Headphones" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+          <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Wireless Headphones</span>
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Black / Standard</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:2px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);overflow:hidden;">
+              <button style="width:28px;height:28px;border:none;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);font-size:var(--kit-text-sm,14px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--kit-font,Inter,system-ui,sans-serif);">-</button>
+              <span style="width:24px;text-align:center;font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">1</span>
+              <button style="width:28px;height:28px;border:none;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);font-size:var(--kit-text-sm,14px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--kit-font,Inter,system-ui,sans-serif);">+</button>
+            </div>
+            <span style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$79.99</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:1px;background:var(--kit-border,#E2E8F0);"></div>
+
+      <!-- Item 2 -->
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div style="width:80px;min-width:80px;height:80px;border-radius:var(--kit-radius-md,12px);overflow:hidden;">
+          <img src="https://placehold.jp/80x80" alt="Smart Watch" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+          <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Smart Watch Pro</span>
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Silver / 42mm</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:2px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);overflow:hidden;">
+              <button style="width:28px;height:28px;border:none;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);font-size:var(--kit-text-sm,14px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--kit-font,Inter,system-ui,sans-serif);">-</button>
+              <span style="width:24px;text-align:center;font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">1</span>
+              <button style="width:28px;height:28px;border:none;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);font-size:var(--kit-text-sm,14px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--kit-font,Inter,system-ui,sans-serif);">+</button>
+            </div>
+            <span style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$249.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:1px;background:var(--kit-border,#E2E8F0);"></div>
+
+      <!-- Item 3 -->
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div style="width:80px;min-width:80px;height:80px;border-radius:var(--kit-radius-md,12px);overflow:hidden;">
+          <img src="https://placehold.jp/80x80" alt="Backpack" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+          <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Urban Backpack</span>
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Navy / Large</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:2px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);overflow:hidden;">
+              <button style="width:28px;height:28px;border:none;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);font-size:var(--kit-text-sm,14px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--kit-font,Inter,system-ui,sans-serif);">-</button>
+              <span style="width:24px;text-align:center;font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">2</span>
+              <button style="width:28px;height:28px;border:none;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);font-size:var(--kit-text-sm,14px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:var(--kit-font,Inter,system-ui,sans-serif);">+</button>
+            </div>
+            <span style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$118.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promo Code -->
+    <div style="padding:16px 20px;">
+      <div style="display:flex;gap:8px;">
+        <div style="flex:1;height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 14px;display:flex;align-items:center;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">Promo code</span>
+        </div>
+        <div style="height:44px;padding:0 20px;background:var(--kit-surface-2,#F1F5F9);border-radius:var(--kit-radius,8px);display:flex;align-items:center;cursor:pointer;">
+          <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Apply</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Summary -->
+    <div style="padding:0 20px 20px;">
+      <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:16px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">Subtotal</span>
+          <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">$446.99</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">Shipping</span>
+          <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-success,#22C55E);">Free</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">Tax</span>
+          <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">$35.76</span>
+        </div>
+        <div style="height:1px;background:var(--kit-border,#E2E8F0);margin:12px 0;"></div>
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Total</span>
+          <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$482.75</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Button -->
+    <div style="padding:0 20px 24px;">
+      <div style="width:100%;height:52px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-md,12px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Proceed to Checkout</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Search</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Cart</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 4: CHECKOUT ==================== -->
+<div class="screen-label">Checkout</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Checkout</span>
+      <div style="width:36px;"></div>
+    </div>
+
+    <!-- Progress Steps -->
+    <div style="padding:20px;display:flex;align-items:center;justify-content:center;gap:8px;">
+      <div style="width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-primary,#6366F1);display:flex;align-items:center;justify-content:center;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary-fg,#FFFFFF)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div style="width:40px;height:2px;background:var(--kit-primary,#6366F1);"></div>
+      <div style="width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-primary,#6366F1);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:var(--kit-font-bold,700);color:var(--kit-primary-fg,#FFFFFF);">2</div>
+      <div style="width:40px;height:2px;background:var(--kit-border,#E2E8F0);"></div>
+      <div style="width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);border:2px solid var(--kit-border,#E2E8F0);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:var(--kit-font-medium,500);color:var(--kit-text-3,#94A3B8);">3</div>
+    </div>
+
+    <!-- Shipping Address -->
+    <div style="padding:0 20px 20px;">
+      <div style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:16px;">Shipping Address</div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:12px;">
+          <div style="flex:1;">
+            <label style="display:block;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);margin-bottom:6px;">First Name</label>
+            <div style="height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 14px;display:flex;align-items:center;">
+              <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);">John</span>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <label style="display:block;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);margin-bottom:6px;">Last Name</label>
+            <div style="height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 14px;display:flex;align-items:center;">
+              <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);">Doe</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);margin-bottom:6px;">Street Address</label>
+          <div style="height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 14px;display:flex;align-items:center;">
+            <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);">123 Main Street, Apt 4B</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;">
+          <div style="flex:1;">
+            <label style="display:block;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);margin-bottom:6px;">City</label>
+            <div style="height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 14px;display:flex;align-items:center;">
+              <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);">New York</span>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <label style="display:block;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);margin-bottom:6px;">ZIP Code</label>
+            <div style="height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 14px;display:flex;align-items:center;">
+              <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);">10001</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Method -->
+    <div style="padding:0 20px 20px;">
+      <div style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:16px;">Payment Method</div>
+
+      <!-- Card option selected -->
+      <div style="border:2px solid var(--kit-primary,#6366F1);border-radius:var(--kit-radius-md,12px);padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:10px;background:var(--kit-surface,#F8FAFC);">
+        <div style="width:20px;height:20px;border-radius:var(--kit-radius-full,9999px);border:2px solid var(--kit-primary,#6366F1);display:flex;align-items:center;justify-content:center;">
+          <div style="width:10px;height:10px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-primary,#6366F1);"></div>
+        </div>
+        <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><rect width="28" height="20" rx="3" fill="var(--kit-primary,#6366F1)"/><rect x="4" y="6" width="8" height="2" rx="1" fill="rgba(255,255,255,0.5)"/><rect x="4" y="12" width="20" height="2" rx="1" fill="rgba(255,255,255,0.3)"/></svg>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">Credit Card</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">**** 4242</div>
+        </div>
+      </div>
+
+      <!-- PayPal option -->
+      <div style="border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);padding:14px;display:flex;align-items:center;gap:12px;">
+        <div style="width:20px;height:20px;border-radius:var(--kit-radius-full,9999px);border:2px solid var(--kit-border,#E2E8F0);"></div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info,#3B82F6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">PayPal</span>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div style="padding:0 20px 20px;">
+      <div style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:12px;">Order Summary</div>
+      <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:16px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">3 items</span>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text,#0F172A);">$446.99</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">Shipping</span>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-success,#22C55E);">Free</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">Tax</span>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text,#0F172A);">$35.76</span>
+        </div>
+        <div style="height:1px;background:var(--kit-border,#E2E8F0);margin:10px 0;"></div>
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Total</span>
+          <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-primary,#6366F1);">$482.75</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Place Order -->
+    <div style="padding:0 20px 24px;">
+      <div style="width:100%;height:52px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-md,12px);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary-fg,#FFFFFF)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Place Order</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Search</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Cart</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

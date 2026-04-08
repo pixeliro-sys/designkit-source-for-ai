@@ -1,0 +1,17 @@
+<!--
+  @name: Progress Ring
+  @category: charts
+  @kit: app-mobile
+  @width: 120
+  @height: 120
+  @tags: chart, progress, ring, circular, percentage
+-->
+<div data-component="Progress Ring" style="width:120px;height:120px;position:relative;font-family:var(--kit-font, system-ui, -apple-system, sans-serif)">
+  <svg width="120" height="120" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="50" fill="none" stroke="var(--kit-surface-2, #F1F5F9)" stroke-width="10"/>
+    <circle cx="60" cy="60" r="50" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="10" stroke-dasharray="236 78" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+  </svg>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center">
+    <div style="font-size:22px;font-weight:700;color:var(--kit-text, #0F172A)">75%</div>
+  </div>
+</div>

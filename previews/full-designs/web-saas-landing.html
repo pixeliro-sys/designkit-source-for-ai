@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaaS Landing Page</title>
+<style>
+  :root { }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: var(--kit-font, Inter, system-ui, sans-serif);
+    background: var(--kit-bg, #FFFFFF);
+    color: var(--kit-text, #0F172A); }
+</style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav style="width:100%;padding:16px 64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius,8px);background:var(--kit-primary,#6366F1);display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-inverse)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+    </div>
+    <span style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Stackflow</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:32px;">
+    <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Features</span>
+    <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Pricing</span>
+    <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">About</span>
+    <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Blog</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Sign In</span>
+    <div style="height:40px;padding:0 20px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Get Started</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section style="width:100%;padding:80px 64px;text-align:center;position:relative;overflow:hidden;">
+  <!-- Background decoration -->
+  <div style="position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;border-radius:400px;background:radial-gradient(circle,rgba(99,102,241,0.06) 0%,transparent 70%);"></div>
+
+  <div style="position:relative;z-index:1;">
+    <!-- Badge -->
+    <div style="display:inline-flex;align-items:center;gap:8px;background:var(--kit-surface,#F8FAFC);padding:6px 16px;border-radius:var(--kit-radius-full,9999px);margin-bottom:24px;border:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:6px;height:6px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-success,#22C55E);"></div>
+      <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">Now in Public Beta</span>
+    </div>
+
+    <h1 style="font-size:56px;font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);line-height:1.1;max-width:720px;margin:0 auto 20px;">Build Better Products, Ship Faster</h1>
+    <p style="font-size:var(--kit-text-lg,18px);color:var(--kit-text-2,#475569);line-height:1.6;max-width:560px;margin:0 auto 40px;">The all-in-one platform for modern teams. Streamline your workflow, automate repetitive tasks, and focus on what matters most.</p>
+
+    <!-- CTA Buttons -->
+    <div style="display:flex;justify-content:center;gap:12px;margin-bottom:48px;">
+      <div style="height:48px;padding:0 28px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;">
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Start Free Trial</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--kit-primary-fg,#FFFFFF);"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+      <div style="height:48px;padding:0 28px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-text,#0F172A)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">Watch Demo</span>
+      </div>
+    </div>
+
+    <!-- Hero Illustration -->
+    <div style="max-width:900px;margin:0 auto;border-radius:var(--kit-radius-lg,16px);overflow:hidden;box-shadow:var(--kit-shadow-lg,0 10px 24px rgba(0,0,0,0.08),0 4px 8px rgba(0,0,0,0.04));border:1px solid var(--kit-border,#E2E8F0);">
+      <img src="https://placehold.jp/900x480" alt="Dashboard Preview" style="width:100%;height:auto;display:block;" />
+    </div>
+  </div>
+</section>
+
+<!-- ==================== LOGOS SECTION ==================== -->
+<section style="width:100%;padding:40px 64px;text-align:center;border-top:1px solid var(--kit-border,#E2E8F0);border-bottom:1px solid var(--kit-border,#E2E8F0);">
+  <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;font-weight:var(--kit-font-medium,500);">Trusted by 2,000+ companies worldwide</p>
+  <div style="display:flex;justify-content:center;align-items:center;gap:48px;opacity:0.4;">
+    <div style="width:100px;height:28px;background:var(--kit-text,#0F172A);border-radius:4px;"></div>
+    <div style="width:80px;height:28px;background:var(--kit-text,#0F172A);border-radius:4px;"></div>
+    <div style="width:110px;height:28px;background:var(--kit-text,#0F172A);border-radius:4px;"></div>
+    <div style="width:90px;height:28px;background:var(--kit-text,#0F172A);border-radius:4px;"></div>
+    <div style="width:100px;height:28px;background:var(--kit-text,#0F172A);border-radius:4px;"></div>
+  </div>
+</section>
+
+<!-- ==================== FEATURES GRID ==================== -->
+<section style="width:100%;padding:80px 64px;">
+  <div style="text-align:center;margin-bottom:48px;">
+    <h2 style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:12px;">Everything You Need</h2>
+    <p style="font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);max-width:480px;margin:0 auto;">Powerful features to help your team build, ship, and iterate faster than ever before.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1100px;margin:0 auto;">
+    <!-- Feature 1 -->
+    <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:28px;border:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:48px;height:48px;border-radius:var(--kit-radius-md,12px);background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;">Lightning Fast</h3>
+      <p style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);line-height:1.6;">Optimized for speed with edge computing. Your team gets instant feedback on every action.</p>
+    </div>
+
+    <!-- Feature 2 -->
+    <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:28px;border:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:48px;height:48px;border-radius:var(--kit-radius-md,12px);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;">Enterprise Security</h3>
+      <p style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);line-height:1.6;">SOC 2 compliant with end-to-end encryption. Your data is safe and secure at all times.</p>
+    </div>
+
+    <!-- Feature 3 -->
+    <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:28px;border:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:48px;height:48px;border-radius:var(--kit-radius-md,12px);background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--kit-warning,#F59E0B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;">Team Collaboration</h3>
+      <p style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);line-height:1.6;">Real-time collaboration with unlimited team members. Keep everyone in sync effortlessly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRICING TABLE ==================== -->
+<section style="width:100%;padding:80px 64px;background:var(--kit-surface,#F8FAFC);">
+  <div style="text-align:center;margin-bottom:48px;">
+    <h2 style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:12px;">Simple, Transparent Pricing</h2>
+    <p style="font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);">No hidden fees. Cancel anytime.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1000px;margin:0 auto;">
+    <!-- Free Tier -->
+    <div style="background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-lg,16px);padding:32px;border:1px solid var(--kit-border,#E2E8F0);">
+      <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:4px;">Free</h3>
+      <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);margin-bottom:20px;">For individuals getting started</p>
+      <div style="margin-bottom:24px;">
+        <span style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$0</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">/month</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Up to 3 projects</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">1GB storage</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Community support</span>
+        </div>
+      </div>
+      <div style="width:100%;height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Get Started</span>
+      </div>
+    </div>
+
+    <!-- Pro Tier (Popular) -->
+    <div style="background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-lg,16px);padding:32px;border:2px solid var(--kit-primary,#6366F1);position:relative;">
+      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--kit-primary,#6366F1);color:var(--kit-primary-fg,#FFFFFF);font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);padding:4px 16px;border-radius:var(--kit-radius-full,9999px);">Most Popular</div>
+      <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:4px;">Pro</h3>
+      <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);margin-bottom:20px;">For growing teams</p>
+      <div style="margin-bottom:24px;">
+        <span style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$29</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">/month</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Unlimited projects</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">50GB storage</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Priority support</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Advanced analytics</span>
+        </div>
+      </div>
+      <div style="width:100%;height:44px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Start Free Trial</span>
+      </div>
+    </div>
+
+    <!-- Enterprise Tier -->
+    <div style="background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-lg,16px);padding:32px;border:1px solid var(--kit-border,#E2E8F0);">
+      <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:4px;">Enterprise</h3>
+      <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);margin-bottom:20px;">For large organizations</p>
+      <div style="margin-bottom:24px;">
+        <span style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$99</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">/month</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Everything in Pro</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Unlimited storage</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">SSO & SAML</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Dedicated account manager</span>
+        </div>
+      </div>
+      <div style="width:100%;height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Contact Sales</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section style="width:100%;padding:80px 64px;">
+  <div style="text-align:center;margin-bottom:48px;">
+    <h2 style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:12px;">Loved by Teams Everywhere</h2>
+    <p style="font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);">See what our customers have to say</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1100px;margin:0 auto;">
+    <!-- Testimonial 1 -->
+    <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:28px;border:1px solid var(--kit-border,#E2E8F0);">
+      <div style="display:flex;gap:4px;margin-bottom:16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);line-height:1.7;margin-bottom:20px;">"Stackflow has completely transformed how our team works. We shipped 3x more features in the first quarter after switching."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="https://placehold.jp/40x40" alt="Sarah" style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+        <div>
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Sarah Chen</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">CTO, TechStart</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:28px;border:1px solid var(--kit-border,#E2E8F0);">
+      <div style="display:flex;gap:4px;margin-bottom:16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);line-height:1.7;margin-bottom:20px;">"The best project management tool I've ever used. The AI-powered suggestions save us hours every week. Absolutely love it."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="https://placehold.jp/40x40" alt="Mark" style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+        <div>
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Mark Johnson</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">VP Engineering, CloudCo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:28px;border:1px solid var(--kit-border,#E2E8F0);">
+      <div style="display:flex;gap:4px;margin-bottom:16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);line-height:1.7;margin-bottom:20px;">"We migrated our entire team of 200+ people to Stackflow in a single weekend. The onboarding experience is phenomenal."</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="https://placehold.jp/40x40" alt="Lisa" style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+        <div>
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Lisa Park</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Head of Product, ScaleUp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BANNER ==================== -->
+<section style="width:100%;padding:80px 64px;">
+  <div style="max-width:900px;margin:0 auto;background:linear-gradient(135deg,var(--kit-primary,#6366F1),var(--kit-primary-hover,#4F46E5));border-radius:var(--kit-radius-xl,24px);padding:56px;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:100px;background:rgba(255,255,255,0.08);"></div>
+    <div style="position:absolute;bottom:-60px;left:-30px;width:150px;height:150px;border-radius:75px;background:rgba(255,255,255,0.05);"></div>
+    <div style="position:relative;z-index:1;">
+      <h2 style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text-inverse);margin-bottom:12px;">Ready to Get Started?</h2>
+      <p style="font-size:var(--kit-text-md,16px);color:rgba(255,255,255,0.8);margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto;">Join thousands of teams already building with Stackflow. Free forever, no credit card required.</p>
+      <div style="display:inline-flex;height:48px;padding:0 28px;background:var(--kit-bg);border-radius:var(--kit-radius,8px);align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary,#6366F1);">Start Building for Free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer style="width:100%;padding:48px 64px;border-top:1px solid var(--kit-border,#E2E8F0);">
+  <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="width:28px;height:28px;border-radius:var(--kit-radius,8px);background:var(--kit-primary,#6366F1);display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-inverse)" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+        </div>
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Stackflow</span>
+      </div>
+      <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);line-height:1.6;max-width:280px;">Build better products with the platform designed for modern development teams.</p>
+    </div>
+    <div>
+      <h4 style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:16px;">Product</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Features</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Pricing</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Changelog</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Roadmap</span>
+      </div>
+    </div>
+    <div>
+      <h4 style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:16px;">Company</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">About</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Blog</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Careers</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Contact</span>
+      </div>
+    </div>
+    <div>
+      <h4 style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:16px;">Legal</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Privacy</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Terms</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Security</span>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--kit-border,#E2E8F0);padding-top:24px;display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">2024 Stackflow. All rights reserved.</span>
+    <div style="display:flex;gap:16px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

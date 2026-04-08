@@ -1,0 +1,56 @@
+<!--
+  @name: Vitals Dashboard
+  @kit: app-mobile
+  @width: 360
+  @height: 260
+  @tags: vitals, health, dashboard, metrics
+-->
+<div data-component="Vitals Dashboard" style="width:100%;max-width:360px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);padding:16px;display:flex;flex-direction:column;gap:12px;">
+  <div style="font-size:var(--kit-text-md,16px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Vitals</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <!-- Heart Rate -->
+    <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);padding:14px;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:var(--kit-radius,8px);background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><polyline points="0,12 8,10 16,6 24,8 32,4 40,6" stroke="#EF4444" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">72</div>
+      <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">bpm</div>
+    </div>
+    <!-- Blood Pressure -->
+    <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);padding:14px;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:var(--kit-radius,8px);background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><polyline points="0,8 8,6 16,10 24,7 32,9 40,5" stroke="#3B82F6" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">120/80</div>
+      <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">mmHg</div>
+    </div>
+    <!-- SpO2 -->
+    <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);padding:14px;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:var(--kit-radius,8px);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        </div>
+        <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><polyline points="0,6 8,5 16,4 24,5 32,4 40,3" stroke="#22C55E" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">98%</div>
+      <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">SpO2</div>
+    </div>
+    <!-- Temperature -->
+    <div style="background:var(--kit-bg,#FFFFFF);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-md,12px);padding:14px;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:var(--kit-radius,8px);background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+        </div>
+        <svg width="40" height="16" viewBox="0 0 40 16" fill="none"><polyline points="0,8 8,7 16,8 24,7 32,8 40,7" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">98.6</div>
+      <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">°F</div>
+    </div>
+  </div>
+</div>

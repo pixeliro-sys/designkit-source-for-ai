@@ -1,0 +1,29 @@
+<!--
+  @name: Code Editor — Syntax Highlighted
+  @category: patterns
+  @kit: app-mobile
+  @width: 360
+  @height: 240
+  @tags: code, editor, syntax, highlight, developer
+-->
+<div data-component="Code Editor — Syntax Highlighted" style="width:100%;background:#1E1E2E;border-radius:var(--kit-radius-md, 12px);overflow:hidden;font-family:ui-monospace, SFMono-Regular, Menlo, monospace">
+  <div style="display:flex;align-items:center;height:36px;padding:0 12px;background:#181825;gap:6px">
+    <div style="width:12px;height:12px;border-radius:6px;background:#F38BA8"></div>
+    <div style="width:12px;height:12px;border-radius:6px;background:#FAB387"></div>
+    <div style="width:12px;height:12px;border-radius:6px;background:#A6E3A1"></div>
+    <span style="margin-left:auto;font-size:12px;color:#6C7086">app.ts</span>
+  </div>
+  <div style="padding:16px;font-size:13px;line-height:1.7;overflow-x:auto">
+    <div><span style="color:#CBA6F7">import</span> <span style="color:#89B4FA">{ useState }</span> <span style="color:#CBA6F7">from</span> <span style="color:#A6E3A1">'react'</span><span style="color:#6C7086">;</span></div>
+    <div style="height:8px"></div>
+    <div><span style="color:#CBA6F7">function</span> <span style="color:#89B4FA">Counter</span><span style="color:#F9E2AF">()</span> <span style="color:#F9E2AF">{</span></div>
+    <div style="padding-left:20px"><span style="color:#CBA6F7">const</span> <span style="color:#CDD6F4">[count, setCount]</span> <span style="color:#89DCEB">=</span> <span style="color:#89B4FA">useState</span><span style="color:#F9E2AF">(</span><span style="color:#FAB387">0</span><span style="color:#F9E2AF">)</span><span style="color:#6C7086">;</span></div>
+    <div style="height:8px"></div>
+    <div style="padding-left:20px"><span style="color:#CBA6F7">return</span> <span style="color:#F9E2AF">(</span></div>
+    <div style="padding-left:40px"><span style="color:#89DCEB">&lt;</span><span style="color:#89B4FA">button</span> <span style="color:#F9E2AF">onClick</span><span style="color:#89DCEB">=</span><span style="color:#F9E2AF">{()</span> <span style="color:#CBA6F7">=></span> <span style="color:#89B4FA">setCount</span><span style="color:#F9E2AF">(</span><span style="color:#CDD6F4">count</span> <span style="color:#89DCEB">+</span> <span style="color:#FAB387">1</span><span style="color:#F9E2AF">)}</span><span style="color:#89DCEB">></span></div>
+    <div style="padding-left:60px"><span style="color:#CDD6F4">Clicks: {count}</span></div>
+    <div style="padding-left:40px"><span style="color:#89DCEB">&lt;/</span><span style="color:#89B4FA">button</span><span style="color:#89DCEB">></span></div>
+    <div style="padding-left:20px"><span style="color:#F9E2AF">)</span><span style="color:#6C7086">;</span></div>
+    <div><span style="color:#F9E2AF">}</span></div>
+  </div>
+</div>

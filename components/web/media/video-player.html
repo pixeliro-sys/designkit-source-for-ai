@@ -1,0 +1,44 @@
+<!--
+  @name: Video Player
+  @kit: web
+  @width: 500
+  @height: 300
+  @tags: video, player, media, embed
+-->
+<div data-component="Video Player" style="width:100%;max-width:500px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);position:relative;background:#0F172A;border-radius:var(--kit-radius-md,12px);overflow:hidden;height:300px;display:flex;flex-direction:column;">
+  <!-- Video area -->
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;">
+    <img src="https://placehold.jp/500x260" alt="Video thumbnail" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0.6;" />
+    <!-- Play button -->
+    <button style="width:56px;height:56px;border-radius:var(--kit-radius-full,9999px);background:rgba(255,255,255,0.95);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#0F172A" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+    </button>
+  </div>
+  <!-- Controls bar -->
+  <div style="padding:8px 12px;display:flex;flex-direction:column;gap:6px;background:linear-gradient(transparent, rgba(0,0,0,0.8));">
+    <!-- Progress bar -->
+    <div style="width:100%;height:4px;background:rgba(255,255,255,0.2);border-radius:var(--kit-radius-full,9999px);cursor:pointer;">
+      <div style="width:27%;height:100%;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-full,9999px);position:relative;">
+        <div style="position:absolute;right:-4px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-bg,#FFFFFF);"></div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button style="border:none;background:none;cursor:pointer;padding:0;display:flex;align-items:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </button>
+        <span style="font-size:var(--kit-text-xs,12px);color:rgba(255,255,255,0.8);font-variant-numeric:tabular-nums;">2:45 / 10:30</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <!-- Volume -->
+        <button style="border:none;background:none;cursor:pointer;padding:0;display:flex;align-items:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg>
+        </button>
+        <!-- Fullscreen -->
+        <button style="border:none;background:none;cursor:pointer;padding:0;display:flex;align-items:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

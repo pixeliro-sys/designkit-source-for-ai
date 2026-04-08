@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Pixeliro — Onboarding</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #f9fafb;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #666;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e5e5e5;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-success: #22c55e;
+  --kit-warning: #f59e0b;
+  --kit-info: #3b82f6;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 11px;
+  --kit-text-sm: 13px;
+  --kit-text-md: 15px;
+  --kit-text-lg: 17px;
+  --kit-text-xl: 20px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 30px;
+  --kit-radius: 8px;
+  --kit-radius-md: 12px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 24px;
+  --kit-radius-full: 9999px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --kit-shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); width: 430px; min-height: 100vh; overflow-x: hidden; }
+
+.onboarding {
+  width: 430px;
+  min-height: 100vh;
+  background: var(--kit-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Illustration area */
+.illustration {
+  width: 100%;
+  height: 360px;
+  background: var(--kit-bg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--kit-radius-full);
+  background: linear-gradient(135deg, var(--kit-primary), var(--kit-secondary));
+  opacity: 0.7;
+  top: 60px;
+  left: 80px;
+  filter: blur(1px);
+}
+
+.circle-2 {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: var(--kit-radius-full);
+  background: linear-gradient(135deg, var(--kit-accent), #fb923c);
+  opacity: 0.6;
+  top: 120px;
+  right: 70px;
+  filter: blur(1px);
+}
+
+.circle-3 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--kit-radius-full);
+  background: linear-gradient(135deg, var(--kit-success), #4ade80);
+  opacity: 0.5;
+  bottom: 50px;
+  left: 140px;
+  filter: blur(1px);
+}
+
+/* Floating color chips */
+.color-chip {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow-md);
+  z-index: 2;
+}
+.chip-1 { background: #6366f1; top: 80px; left: 50px; transform: rotate(-12deg); }
+.chip-2 { background: #f59e0b; top: 60px; right: 60px; transform: rotate(8deg); }
+.chip-3 { background: #22c55e; bottom: 70px; left: 60px; transform: rotate(6deg); }
+.chip-4 { background: #ec4899; bottom: 60px; right: 80px; transform: rotate(-6deg); }
+.chip-5 { background: #3b82f6; top: 180px; left: 190px; transform: rotate(15deg); }
+
+/* Palette illustration in center */
+.palette-illus {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  gap: 4px;
+  padding: 12px;
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.palette-illus .swatch {
+  width: 40px;
+  height: 56px;
+  border-radius: var(--kit-radius);
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content h1 {
+  font-size: var(--kit-text-2xl);
+  font-weight: 800;
+  color: var(--kit-text);
+  text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--kit-text-2);
+  text-align: center;
+  max-width: 340px;
+  margin-bottom: 40px;
+}
+
+/* Dots indicator */
+.dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-border-strong);
+  transition: all 0.3s;
+}
+
+.dot.active {
+  width: 24px;
+  background: var(--kit-primary);
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  max-width: 374px;
+  height: 52px;
+  border: none;
+  border-radius: var(--kit-radius-xl);
+  background: var(--kit-primary);
+  color: var(--kit-primary-text);
+  font-family: var(--kit-font);
+  font-size: var(--kit-text-md);
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(99,102,241,0.3);
+}
+
+.skip-link {
+  font-size: var(--kit-text-sm);
+  color: var(--kit-text-3);
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding-bottom: 40px;
+}
+</style>
+</head>
+<body>
+  <div class="onboarding">
+    <div class="illustration">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+
+      <div class="color-chip chip-1"></div>
+      <div class="color-chip chip-2"></div>
+      <div class="color-chip chip-3"></div>
+      <div class="color-chip chip-4"></div>
+      <div class="color-chip chip-5"></div>
+
+      <div class="palette-illus">
+        <div class="swatch" style="background: #6366f1;"></div>
+        <div class="swatch" style="background: #818cf8;"></div>
+        <div class="swatch" style="background: #a78bfa;"></div>
+        <div class="swatch" style="background: #c4b5fd;"></div>
+        <div class="swatch" style="background: #e0e7ff;"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1>Generate Color Systems</h1>
+      <p>Create harmonious, accessible color palettes instantly with AI. From brand systems to design tokens, Pixeliro generates production-ready color workflows tailored to your project.</p>
+
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot active"></div>
+        <div class="dot"></div>
+      </div>
+
+      <button class="btn-primary">Next</button>
+      <a class="skip-link">Skip</a>
+    </div>
+  </div>
+</body>
+</html>

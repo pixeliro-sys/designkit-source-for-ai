@@ -1,0 +1,20 @@
+<!--
+  @name: Accordion / Expandable Section
+  @category: patterns
+  @kit: app-mobile
+  @width: 360
+  @height: 180
+  @tags: accordion, expandable, collapse, faq, section
+-->
+<div data-component="Accordion / Expandable Section" style="width:100%;font-family:var(--kit-font, system-ui, -apple-system, sans-serif);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-md, 12px);overflow:hidden">
+  <div style="display:flex;align-items:center;padding:16px;cursor:pointer;background:var(--kit-surface, #F8FAFC)">
+    <div style="flex:1;font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Section Title (Expanded)</div>
+    <div style="color:var(--kit-text-2, #475569);transform:rotate(180deg)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  <div style="padding:0 16px 16px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);line-height:1.5">This is the expanded content area. You can put any content here including text, lists, images, or other components.</div>
+  <div style="border-top:1px solid var(--kit-border, #E2E8F0)"></div>
+  <div style="display:flex;align-items:center;padding:16px;cursor:pointer">
+    <div style="flex:1;font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Collapsed Section</div>
+    <div style="color:var(--kit-text-2, #475569)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+</div>

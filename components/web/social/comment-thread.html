@@ -1,0 +1,75 @@
+<!--
+  @name: Comment Thread
+  @kit: web
+  @width: 500
+  @height: 300
+  @tags: comment, thread, reply, discussion, social
+-->
+<div data-component="Comment Thread" style="width:100%;max-width:500px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);background:var(--kit-bg,#FFFFFF);display:flex;flex-direction:column;gap:0;">
+  <!-- Comment 1 -->
+  <div style="padding:14px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+    <div style="display:flex;gap:10px;">
+      <div style="width:36px;min-width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);overflow:hidden;">
+        <img src="https://placehold.jp/36x36" alt="James Chen" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">James Chen</span>
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">3h ago</span>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.5;">This is a really great article! I especially liked the section about responsive design patterns. Would love to see a follow-up on accessibility best practices.</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 00-6 0v4"/><path d="M18 9h-2a2 2 0 00-2 2v9a2 2 0 002 2h2a2 2 0 002-2v-9a2 2 0 00-2-2z"/><path d="M6 9H4a2 2 0 00-2 2v9a2 2 0 002 2h2"/></svg>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);font-weight:var(--kit-font-medium,500);">12</span>
+          </div>
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-primary,#6366F1);font-weight:var(--kit-font-medium,500);cursor:pointer;">Reply</span>
+        </div>
+        <!-- Nested reply -->
+        <div style="margin-top:8px;padding-left:0;border-left:2px solid var(--kit-border,#E2E8F0);padding:10px 0 0 12px;">
+          <div style="display:flex;gap:10px;">
+            <div style="width:28px;min-width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);overflow:hidden;">
+              <img src="https://placehold.jp/28x28" alt="Lisa Park" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Lisa Park</span>
+                <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">2h ago</span>
+              </div>
+              <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.5;">Totally agree! Accessibility is often overlooked but so important for inclusive design.</span>
+              <div style="display:flex;align-items:center;gap:16px;">
+                <div style="display:flex;align-items:center;gap:4px;cursor:pointer;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 00-6 0v4"/><path d="M18 9h-2a2 2 0 00-2 2v9a2 2 0 002 2h2a2 2 0 002-2v-9a2 2 0 00-2-2z"/><path d="M6 9H4a2 2 0 00-2 2v9a2 2 0 002 2h2"/></svg>
+                  <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);font-weight:var(--kit-font-medium,500);">5</span>
+                </div>
+                <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-primary,#6366F1);font-weight:var(--kit-font-medium,500);cursor:pointer;">Reply</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Comment 2 -->
+  <div style="padding:14px 0;">
+    <div style="display:flex;gap:10px;">
+      <div style="width:36px;min-width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);overflow:hidden;">
+        <img src="https://placehold.jp/36x36" alt="Maria Santos" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Maria Santos</span>
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">1h ago</span>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.5;">Great insights! I've been using these patterns in my latest project and they work incredibly well across different screen sizes.</span>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="display:flex;align-items:center;gap:4px;cursor:pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 00-6 0v4"/><path d="M18 9h-2a2 2 0 00-2 2v9a2 2 0 002 2h2a2 2 0 002-2v-9a2 2 0 00-2-2z"/><path d="M6 9H4a2 2 0 00-2 2v9a2 2 0 002 2h2"/></svg>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);font-weight:var(--kit-font-medium,500);">8</span>
+          </div>
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-primary,#6366F1);font-weight:var(--kit-font-medium,500);cursor:pointer;">Reply</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

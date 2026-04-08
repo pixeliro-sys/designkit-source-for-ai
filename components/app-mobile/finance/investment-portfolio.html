@@ -1,0 +1,52 @@
+<!--
+  @name: Investment Portfolio
+  @kit: app-mobile
+  @width: 360
+  @height: 300
+  @tags: investment, portfolio, stocks, finance
+-->
+<div data-component="Investment Portfolio" style="width:100%;max-width:360px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);background:var(--kit-bg,#FFFFFF);padding:20px 16px;display:flex;flex-direction:column;gap:16px;border-radius:var(--kit-radius-md,12px);border:1px solid var(--kit-border,#E2E8F0);">
+  <div>
+    <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Portfolio</div>
+    <div style="display:flex;align-items:baseline;gap:8px;margin-top:4px;">
+      <span style="font-size:var(--kit-text-2xl,24px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$34,521.80</span>
+      <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-success,#22C55E);">+$1,245 (+3.7%)</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <!-- Donut Chart -->
+    <svg width="120" height="120" viewBox="0 0 120 120" style="flex-shrink:0;">
+      <!-- Stocks 45% -->
+      <circle cx="60" cy="60" r="45" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="16" stroke-dasharray="127.2 155.5" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+      <!-- Bonds 25% -->
+      <circle cx="60" cy="60" r="45" fill="none" stroke="#3B82F6" stroke-width="16" stroke-dasharray="70.7 212" stroke-dashoffset="-127.2" transform="rotate(-90 60 60)"/>
+      <!-- Crypto 20% -->
+      <circle cx="60" cy="60" r="45" fill="none" stroke="#F59E0B" stroke-width="16" stroke-dasharray="56.5 226.2" stroke-dashoffset="-197.9" transform="rotate(-90 60 60)"/>
+      <!-- Cash 10% -->
+      <circle cx="60" cy="60" r="45" fill="none" stroke="#22C55E" stroke-width="16" stroke-dasharray="28.3 254.5" stroke-dashoffset="-254.5" transform="rotate(-90 60 60)"/>
+    </svg>
+    <!-- Legend -->
+    <div style="display:flex;flex-direction:column;gap:10px;flex:1;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:var(--kit-primary,#6366F1);flex-shrink:0;"></span>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);flex:1;">Stocks</span>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">45%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#3B82F6;flex-shrink:0;"></span>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);flex:1;">Bonds</span>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">25%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#F59E0B;flex-shrink:0;"></span>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);flex:1;">Crypto</span>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">20%</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#22C55E;flex-shrink:0;"></span>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);flex:1;">Cash</span>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">10%</span>
+      </div>
+    </div>
+  </div>
+</div>

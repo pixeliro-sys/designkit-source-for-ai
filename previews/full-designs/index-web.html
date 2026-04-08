@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Page Designs</title>
+<style>
+  :root {}
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:var(--kit-font, Inter, system-ui, sans-serif); background:var(--kit-surface, #F8FAFC); padding:16px; }
+  .tabs { display:flex; gap:6px; margin-bottom:16px; position:sticky; top:0; z-index:10; background:var(--kit-surface, #F8FAFC); padding:8px 0; }
+  .tab { padding:8px 16px; border-radius:var(--kit-radius, 8px); border:1px solid var(--kit-border, #E2E8F0); background:var(--kit-bg, #fff); color:var(--kit-text-2, #475569); font-size:13px; font-weight:500; cursor:pointer; transition:all 0.15s; }
+  .tab:hover { border-color:var(--kit-primary, #6366F1); color:var(--kit-primary, #6366F1); }
+  .tab.active { background:var(--kit-primary, #6366F1); color:var(--kit-primary-fg, #fff); border-color:var(--kit-primary, #6366F1); }
+  iframe { width:100%; border:0; border-radius:var(--kit-radius-md, 12px); background:var(--kit-bg, #fff); }
+</style>
+</head>
+<body>
+<div class="tabs">
+  <button class="tab active" onclick="load('web-saas-landing.html',this)">SaaS Landing</button>
+  <button class="tab" onclick="load('web-dashboard.html',this)">Dashboard</button>
+  <button class="tab" onclick="load('web-blog.html',this)">Blog</button>
+</div>
+<iframe id="frame" src="web-saas-landing.html" style="height:calc(100vh - 60px)"></iframe>
+<script>
+function load(src, btn) {
+  document.getElementById('frame').src = src;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active'); }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!--
+  @name: Bank Account Card
+  @kit: app-mobile
+  @width: 340
+  @height: 180
+  @tags: bank, account, card, finance, balance
+-->
+<div data-component="Bank Account Card" style="width:100%;max-width:340px;height:180px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);background:linear-gradient(135deg,var(--kit-primary,#6366F1),#818CF8);border-radius:var(--kit-radius-lg,16px);padding:20px;display:flex;flex-direction:column;justify-content:space-between;color:#FFFFFF;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.1);"></div>
+  <div style="position:absolute;bottom:-30px;left:20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <div style="font-size:var(--kit-text-xs,12px);opacity:0.8;">Checking Account</div>
+      <div style="font-size:var(--kit-text-xs,12px);opacity:0.6;margin-top:1px;">****4567</div>
+    </div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+  </div>
+  <div>
+    <div style="font-size:var(--kit-text-xs,12px);opacity:0.7;margin-bottom:2px;">Available Balance</div>
+    <div style="font-size:var(--kit-text-2xl,24px);font-weight:var(--kit-font-bold,700);">$12,458.32</div>
+  </div>
+  <div style="display:flex;gap:8px;">
+    <div style="flex:1;height:36px;background:rgba(255,255,255,0.2);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Send
+    </div>
+    <div style="flex:1;height:36px;background:rgba(255,255,255,0.2);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      Request
+    </div>
+    <div style="flex:1;height:36px;background:rgba(255,255,255,0.2);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Pay
+    </div>
+  </div>
+</div>

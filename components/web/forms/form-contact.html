@@ -1,0 +1,35 @@
+<!--
+  @name: Form — Contact
+  @kit: web
+  @width: 500
+  @height: 420
+  @tags: form, contact, message, email
+-->
+<div data-component="Form — Contact" style="width:100%;background:var(--kit-bg, #FFFFFF);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-md, 12px);padding:var(--kit-space-8, 32px);box-sizing:border-box;font-family:var(--kit-font, Inter, system-ui, sans-serif)">
+  <div style="font-size:var(--kit-text-2xl, 24px);font-weight:var(--kit-font-bold, 700);color:var(--kit-text, #0F172A);margin-bottom:var(--kit-space-2, 8px)">Get in Touch</div>
+  <div style="font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);margin-bottom:var(--kit-space-6, 24px)">We'd love to hear from you. Send us a message.</div>
+  <form style="display:flex;flex-direction:column;gap:var(--kit-space-4, 16px)">
+    <div style="display:flex;gap:var(--kit-space-4, 16px)">
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+        <label style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Name</label>
+        <input type="text" placeholder="Your name" style="height:40px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+        <label style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Email</label>
+        <input type="email" placeholder="you@example.com" style="height:40px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Subject</label>
+      <input type="text" placeholder="What is this about?" style="height:40px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Message</label>
+      <textarea rows="4" placeholder="Tell us how we can help..." style="border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:10px 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);resize:vertical;box-sizing:border-box"></textarea>
+    </div>
+    <button type="submit" style="height:42px;background:var(--kit-primary, #6366F1);color:#FFFFFF;border:none;border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);cursor:pointer;font-family:var(--kit-font, Inter, system-ui, sans-serif);display:flex;align-items:center;justify-content:center;gap:8px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Send Message
+    </button>
+  </form>
+</div>

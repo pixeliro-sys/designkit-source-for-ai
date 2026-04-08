@@ -1,0 +1,55 @@
+<!--
+  @name: Timeline — Horizontal
+  @kit: web
+  @width: 600
+  @height: 120
+  @tags: timeline, horizontal, steps, progress
+-->
+<div data-component="Timeline — Horizontal" style="width:100%;box-sizing:border-box;display:flex;align-items:flex-start;padding:var(--kit-space-4, 16px);font-family:var(--kit-font, Inter, system-ui, sans-serif);">
+
+  <!-- Node 1: Done -->
+  <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:80px;">
+    <div style="width:28px;height:28px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-success, #22C55E);display:flex;align-items:center;justify-content:center;margin-bottom:var(--kit-space-2, 8px);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:2px;text-align:center;">Research</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);text-align:center;">Jan 15</div>
+  </div>
+
+  <!-- Line 1: Done -->
+  <div style="flex:1;height:2px;background:var(--kit-success, #22C55E);margin-top:13px;"></div>
+
+  <!-- Node 2: Done -->
+  <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:80px;">
+    <div style="width:28px;height:28px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-success, #22C55E);display:flex;align-items:center;justify-content:center;margin-bottom:var(--kit-space-2, 8px);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:2px;text-align:center;">Design</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);text-align:center;">Feb 10</div>
+  </div>
+
+  <!-- Line 2: Partial -->
+  <div style="flex:1;height:2px;background:linear-gradient(to right, var(--kit-success, #22C55E) 50%, var(--kit-border, #E2E8F0) 50%);margin-top:13px;"></div>
+
+  <!-- Node 3: Active -->
+  <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:80px;">
+    <div style="width:28px;height:28px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;margin-bottom:var(--kit-space-2, 8px);box-shadow:0 0 0 4px rgba(99,102,241,0.2);">
+      <div style="width:8px;height:8px;border-radius:var(--kit-radius-full, 9999px);background:#FFFFFF;"></div>
+    </div>
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-primary, #6366F1);margin-bottom:2px;text-align:center;">Develop</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-2, #475569);text-align:center;">Mar 20</div>
+  </div>
+
+  <!-- Line 3: Pending -->
+  <div style="flex:1;height:2px;background:var(--kit-border, #E2E8F0);margin-top:13px;"></div>
+
+  <!-- Node 4: Pending -->
+  <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:80px;">
+    <div style="width:28px;height:28px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-surface-2, #F1F5F9);border:2px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;margin-bottom:var(--kit-space-2, 8px);">
+      <span style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-3, #94A3B8);">4</span>
+    </div>
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-3, #94A3B8);margin-bottom:2px;text-align:center;">Launch</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);text-align:center;">Apr 30</div>
+  </div>
+
+</div>

@@ -1,0 +1,45 @@
+<!--
+  @name: Accordion
+  @kit: web
+  @width: 500
+  @height: 300
+  @tags: accordion, expandable, faq, collapse
+-->
+<div data-component="Accordion" style="width:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:var(--kit-space-2, 8px);font-family:var(--kit-font, Inter, system-ui, sans-serif);">
+
+  <!-- Item 1 — Expanded -->
+  <div style="border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);overflow:hidden;">
+    <button style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:var(--kit-space-4, 16px);background:var(--kit-bg, #FFFFFF);border:none;cursor:pointer;font-family:inherit;">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);">What payment methods do you accept?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <div style="padding:0 var(--kit-space-4, 16px) var(--kit-space-4, 16px);background:var(--kit-bg, #FFFFFF);">
+      <p style="margin:0;font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);line-height:1.6;">We accept all major credit cards including Visa, Mastercard, and American Express. You can also pay via PayPal, Apple Pay, or Google Pay. For enterprise plans, we offer wire transfer and invoicing options.</p>
+    </div>
+  </div>
+
+  <!-- Item 2 — Collapsed -->
+  <div style="border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);overflow:hidden;">
+    <button style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:var(--kit-space-4, 16px);background:var(--kit-bg, #FFFFFF);border:none;cursor:pointer;font-family:inherit;">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);">Can I cancel my subscription anytime?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <!-- Item 3 — Collapsed -->
+  <div style="border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);overflow:hidden;">
+    <button style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:var(--kit-space-4, 16px);background:var(--kit-bg, #FFFFFF);border:none;cursor:pointer;font-family:inherit;">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);">How does team collaboration work?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <!-- Item 4 — Collapsed -->
+  <div style="border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);overflow:hidden;">
+    <button style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:var(--kit-space-4, 16px);background:var(--kit-bg, #FFFFFF);border:none;cursor:pointer;font-family:inherit;">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);">Is there a free trial available?</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+</div>

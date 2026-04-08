@@ -1,0 +1,42 @@
+<!--
+  @name: Table Reservation
+  @kit: app-mobile
+  @width: 360
+  @height: 320
+  @tags: reservation, booking, table, restaurant
+-->
+<div data-component="Table Reservation" style="width:100%;max-width:360px;box-sizing:border-box;padding:16px;font-family:var(--kit-font, Inter, system-ui, sans-serif);background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-md, 12px);border:1px solid var(--kit-border, #E2E8F0)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+    <img src="https://placehold.jp/44x44.png" alt="Restaurant" style="width:44px;height:44px;border-radius:var(--kit-radius, 8px);object-fit:cover;display:block"/>
+    <div>
+      <div style="font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A)">Sakura Sushi</div>
+      <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8)">Japanese &bull; Downtown</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--kit-surface, #F8FAFC);border-radius:var(--kit-radius, 8px);margin-bottom:12px">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Friday, Mar 28, 2026</span>
+  </div>
+  <div style="margin-bottom:12px">
+    <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);margin-bottom:8px">Select Time</div>
+    <div style="display:flex;gap:8px">
+      <div style="flex:1;padding:8px 0;text-align:center;font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);cursor:pointer">6:00</div>
+      <div style="flex:1;padding:8px 0;text-align:center;font-size:var(--kit-text-sm, 14px);color:#FFFFFF;background:var(--kit-primary, #6366F1);border:1px solid var(--kit-primary, #6366F1);border-radius:var(--kit-radius, 8px);font-weight:var(--kit-font-semibold, 600);cursor:pointer">6:30</div>
+      <div style="flex:1;padding:8px 0;text-align:center;font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);cursor:pointer">7:00</div>
+      <div style="flex:1;padding:8px 0;text-align:center;font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);cursor:pointer">7:30</div>
+    </div>
+  </div>
+  <div style="margin-bottom:12px">
+    <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);margin-bottom:8px">Guests</div>
+    <div style="display:flex;align-items:center;gap:0;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);overflow:hidden;width:fit-content">
+      <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--kit-text-2, #475569)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <div style="width:44px;height:36px;display:flex;align-items:center;justify-content:center;font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);border-left:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)">2</div>
+      <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--kit-text-2, #475569)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);margin-bottom:6px">Special Requests</div>
+    <div style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-3, #94A3B8);min-height:40px">Window seat preferred...</div>
+  </div>
+  <button style="width:100%;padding:12px 0;background:var(--kit-primary, #6366F1);color:#FFFFFF;border:none;border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);font-family:var(--kit-font, Inter, system-ui, sans-serif);cursor:pointer">Reserve Table</button>
+</div>

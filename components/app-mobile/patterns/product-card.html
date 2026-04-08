@@ -1,0 +1,26 @@
+<!--
+  @name: Product Card — E-Commerce
+  @category: patterns
+  @kit: app-mobile
+  @width: 170
+  @height: 260
+  @tags: product, card, ecommerce, shop, price, rating
+-->
+<div data-component="Product Card — E-Commerce" style="width:100%;background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-md, 12px);overflow:hidden;font-family:var(--kit-font, system-ui, -apple-system, sans-serif);box-shadow:var(--kit-shadow-sm, 0 1px 2px rgba(0,0,0,0.05))">
+  <div style="width:100%;aspect-ratio:1;position:relative">
+    <img src="https://placehold.jp/200x200.png" style="width:100%;height:100%;object-fit:cover;display:block" alt="Product"/>
+    <div style="position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:16px;background:var(--kit-bg, #FFFFFF);display:flex;align-items:center;justify-content:center;box-shadow:var(--kit-shadow-sm, 0 1px 2px rgba(0,0,0,0.05));cursor:pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+    <div style="position:absolute;top:8px;left:8px;background:var(--kit-danger, #EF4444);color:#FFFFFF;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px">-20%</div>
+  </div>
+  <div style="padding:10px 12px">
+    <div style="font-size:var(--kit-text-sm, 13px);color:var(--kit-text, #0F172A);font-weight:var(--kit-font-medium, 500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Product Name</div>
+    <div style="display:flex;align-items:center;gap:4px;margin-top:4px">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="#FBBF24" stroke="#FBBF24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span style="font-size:11px;color:var(--kit-text-3, #94A3B8)">4.5 (128)</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+      <span style="font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-bold, 700);color:var(--kit-text, #0F172A)">$79.99</span>
+      <span style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);text-decoration:line-through">$99.99</span>
+    </div>
+  </div>
+</div>

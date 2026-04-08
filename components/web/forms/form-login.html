@@ -1,0 +1,29 @@
+<!--
+  @name: Form — Login
+  @kit: web
+  @width: 400
+  @height: 380
+  @tags: form, login, auth, signin
+-->
+<div data-component="Form — Login" style="width:100%;background:var(--kit-bg, #FFFFFF);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-md, 12px);padding:var(--kit-space-8, 32px);box-sizing:border-box;font-family:var(--kit-font, Inter, system-ui, sans-serif)">
+  <div style="font-size:var(--kit-text-2xl, 24px);font-weight:var(--kit-font-bold, 700);color:var(--kit-text, #0F172A);margin-bottom:var(--kit-space-2, 8px)">Sign In</div>
+  <div style="font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);margin-bottom:var(--kit-space-6, 24px)">Welcome back! Please enter your details.</div>
+  <form style="display:flex;flex-direction:column;gap:var(--kit-space-4, 16px)">
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Email</label>
+      <input type="email" placeholder="Enter your email" style="height:40px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Password</label>
+      <div style="position:relative">
+        <input type="password" placeholder="Enter your password" style="width:100%;height:40px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 40px 0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+        <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--kit-text-3, #94A3B8);cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end">
+      <a href="#" style="font-size:var(--kit-text-sm, 14px);color:var(--kit-primary, #6366F1);text-decoration:none;font-weight:var(--kit-font-medium, 500)">Forgot password?</a>
+    </div>
+    <button type="submit" style="height:42px;background:var(--kit-primary, #6366F1);color:#FFFFFF;border:none;border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);cursor:pointer;font-family:var(--kit-font, Inter, system-ui, sans-serif)">Sign In</button>
+  </form>
+  <div style="text-align:center;margin-top:var(--kit-space-5, 20px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569)">Don't have an account? <a href="#" style="color:var(--kit-primary, #6366F1);text-decoration:none;font-weight:var(--kit-font-semibold, 600)">Sign up</a></div>
+</div>

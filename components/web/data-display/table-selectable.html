@@ -1,0 +1,127 @@
+<!--
+  @name: Data Table — Selectable
+  @kit: web
+  @width: 800
+  @height: 360
+  @tags: table, data, selectable, checkbox
+-->
+<div data-component="Data Table — Selectable" style="width:100%;box-sizing:border-box;background:var(--kit-bg, #FFFFFF);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-md, 12px);overflow:hidden;font-family:var(--kit-font, Inter, system-ui, sans-serif);">
+
+  <!-- Bulk action bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);background:var(--kit-primary, #6366F1);color:#FFFFFF;">
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);">2 items selected</span>
+    <div style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);">
+      <button style="padding:var(--kit-space-1, 4px) var(--kit-space-3, 12px);border:1px solid rgba(255,255,255,0.3);border-radius:var(--kit-radius-sm, 4px);background:transparent;color:#FFFFFF;font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);cursor:pointer;font-family:inherit;">Export</button>
+      <button style="padding:var(--kit-space-1, 4px) var(--kit-space-3, 12px);border:1px solid rgba(255,255,255,0.3);border-radius:var(--kit-radius-sm, 4px);background:transparent;color:#FFFFFF;font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);cursor:pointer;font-family:inherit;">Delete</button>
+    </div>
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;">
+    <!-- Header -->
+    <thead>
+      <tr style="background:var(--kit-surface, #F8FAFC);border-bottom:1px solid var(--kit-border, #E2E8F0);">
+        <th style="width:44px;padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);text-align:center;">
+          <div style="width:16px;height:16px;border:2px solid var(--kit-primary, #6366F1);border-radius:3px;background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </th>
+        <th style="text-align:left;padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.05em;">Name</th>
+        <th style="text-align:left;padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.05em;">Email</th>
+        <th style="text-align:left;padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.05em;">Role</th>
+        <th style="text-align:left;padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.05em;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Row 1 — Selected -->
+      <tr style="border-bottom:1px solid var(--kit-border, #E2E8F0);background:rgba(99,102,241,0.05);">
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);text-align:center;">
+          <div style="width:16px;height:16px;border:2px solid var(--kit-primary, #6366F1);border-radius:3px;background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <div style="display:flex;align-items:center;gap:var(--kit-space-3, 12px);">
+            <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);overflow:hidden;flex-shrink:0;"><img src="https://placehold.jp/32x32" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+            <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Olivia Chen</span>
+          </div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">olivia@team.io</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">Designer</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:var(--kit-radius-full, 9999px);background:rgba(34,197,94,0.1);color:var(--kit-success, #22C55E);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);">Active</span>
+        </td>
+      </tr>
+      <!-- Row 2 — Not selected -->
+      <tr style="border-bottom:1px solid var(--kit-border, #E2E8F0);">
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);text-align:center;">
+          <div style="width:16px;height:16px;border:2px solid var(--kit-border-strong, #CBD5E1);border-radius:3px;background:var(--kit-bg, #FFFFFF);margin:0 auto;"></div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <div style="display:flex;align-items:center;gap:var(--kit-space-3, 12px);">
+            <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);overflow:hidden;flex-shrink:0;"><img src="https://placehold.jp/32x32" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+            <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">David Park</span>
+          </div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">david@team.io</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">Developer</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:var(--kit-radius-full, 9999px);background:rgba(34,197,94,0.1);color:var(--kit-success, #22C55E);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);">Active</span>
+        </td>
+      </tr>
+      <!-- Row 3 — Selected -->
+      <tr style="border-bottom:1px solid var(--kit-border, #E2E8F0);background:rgba(99,102,241,0.05);">
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);text-align:center;">
+          <div style="width:16px;height:16px;border:2px solid var(--kit-primary, #6366F1);border-radius:3px;background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <div style="display:flex;align-items:center;gap:var(--kit-space-3, 12px);">
+            <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);overflow:hidden;flex-shrink:0;"><img src="https://placehold.jp/32x32" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+            <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Nina Patel</span>
+          </div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">nina@team.io</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">Manager</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:var(--kit-radius-full, 9999px);background:rgba(245,158,11,0.1);color:var(--kit-warning, #F59E0B);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);">Pending</span>
+        </td>
+      </tr>
+      <!-- Row 4 — Not selected -->
+      <tr style="border-bottom:1px solid var(--kit-border, #E2E8F0);">
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);text-align:center;">
+          <div style="width:16px;height:16px;border:2px solid var(--kit-border-strong, #CBD5E1);border-radius:3px;background:var(--kit-bg, #FFFFFF);margin:0 auto;"></div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <div style="display:flex;align-items:center;gap:var(--kit-space-3, 12px);">
+            <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);overflow:hidden;flex-shrink:0;"><img src="https://placehold.jp/32x32" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+            <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Tom Baker</span>
+          </div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">tom@team.io</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">Developer</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:var(--kit-radius-full, 9999px);background:rgba(34,197,94,0.1);color:var(--kit-success, #22C55E);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);">Active</span>
+        </td>
+      </tr>
+      <!-- Row 5 — Not selected -->
+      <tr>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);text-align:center;">
+          <div style="width:16px;height:16px;border:2px solid var(--kit-border-strong, #CBD5E1);border-radius:3px;background:var(--kit-bg, #FFFFFF);margin:0 auto;"></div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <div style="display:flex;align-items:center;gap:var(--kit-space-3, 12px);">
+            <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);overflow:hidden;flex-shrink:0;"><img src="https://placehold.jp/32x32" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+            <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Lisa Kim</span>
+          </div>
+        </td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">lisa@team.io</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text-2, #475569);">Designer</td>
+        <td style="padding:var(--kit-space-3, 12px) var(--kit-space-4, 16px);">
+          <span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:var(--kit-radius-full, 9999px);background:rgba(239,68,68,0.1);color:var(--kit-danger, #EF4444);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);">Inactive</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

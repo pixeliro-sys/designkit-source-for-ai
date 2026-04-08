@@ -1,0 +1,40 @@
+<!--
+  @name: Delivery Map
+  @category: logistics
+  @kit: app-mobile
+  @width: 360
+  @height: 250
+  @tags: delivery, map, tracking, driver, logistics
+-->
+<div data-component="Delivery Map" style="width:100%;height:250px;position:relative;font-family:var(--kit-font, system-ui, -apple-system, sans-serif);border-radius:var(--kit-radius, 12px);overflow:hidden;box-sizing:border-box">
+  <div style="width:100%;height:100%;background:var(--kit-surface-2, #F1F5F9);position:relative">
+    <!-- Map placeholder with subtle grid -->
+    <svg width="100%" height="100%" style="position:absolute;top:0;left:0;opacity:0.15"><pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="40" stroke="#94A3B8" stroke-width="0.5"/><line x1="0" y1="0" x2="40" y2="0" stroke="#94A3B8" stroke-width="0.5"/></pattern><rect width="100%" height="100%" fill="url(#mapGrid)"/></svg>
+    <!-- Delivery pin -->
+    <div style="position:absolute;top:30%;left:35%;transform:translate(-50%,-100%)">
+      <div style="width:32px;height:32px;border-radius:16px;background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(99,102,241,0.4)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m10-10h-4M6 12H2"/></svg>
+      </div>
+    </div>
+    <!-- Destination pin -->
+    <div style="position:absolute;top:55%;left:70%;transform:translate(-50%,-100%)">
+      <div style="width:32px;height:32px;border-radius:16px;background:var(--kit-success, #22C55E);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(34,197,94,0.4)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+    </div>
+    <!-- Dashed route line -->
+    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none"><line x1="35%" y1="32%" x2="70%" y2="53%" stroke="var(--kit-primary, #6366F1)" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/></svg>
+  </div>
+  <!-- Driver info bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;background:var(--kit-bg, #FFFFFF);padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 -2px 12px rgba(0,0,0,0.08)">
+    <div style="width:40px;height:40px;border-radius:20px;background:var(--kit-primary, #6366F1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;flex-shrink:0">MT</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Mike T.</div>
+      <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-success, #22C55E);font-weight:500">8 min away</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <div style="width:36px;height:36px;border-radius:18px;background:var(--kit-surface-2, #F1F5F9);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--kit-primary, #6366F1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div style="width:36px;height:36px;border-radius:18px;background:var(--kit-surface-2, #F1F5F9);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--kit-primary, #6366F1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+    </div>
+  </div>
+</div>

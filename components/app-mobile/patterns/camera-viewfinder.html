@@ -1,0 +1,33 @@
+<!--
+  @name: Camera Viewfinder — with Capture
+  @category: patterns
+  @kit: app-mobile
+  @width: 360
+  @height: 640
+  @tags: camera, viewfinder, capture, photo, shutter
+-->
+<div data-component="Camera Viewfinder — with Capture" style="width:100%;height:100%;background:#000;position:relative;font-family:var(--kit-font, system-ui, -apple-system, sans-serif);display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;z-index:1">
+    <div style="cursor:pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    <div style="cursor:pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+    <div style="cursor:pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1.08z"/></svg></div>
+  </div>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative">
+    <div style="width:260px;height:260px;border:2px solid rgba(255,255,255,0.3);border-radius:16px;position:relative">
+      <div style="position:absolute;top:-2px;left:-2px;width:24px;height:24px;border-top:3px solid #FFFFFF;border-left:3px solid #FFFFFF;border-radius:8px 0 0 0"></div>
+      <div style="position:absolute;top:-2px;right:-2px;width:24px;height:24px;border-top:3px solid #FFFFFF;border-right:3px solid #FFFFFF;border-radius:0 8px 0 0"></div>
+      <div style="position:absolute;bottom:-2px;left:-2px;width:24px;height:24px;border-bottom:3px solid #FFFFFF;border-left:3px solid #FFFFFF;border-radius:0 0 0 8px"></div>
+      <div style="position:absolute;bottom:-2px;right:-2px;width:24px;height:24px;border-bottom:3px solid #FFFFFF;border-right:3px solid #FFFFFF;border-radius:0 0 8px 0"></div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:48px;padding:24px 0 48px">
+    <div style="width:48px;height:48px;border-radius:8px;border:2px solid rgba(255,255,255,0.3);overflow:hidden;cursor:pointer"><img src="https://placehold.jp/48x48.png" style="width:100%;height:100%;object-fit:cover" alt="Last photo"/></div>
+    <div style="width:72px;height:72px;border-radius:36px;border:4px solid #FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer"><div style="width:60px;height:60px;border-radius:30px;background:#FFFFFF"></div></div>
+    <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:24px;padding-bottom:16px">
+    <span style="font-size:13px;color:rgba(255,255,255,0.5);cursor:pointer">Video</span>
+    <span style="font-size:13px;color:#FFFFFF;font-weight:600">Photo</span>
+    <span style="font-size:13px;color:rgba(255,255,255,0.5);cursor:pointer">Portrait</span>
+  </div>
+</div>

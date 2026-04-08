@@ -1,0 +1,38 @@
+<!--
+  @name: Audio Player
+  @kit: app-mobile
+  @width: 360
+  @height: 80
+  @tags: audio, player, music, podcast
+-->
+<div data-component="Audio Player" style="width:100%;max-width:360px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);background:var(--kit-bg,#FFFFFF);padding:12px;display:flex;flex-direction:row;align-items:center;gap:12px;border-radius:var(--kit-radius-md,12px);border:1px solid var(--kit-border,#E2E8F0);">
+  <div style="width:56px;min-width:56px;height:56px;border-radius:var(--kit-radius,8px);overflow:hidden;">
+    <img src="https://placehold.jp/56x56" alt="Album art" style="width:100%;height:100%;object-fit:cover;display:block;" />
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;gap:6px;min-width:0;">
+    <div style="display:flex;flex-direction:column;gap:1px;">
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Midnight Serenade</span>
+      <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Luna Waves</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;">
+      <div style="width:100%;height:4px;background:var(--kit-surface-2,#F1F5F9);border-radius:var(--kit-radius-full,9999px);">
+        <div style="width:40%;height:100%;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-full,9999px);"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;">
+        <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);font-variant-numeric:tabular-nums;">1:23</span>
+        <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);font-variant-numeric:tabular-nums;">3:45</span>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+    <button style="border:none;background:none;cursor:pointer;padding:0;display:flex;align-items:center;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+    </button>
+    <button style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-primary,#6366F1);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-bg,#FFFFFF)" stroke="none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    </button>
+    <button style="border:none;background:none;cursor:pointer;padding:0;display:flex;align-items:center;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+    </button>
+  </div>
+</div>

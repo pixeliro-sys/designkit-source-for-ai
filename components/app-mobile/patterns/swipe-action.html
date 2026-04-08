@@ -1,0 +1,19 @@
+<!--
+  @name: Swipe Action Row
+  @category: patterns
+  @kit: app-mobile
+  @width: 360
+  @height: 72
+  @tags: swipe, action, delete, archive, gesture, row
+-->
+<div data-component="Swipe Action Row" style="width:100%;height:72px;position:relative;overflow:hidden;font-family:var(--kit-font, system-ui, -apple-system, sans-serif)">
+  <div style="position:absolute;right:0;top:0;height:100%;display:flex">
+    <div style="width:80px;height:100%;background:var(--kit-warning, #F59E0B);display:flex;align-items:center;justify-content:center;color:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8"/><path d="M10 12h4"/><path d="M1 4h22v4H1z"/></svg></div>
+    <div style="width:80px;height:100%;background:var(--kit-danger, #EF4444);display:flex;align-items:center;justify-content:center;color:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+  </div>
+  <div style="position:relative;width:100%;height:100%;background:var(--kit-bg, #FFFFFF);display:flex;align-items:center;padding:0 16px;gap:12px;transform:translateX(-40px);box-shadow:var(--kit-shadow-sm, 0 1px 2px rgba(0,0,0,0.05))">
+    <div style="width:40px;height:40px;border-radius:20px;background:var(--kit-surface-2, #F1F5F9);display:flex;align-items:center;justify-content:center;color:var(--kit-text-2, #475569);flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></div>
+    <div style="flex:1"><div style="font-size:15px;font-weight:500;color:var(--kit-text, #0F172A)">Sarah Johnson</div><div style="font-size:13px;color:var(--kit-text-2, #475569);margin-top:1px">Meeting notes from today...</div></div>
+    <div style="font-size:12px;color:var(--kit-text-3, #94A3B8)">2:30 PM</div>
+  </div>
+</div>

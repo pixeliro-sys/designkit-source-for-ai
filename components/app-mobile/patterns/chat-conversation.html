@@ -1,0 +1,27 @@
+<!--
+  @name: Chat Conversation — Full Screen
+  @category: patterns
+  @kit: app-mobile
+  @width: 360
+  @height: 640
+  @tags: chat, conversation, messages, full-screen, inbox
+-->
+<div data-component="Chat Conversation — Full Screen" style="width:100%;height:100%;display:flex;flex-direction:column;background:var(--kit-bg, #FFFFFF);font-family:var(--kit-font, system-ui, -apple-system, sans-serif)">
+  <div style="display:flex;align-items:center;height:56px;padding:0 8px;border-bottom:1px solid var(--kit-border, #E2E8F0);gap:8px;flex-shrink:0">
+    <div style="padding:8px;color:var(--kit-text, #0F172A);cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg></div>
+    <div style="width:36px;height:36px;border-radius:18px;background:var(--kit-primary, #6366F1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;flex-shrink:0">SC</div>
+    <div style="flex:1"><div style="font-size:15px;font-weight:600;color:var(--kit-text, #0F172A)">Sarah Chen</div><div style="font-size:12px;color:var(--kit-success, #22C55E)">Online</div></div>
+    <div style="padding:8px;color:var(--kit-text-2, #475569)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+  </div>
+  <div style="flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto">
+    <div style="display:flex;gap:8px;max-width:80%"><div style="width:28px;height:28px;border-radius:14px;background:var(--kit-primary, #6366F1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;margin-top:2px">SC</div><div><div style="background:var(--kit-surface, #F8FAFC);border-radius:4px 16px 16px 16px;padding:10px 14px;font-size:15px;color:var(--kit-text, #0F172A);line-height:1.4">Hey! How's the project coming along?</div><div style="font-size:11px;color:var(--kit-text-3, #94A3B8);margin-top:3px">10:30 AM</div></div></div>
+    <div style="display:flex;justify-content:flex-end"><div><div style="background:var(--kit-primary, #6366F1);color:#fff;border-radius:16px 4px 16px 16px;padding:10px 14px;font-size:15px;line-height:1.4">Almost done! Just finishing the dark mode.</div><div style="font-size:11px;color:var(--kit-text-3, #94A3B8);margin-top:3px;text-align:right">10:32 AM</div></div></div>
+    <div style="display:flex;gap:8px;max-width:80%"><div style="width:28px;height:28px;border-radius:14px;background:var(--kit-primary, #6366F1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;margin-top:2px">SC</div><div><div style="background:var(--kit-surface, #F8FAFC);border-radius:4px 16px 16px 16px;padding:10px 14px;font-size:15px;color:var(--kit-text, #0F172A);line-height:1.4">Awesome! Can't wait to see it</div><div style="font-size:11px;color:var(--kit-text-3, #94A3B8);margin-top:3px">10:33 AM</div></div></div>
+    <div style="display:flex;justify-content:flex-end"><div><div style="background:var(--kit-primary, #6366F1);color:#fff;border-radius:16px 4px 16px 16px;padding:10px 14px;font-size:15px;line-height:1.4">I'll share the preview link tonight</div><div style="font-size:11px;color:var(--kit-text-3, #94A3B8);margin-top:3px;text-align:right">10:35 AM</div></div></div>
+  </div>
+  <div style="display:flex;align-items:center;padding:8px 12px;border-top:1px solid var(--kit-border, #E2E8F0);gap:8px;flex-shrink:0">
+    <div style="padding:6px;cursor:pointer;color:var(--kit-text-2, #475569)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div style="flex:1;height:40px;background:var(--kit-surface, #F8FAFC);border-radius:20px;padding:0 16px;display:flex;align-items:center;font-size:15px;color:var(--kit-text-3, #94A3B8)">Message...</div>
+    <div style="width:40px;height:40px;border-radius:20px;background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+  </div>
+</div>

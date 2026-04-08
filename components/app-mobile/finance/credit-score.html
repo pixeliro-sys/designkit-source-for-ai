@@ -1,0 +1,29 @@
+<!--
+  @name: Credit Score Gauge
+  @kit: app-mobile
+  @width: 240
+  @height: 200
+  @tags: credit, score, gauge, finance
+-->
+<div data-component="Credit Score Gauge" style="width:100%;max-width:240px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);display:flex;flex-direction:column;align-items:center;padding:16px;">
+  <svg width="180" height="100" viewBox="0 0 180 100" style="display:block;">
+    <!-- Background arc -->
+    <path d="M15,90 A75,75 0 0,1 165,90" fill="none" stroke="var(--kit-surface-2,#F1F5F9)" stroke-width="12" stroke-linecap="round"/>
+    <!-- Poor segment (red) -->
+    <path d="M15,90 A75,75 0 0,1 42,30" fill="none" stroke="var(--kit-danger,#EF4444)" stroke-width="12" stroke-linecap="round"/>
+    <!-- Fair segment (orange) -->
+    <path d="M42,30 A75,75 0 0,1 75,11" fill="none" stroke="var(--kit-warning,#F59E0B)" stroke-width="12" stroke-linecap="round"/>
+    <!-- Good segment (blue) -->
+    <path d="M75,11 A75,75 0 0,1 120,16" fill="none" stroke="var(--kit-info,#3B82F6)" stroke-width="12" stroke-linecap="round"/>
+    <!-- Excellent segment (green) -->
+    <path d="M120,16 A75,75 0 0,1 165,90" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="12" stroke-linecap="round"/>
+    <!-- Needle indicator -->
+    <circle cx="125" cy="20" r="6" fill="var(--kit-primary,#6366F1)"/>
+    <circle cx="125" cy="20" r="3" fill="var(--kit-bg,#FFFFFF)"/>
+  </svg>
+  <div style="text-align:center;margin-top:-10px;">
+    <div style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">742</div>
+    <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-success,#22C55E);">Good</div>
+    <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">Updated Mar 25</div>
+  </div>
+</div>

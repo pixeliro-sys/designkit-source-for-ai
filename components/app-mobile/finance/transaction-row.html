@@ -1,0 +1,26 @@
+<!--
+  @name: Transaction Row
+  @kit: app-mobile
+  @width: 360
+  @height: 64
+  @tags: transaction, payment, history, finance
+-->
+<div data-component="Transaction Row" style="width:100%;max-width:360px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);padding:12px 16px;display:flex;align-items:center;gap:12px;">
+  <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--kit-text-2,#475569);">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  </div>
+  <div style="flex:1;min-width:0;">
+    <div style="display:flex;align-items:center;gap:6px;">
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">Spotify Premium</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;margin-top:1px;">
+      <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Subscription</span>
+      <span style="width:3px;height:3px;border-radius:50%;background:var(--kit-text-3,#94A3B8);"></span>
+      <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Mar 25</span>
+    </div>
+  </div>
+  <div style="text-align:right;flex-shrink:0;">
+    <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-danger,#EF4444);">-$9.99</div>
+    <span style="padding:1px 6px;background:rgba(245,158,11,0.1);color:var(--kit-warning,#F59E0B);font-size:10px;font-weight:var(--kit-font-semibold,600);border-radius:var(--kit-radius-sm,4px);">Pending</span>
+  </div>
+</div>

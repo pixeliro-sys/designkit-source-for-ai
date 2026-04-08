@@ -1,0 +1,44 @@
+<!--
+  @name: Calendar — Month View
+  @kit: web
+  @width: 640
+  @height: 480
+  @tags: calendar, month, grid, date, schedule, events, web
+-->
+<div data-component="Calendar — Month View" style="width:100%;background:var(--kit-bg, #FFFFFF);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-md, 12px);font-family:var(--kit-font, Inter, system-ui, sans-serif);overflow:hidden">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--kit-border, #E2E8F0)">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="cursor:pointer;width:32px;height:32px;border-radius:6px;border:1px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;color:var(--kit-text-2, #475569)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></div>
+      <div style="font-size:var(--kit-text-lg, 18px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A)">March 2026</div>
+      <div style="cursor:pointer;width:32px;height:32px;border-radius:6px;border:1px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;color:var(--kit-text-2, #475569)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>
+    <div style="display:flex;gap:4px">
+      <div style="padding:6px 12px;border-radius:6px;background:var(--kit-primary, #6366F1);color:#fff;font-size:13px;font-weight:500;cursor:pointer">Month</div>
+      <div style="padding:6px 12px;border-radius:6px;font-size:13px;color:var(--kit-text-2, #475569);cursor:pointer">Week</div>
+      <div style="padding:6px 12px;border-radius:6px;font-size:13px;color:var(--kit-text-2, #475569);cursor:pointer">Day</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(7,1fr)">
+    <div style="padding:10px;text-align:center;font-size:12px;font-weight:600;color:var(--kit-text-3, #94A3B8);border-bottom:1px solid var(--kit-border, #E2E8F0)">Sun</div>
+    <div style="padding:10px;text-align:center;font-size:12px;font-weight:600;color:var(--kit-text-3, #94A3B8);border-bottom:1px solid var(--kit-border, #E2E8F0)">Mon</div>
+    <div style="padding:10px;text-align:center;font-size:12px;font-weight:600;color:var(--kit-text-3, #94A3B8);border-bottom:1px solid var(--kit-border, #E2E8F0)">Tue</div>
+    <div style="padding:10px;text-align:center;font-size:12px;font-weight:600;color:var(--kit-text-3, #94A3B8);border-bottom:1px solid var(--kit-border, #E2E8F0)">Wed</div>
+    <div style="padding:10px;text-align:center;font-size:12px;font-weight:600;color:var(--kit-text-3, #94A3B8);border-bottom:1px solid var(--kit-border, #E2E8F0)">Thu</div>
+    <div style="padding:10px;text-align:center;font-size:12px;font-weight:600;color:var(--kit-text-3, #94A3B8);border-bottom:1px solid var(--kit-border, #E2E8F0)">Fri</div>
+    <div style="padding:10px;text-align:center;font-size:12px;font-weight:600;color:var(--kit-text-3, #94A3B8);border-bottom:1px solid var(--kit-border, #E2E8F0)">Sat</div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">1</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">2</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">3</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">4</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">5</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">6</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">7</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">8</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">9</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">10</span><div style="margin-top:4px;font-size:11px;background:rgba(99,102,241,0.1);color:var(--kit-primary, #6366F1);padding:2px 6px;border-radius:4px;border-left:2px solid var(--kit-primary, #6366F1)">Team Standup</div></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">11</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">12</span></div>
+    <div style="min-height:72px;padding:8px;border-bottom:1px solid var(--kit-border, #E2E8F0)"><span style="font-size:13px;color:var(--kit-text, #0F172A)">13</span></div>
+  </div>
+</div>

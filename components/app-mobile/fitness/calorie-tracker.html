@@ -1,0 +1,48 @@
+<!--
+  @name: Calorie Tracker
+  @kit: app-mobile
+  @width: 360
+  @height: 120
+  @tags: calories, tracker, nutrition, fitness
+-->
+<div data-component="Calorie Tracker" style="width:100%;max-width:360px;box-sizing:border-box;padding:14px 16px;font-family:var(--kit-font, Inter, system-ui, sans-serif);background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-md, 12px);border:1px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;gap:16px">
+  <div style="position:relative;width:72px;height:72px;flex-shrink:0">
+    <svg width="72" height="72" viewBox="0 0 72 72" style="transform:rotate(-90deg)">
+      <circle cx="36" cy="36" r="30" fill="none" stroke="var(--kit-surface-2, #F1F5F9)" stroke-width="6"/>
+      <circle cx="36" cy="36" r="30" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="6" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="51.8"/>
+    </svg>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-bold, 700);color:var(--kit-text, #0F172A);line-height:1">1,450</span>
+      <span style="font-size:9px;color:var(--kit-text-3, #94A3B8)">of 2,000</span>
+    </div>
+  </div>
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:8px">
+    <div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569)">Protein</span>
+        <span style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8)">65g / 120g</span>
+      </div>
+      <div style="width:100%;height:6px;background:var(--kit-surface-2, #F1F5F9);border-radius:var(--kit-radius-full, 9999px);overflow:hidden">
+        <div style="width:54%;height:100%;background:var(--kit-info, #3B82F6);border-radius:var(--kit-radius-full, 9999px)"></div>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569)">Carbs</span>
+        <span style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8)">180g / 250g</span>
+      </div>
+      <div style="width:100%;height:6px;background:var(--kit-surface-2, #F1F5F9);border-radius:var(--kit-radius-full, 9999px);overflow:hidden">
+        <div style="width:72%;height:100%;background:var(--kit-success, #22C55E);border-radius:var(--kit-radius-full, 9999px)"></div>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569)">Fat</span>
+        <span style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8)">48g / 65g</span>
+      </div>
+      <div style="width:100%;height:6px;background:var(--kit-surface-2, #F1F5F9);border-radius:var(--kit-radius-full, 9999px);overflow:hidden">
+        <div style="width:74%;height:100%;background:var(--kit-warning, #F59E0B);border-radius:var(--kit-radius-full, 9999px)"></div>
+      </div>
+    </div>
+  </div>
+</div>

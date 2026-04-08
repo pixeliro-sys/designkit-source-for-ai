@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Pixeliro — Settings</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #f9fafb;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #666;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e5e5e5;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-success: #22c55e;
+  --kit-warning: #f59e0b;
+  --kit-info: #3b82f6;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 11px;
+  --kit-text-sm: 13px;
+  --kit-text-md: 15px;
+  --kit-text-lg: 17px;
+  --kit-text-xl: 20px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 30px;
+  --kit-radius: 8px;
+  --kit-radius-md: 12px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 24px;
+  --kit-radius-full: 9999px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --kit-shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); width: 430px; min-height: 100vh; overflow-x: hidden; }
+
+/* Status Bar */
+.status-bar {
+  height: 54px;
+  padding: 14px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--kit-surface);
+}
+.status-time { font-size: var(--kit-text-md); font-weight: 600; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.status-icons svg { width: 18px; height: 18px; fill: var(--kit-text); }
+
+/* Top Bar */
+.top-bar {
+  height: 52px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  background: var(--kit-surface);
+  border-bottom: 1px solid var(--kit-border);
+}
+.top-bar h1 { font-size: var(--kit-text-xl); font-weight: 800; letter-spacing: -0.3px; }
+
+/* Content */
+.content {
+  padding: 20px 20px 100px;
+}
+
+/* Profile Section */
+.profile-card {
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.profile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--kit-radius-full);
+  background: linear-gradient(135deg, var(--kit-primary), var(--kit-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.profile-initials {
+  font-size: var(--kit-text-lg);
+  font-weight: 800;
+  color: var(--kit-primary-text);
+}
+.profile-info { flex: 1; }
+.profile-name {
+  font-size: var(--kit-text-md);
+  font-weight: 700;
+  color: var(--kit-text);
+  margin-bottom: 2px;
+}
+.profile-email {
+  font-size: var(--kit-text-sm);
+  color: var(--kit-text-2);
+  margin-bottom: 6px;
+}
+.plan-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-surface-2);
+  font-size: var(--kit-text-xs);
+  font-weight: 700;
+  color: var(--kit-text-2);
+}
+
+/* Section Group */
+.section-group {
+  margin-bottom: 20px;
+}
+.section-label {
+  font-size: var(--kit-text-xs);
+  font-weight: 700;
+  color: var(--kit-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0 4px 8px;
+}
+.section-card {
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow);
+  overflow: hidden;
+}
+
+/* Setting Row */
+.setting-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  gap: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--kit-border);
+  transition: background 0.15s;
+}
+.setting-row:last-child { border-bottom: none; }
+.setting-row:hover { background: rgba(0,0,0,0.015); }
+
+.setting-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--kit-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.setting-icon svg { width: 18px; height: 18px; }
+.setting-icon.indigo { background: rgba(99,102,241,0.1); color: var(--kit-primary); }
+.setting-icon.gray { background: var(--kit-surface-2); color: var(--kit-text-2); }
+.setting-icon.blue { background: rgba(59,130,246,0.1); color: var(--kit-info); }
+.setting-icon.amber { background: rgba(245,158,11,0.1); color: var(--kit-accent); }
+.setting-icon.green { background: rgba(34,197,94,0.1); color: var(--kit-success); }
+.setting-icon.red { background: rgba(239,68,68,0.08); color: var(--kit-error); }
+
+.setting-content { flex: 1; }
+.setting-label {
+  font-size: var(--kit-text-md);
+  font-weight: 600;
+  color: var(--kit-text);
+}
+.setting-label.danger { color: var(--kit-error); }
+.setting-sublabel {
+  font-size: var(--kit-text-xs);
+  color: var(--kit-text-3);
+  margin-top: 1px;
+}
+.setting-value {
+  font-size: var(--kit-text-sm);
+  color: var(--kit-text-3);
+  font-weight: 500;
+}
+.setting-chevron {
+  width: 16px; height: 16px;
+  color: var(--kit-text-3);
+  flex-shrink: 0;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  background: var(--kit-surface-2);
+  border-radius: var(--kit-radius);
+  overflow: hidden;
+  border: 1px solid var(--kit-border);
+}
+.theme-opt {
+  padding: 6px 12px;
+  font-size: var(--kit-text-xs);
+  font-weight: 600;
+  color: var(--kit-text-3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.theme-opt.active {
+  background: var(--kit-surface);
+  color: var(--kit-text);
+  box-shadow: var(--kit-shadow);
+  border-radius: 6px;
+}
+
+/* Star accent for upgrade */
+.star-accent {
+  font-size: var(--kit-text-xs);
+  color: var(--kit-primary);
+  font-weight: 700;
+  background: rgba(99,102,241,0.1);
+  padding: 2px 8px;
+  border-radius: var(--kit-radius-full);
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 430px;
+  height: 80px;
+  background: var(--kit-surface);
+  border-top: 1px solid var(--kit-border);
+  display: flex;
+  padding: 0 8px;
+  padding-bottom: 20px;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--kit-text-3);
+  transition: color 0.2s;
+}
+.nav-item.active { color: var(--kit-primary); }
+.nav-item svg { width: 22px; height: 22px; }
+.nav-label { font-size: 10px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24"><path d="M12 3C7.8 3 4.1 4.8 1.6 7.6l1.4 1.4C5.1 6.7 8.3 5 12 5s6.9 1.7 9 4l1.4-1.4C19.9 4.8 16.2 3 12 3zm0 4c-2.8 0-5.2 1.2-7 3l1.4 1.4C8.1 9.9 9.9 9 12 9s3.9.9 5.6 2.4L19 10c-1.8-1.8-4.2-3-7-3zm0 4c-1.7 0-3.2.7-4.2 1.8L12 17l4.2-4.2C15.2 11.7 13.7 11 12 11z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <h1>Settings</h1>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- Profile Card -->
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <span class="profile-initials">MP</span>
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">Minh Phuong</div>
+        <div class="profile-email">phuong@pixeliro.com</div>
+        <div class="plan-badge">Free Plan</div>
+      </div>
+      <svg class="setting-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+
+    <!-- Account -->
+    <div class="section-group">
+      <div class="section-label">Account</div>
+      <div class="section-card">
+        <div class="setting-row">
+          <div class="setting-icon indigo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Upgrade to Pro</div>
+            <div class="setting-sublabel">Unlock all features</div>
+          </div>
+          <span class="star-accent">PRO</span>
+          <svg class="setting-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="setting-row">
+          <div class="setting-icon gray">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Password</div>
+          </div>
+          <svg class="setting-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Appearance -->
+    <div class="section-group">
+      <div class="section-label">Appearance</div>
+      <div class="section-card">
+        <div class="setting-row">
+          <div class="setting-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Theme</div>
+          </div>
+          <div class="theme-toggle">
+            <div class="theme-opt active">System</div>
+            <div class="theme-opt">Light</div>
+            <div class="theme-opt">Dark</div>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div class="setting-icon amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Language</div>
+          </div>
+          <span class="setting-value">English</span>
+          <svg class="setting-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="section-group">
+      <div class="section-label">About</div>
+      <div class="section-card">
+        <div class="setting-row">
+          <div class="setting-icon gray">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Version</div>
+          </div>
+          <span class="setting-value">1.0.0</span>
+        </div>
+        <div class="setting-row">
+          <div class="setting-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Privacy Policy</div>
+          </div>
+          <svg class="setting-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="setting-row">
+          <div class="setting-icon gray">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Terms of Service</div>
+          </div>
+          <svg class="setting-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="setting-row">
+          <div class="setting-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label">Support</div>
+          </div>
+          <svg class="setting-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Danger Zone -->
+    <div class="section-group">
+      <div class="section-label">Danger Zone</div>
+      <div class="section-card">
+        <div class="setting-row">
+          <div class="setting-icon red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </div>
+          <div class="setting-content">
+            <div class="setting-label danger">Sign Out</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+      <span class="nav-label">Create</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-label">Workspace</span>
+    </div>
+    <div class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span class="nav-label">Settings</span>
+    </div>
+  </nav>
+</body>
+</html>

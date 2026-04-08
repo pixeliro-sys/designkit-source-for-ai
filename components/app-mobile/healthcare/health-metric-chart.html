@@ -1,0 +1,51 @@
+<!--
+  @name: Health Metric Chart
+  @kit: app-mobile
+  @width: 360
+  @height: 220
+  @tags: health, metric, chart, graph
+-->
+<div data-component="Health Metric Chart" style="width:100%;max-width:360px;box-sizing:border-box;font-family:var(--kit-font,Inter,system-ui,sans-serif);background:var(--kit-bg,#FFFFFF);padding:20px 16px;border-radius:var(--kit-radius-md,12px);border:1px solid var(--kit-border,#E2E8F0);">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;">
+    <div>
+      <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Heart Rate</div>
+      <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:2px;">Last 7 days</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:var(--kit-text-2xl,24px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">72</div>
+      <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">bpm avg</div>
+    </div>
+  </div>
+  <svg width="100%" height="120" viewBox="0 0 328 120" preserveAspectRatio="none" style="display:block;margin-top:8px;">
+    <defs>
+      <linearGradient id="hrGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" style="stop-color:#EF4444;stop-opacity:0.15"/>
+        <stop offset="100%" style="stop-color:#EF4444;stop-opacity:0.01"/>
+      </linearGradient>
+    </defs>
+    <!-- Grid lines -->
+    <line x1="0" y1="30" x2="328" y2="30" stroke="var(--kit-border,#E2E8F0)" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="0" y1="60" x2="328" y2="60" stroke="var(--kit-border,#E2E8F0)" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <line x1="0" y1="90" x2="328" y2="90" stroke="var(--kit-border,#E2E8F0)" stroke-width="0.5" stroke-dasharray="4,4"/>
+    <!-- Area -->
+    <path d="M0,55 L55,40 L110,60 L165,35 L220,50 L275,30 L328,45 L328,100 L0,100 Z" fill="url(#hrGrad)"/>
+    <!-- Line -->
+    <polyline points="0,55 55,40 110,60 165,35 220,50 275,30 328,45" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Data points -->
+    <circle cx="0" cy="55" r="3" fill="#EF4444"/>
+    <circle cx="55" cy="40" r="3" fill="#EF4444"/>
+    <circle cx="110" cy="60" r="3" fill="#EF4444"/>
+    <circle cx="165" cy="35" r="3" fill="#EF4444"/>
+    <circle cx="220" cy="50" r="3" fill="#EF4444"/>
+    <circle cx="275" cy="30" r="3" fill="#EF4444"/>
+    <circle cx="328" cy="45" r="3" fill="#EF4444"/>
+    <!-- Labels -->
+    <text x="0" y="116" font-size="10" fill="var(--kit-text-3,#94A3B8)" font-family="var(--kit-font,Inter,system-ui,sans-serif)">Mon</text>
+    <text x="46" y="116" font-size="10" fill="var(--kit-text-3,#94A3B8)" font-family="var(--kit-font,Inter,system-ui,sans-serif)">Tue</text>
+    <text x="98" y="116" font-size="10" fill="var(--kit-text-3,#94A3B8)" font-family="var(--kit-font,Inter,system-ui,sans-serif)">Wed</text>
+    <text x="151" y="116" font-size="10" fill="var(--kit-text-3,#94A3B8)" font-family="var(--kit-font,Inter,system-ui,sans-serif)">Thu</text>
+    <text x="210" y="116" font-size="10" fill="var(--kit-text-3,#94A3B8)" font-family="var(--kit-font,Inter,system-ui,sans-serif)">Fri</text>
+    <text x="264" y="116" font-size="10" fill="var(--kit-text-3,#94A3B8)" font-family="var(--kit-font,Inter,system-ui,sans-serif)">Sat</text>
+    <text x="313" y="116" font-size="10" fill="var(--kit-text-3,#94A3B8)" font-family="var(--kit-font,Inter,system-ui,sans-serif)">Sun</text>
+  </svg>
+</div>

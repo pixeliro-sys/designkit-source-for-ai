@@ -1,0 +1,51 @@
+<!--
+  @name: Stepper — Horizontal
+  @kit: web
+  @width: 500
+  @height: 60
+  @tags: stepper, steps, progress, wizard
+-->
+<div data-component="Stepper — Horizontal" style="width:100%;box-sizing:border-box;display:flex;align-items:center;font-family:var(--kit-font, Inter, system-ui, sans-serif);padding:var(--kit-space-2, 8px) 0;">
+
+  <!-- Step 1: Details — Done -->
+  <div style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);flex-shrink:0;">
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-success, #22C55E);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);white-space:nowrap;">Details</span>
+  </div>
+
+  <!-- Line 1 -->
+  <div style="flex:1;height:2px;background:var(--kit-success, #22C55E);margin:0 var(--kit-space-2, 8px);"></div>
+
+  <!-- Step 2: Payment — Active -->
+  <div style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);flex-shrink:0;">
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 4px rgba(99,102,241,0.2);">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-bold, 700);color:#FFFFFF;">2</span>
+    </div>
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-primary, #6366F1);white-space:nowrap;">Payment</span>
+  </div>
+
+  <!-- Line 2 -->
+  <div style="flex:1;height:2px;background:var(--kit-border, #E2E8F0);margin:0 var(--kit-space-2, 8px);"></div>
+
+  <!-- Step 3: Review — Pending -->
+  <div style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);flex-shrink:0;">
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-surface-2, #F1F5F9);border:2px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-3, #94A3B8);">3</span>
+    </div>
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-3, #94A3B8);white-space:nowrap;">Review</span>
+  </div>
+
+  <!-- Line 3 -->
+  <div style="flex:1;height:2px;background:var(--kit-border, #E2E8F0);margin:0 var(--kit-space-2, 8px);"></div>
+
+  <!-- Step 4: Confirm — Pending -->
+  <div style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);flex-shrink:0;">
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-surface-2, #F1F5F9);border:2px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-3, #94A3B8);">4</span>
+    </div>
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-3, #94A3B8);white-space:nowrap;">Confirm</span>
+  </div>
+
+</div>

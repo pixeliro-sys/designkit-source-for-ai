@@ -1,0 +1,92 @@
+<!--
+  @name: Mega Menu
+  @kit: web
+  @width: 800
+  @height: 350
+  @tags: mega menu, navigation, dropdown, categories
+-->
+<div data-component="Mega Menu" style="width:100%;box-sizing:border-box;background:var(--kit-bg, #FFFFFF);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-md, 12px);box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:var(--kit-space-6, 24px);font-family:var(--kit-font, Inter, system-ui, sans-serif);display:flex;gap:var(--kit-space-6, 24px);">
+
+  <!-- Column 1: Products -->
+  <div style="flex:1;min-width:0;">
+    <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-3, #94A3B8);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--kit-space-3, 12px);">Products</div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px);">
+      <a style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        <div><div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Analytics</div><div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Track your metrics</div></div>
+      </a>
+      <a style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        <div><div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">CRM</div><div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Manage relationships</div></div>
+      </a>
+      <a style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div><div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Messaging</div><div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Team communication</div></div>
+      </a>
+      <a style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div><div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Scheduler</div><div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Automate workflows</div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Column 2: Solutions -->
+  <div style="flex:1;min-width:0;">
+    <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-3, #94A3B8);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--kit-space-3, 12px);">Solutions</div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px);">
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Startups</div>
+        <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Scale from zero to one</div>
+      </a>
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Enterprise</div>
+        <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Built for large teams</div>
+      </a>
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Agencies</div>
+        <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Manage client projects</div>
+      </a>
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">E-commerce</div>
+        <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);">Boost online sales</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Column 3: Resources -->
+  <div style="flex:1;min-width:0;">
+    <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-3, #94A3B8);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--kit-space-3, 12px);">Resources</div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px);">
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Documentation</div>
+      </a>
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">API Reference</div>
+      </a>
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Guides & Tutorials</div>
+      </a>
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Blog</div>
+      </a>
+      <a style="display:block;padding:var(--kit-space-2, 8px);border-radius:var(--kit-radius, 8px);text-decoration:none;cursor:pointer;">
+        <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A);">Community</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Column 4: Featured -->
+  <div style="flex:1.2;min-width:0;background:var(--kit-surface, #F8FAFC);border-radius:var(--kit-radius-md, 12px);padding:var(--kit-space-4, 16px);display:flex;flex-direction:column;">
+    <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text-3, #94A3B8);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--kit-space-3, 12px);">Featured</div>
+    <div style="border-radius:var(--kit-radius, 8px);overflow:hidden;margin-bottom:var(--kit-space-3, 12px);flex-shrink:0;">
+      <img src="https://placehold.jp/280x120" alt="Featured" style="width:100%;height:120px;object-fit:cover;display:block;" />
+    </div>
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:var(--kit-space-1, 4px);">What's New in v4.0</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-2, #475569);line-height:1.5;margin-bottom:var(--kit-space-3, 12px);">Discover the latest features including AI-powered analytics, real-time collaboration, and more.</div>
+    <a style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-primary, #6366F1);text-decoration:none;cursor:pointer;display:flex;align-items:center;gap:4px;">
+      Learn more
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
+</div>

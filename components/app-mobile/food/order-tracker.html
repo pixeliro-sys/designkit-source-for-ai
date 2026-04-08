@@ -1,0 +1,46 @@
+<!--
+  @name: Order Tracker
+  @kit: app-mobile
+  @width: 360
+  @height: 180
+  @tags: order, tracker, delivery, food
+-->
+<div data-component="Order Tracker" style="width:100%;max-width:360px;box-sizing:border-box;padding:16px;font-family:var(--kit-font, Inter, system-ui, sans-serif);background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-md, 12px);border:1px solid var(--kit-border, #E2E8F0)">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A)">Order #1234</span>
+    <span style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-primary, #6366F1)">Est. 15 min</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:0;margin-bottom:6px">
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <div style="width:24px;height:24px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-success, #22C55E);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <span style="font-size:10px;color:var(--kit-success, #22C55E);margin-top:4px;font-weight:var(--kit-font-medium, 500)">Confirmed</span>
+    </div>
+    <div style="flex:1;height:3px;background:var(--kit-success, #22C55E);margin:0 -8px;margin-top:-14px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <div style="width:24px;height:24px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(99,102,241,0.2)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"><path d="M12 6v6l4 2"/></svg></div>
+      <span style="font-size:10px;color:var(--kit-primary, #6366F1);margin-top:4px;font-weight:var(--kit-font-semibold, 600)">Preparing</span>
+    </div>
+    <div style="flex:1;height:3px;background:var(--kit-border, #E2E8F0);margin:0 -8px;margin-top:-14px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <div style="width:24px;height:24px;border-radius:var(--kit-radius-full, 9999px);border:2px solid var(--kit-border, #E2E8F0);box-sizing:border-box"></div>
+      <span style="font-size:10px;color:var(--kit-text-3, #94A3B8);margin-top:4px">On the way</span>
+    </div>
+    <div style="flex:1;height:3px;background:var(--kit-border, #E2E8F0);margin:0 -8px;margin-top:-14px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+      <div style="width:24px;height:24px;border-radius:var(--kit-radius-full, 9999px);border:2px solid var(--kit-border, #E2E8F0);box-sizing:border-box"></div>
+      <span style="font-size:10px;color:var(--kit-text-3, #94A3B8);margin-top:4px">Delivered</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--kit-border, #E2E8F0)">
+    <div style="width:36px;height:36px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-surface-2, #F1F5F9);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">David M.</div>
+      <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8)">Your delivery driver</div>
+    </div>
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;cursor:pointer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+  </div>
+</div>

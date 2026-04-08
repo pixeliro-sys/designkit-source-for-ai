@@ -1,0 +1,39 @@
+<!--
+@name: Map Placeholder
+@kit: common
+@width: 400
+@height: 250
+@tags: map, location, placeholder, mockup, pin, geography
+-->
+<svg viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Map container -->
+  <rect x="0" y="0" width="400" height="250" rx="8" stroke="currentColor" stroke-width="1" opacity="0.2" />
+  <rect x="0" y="0" width="400" height="250" rx="8" fill="currentColor" opacity="0.03" />
+  <!-- Road grid lines (horizontal) -->
+  <line x1="0" y1="80" x2="400" y2="80" stroke="currentColor" stroke-width="0.75" opacity="0.08" />
+  <line x1="0" y1="140" x2="400" y2="140" stroke="currentColor" stroke-width="0.75" opacity="0.08" />
+  <line x1="0" y1="190" x2="400" y2="190" stroke="currentColor" stroke-width="0.75" opacity="0.08" />
+  <!-- Road grid lines (vertical) -->
+  <line x1="100" y1="0" x2="100" y2="250" stroke="currentColor" stroke-width="0.75" opacity="0.08" />
+  <line x1="200" y1="0" x2="200" y2="250" stroke="currentColor" stroke-width="0.75" opacity="0.08" />
+  <line x1="320" y1="0" x2="320" y2="250" stroke="currentColor" stroke-width="0.75" opacity="0.08" />
+  <!-- Diagonal road -->
+  <line x1="50" y1="0" x2="350" y2="250" stroke="currentColor" stroke-width="1" opacity="0.06" />
+  <!-- Curved road -->
+  <path d="M0 200 Q100 150 200 180 Q300 210 400 160" stroke="currentColor" stroke-width="1" opacity="0.08" />
+  <!-- Map pin -->
+  <path d="M200 80 C200 62 182 50 182 70 C182 82 200 105 200 105 C200 105 218 82 218 70 C218 50 200 62 200 80Z" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="200" cy="74" r="6" fill="currentColor" opacity="0.1" />
+  <!-- Pin shadow -->
+  <ellipse cx="200" cy="112" rx="12" ry="3" fill="currentColor" opacity="0.08" />
+  <!-- Block fills (buildings/areas) -->
+  <rect x="105" y="85" width="40" height="50" fill="currentColor" opacity="0.04" />
+  <rect x="250" y="145" width="65" height="40" fill="currentColor" opacity="0.04" />
+  <rect x="30" y="145" width="65" height="40" fill="currentColor" opacity="0.03" />
+  <!-- Zoom controls -->
+  <rect x="365" y="15" width="24" height="50" rx="4" stroke="currentColor" stroke-width="0.75" opacity="0.15" />
+  <line x1="372" y1="30" x2="384" y2="30" stroke="currentColor" stroke-width="1" opacity="0.2" />
+  <line x1="378" y1="24" x2="378" y2="36" stroke="currentColor" stroke-width="1" opacity="0.2" />
+  <line x1="365" y1="40" x2="389" y2="40" stroke="currentColor" stroke-width="0.5" opacity="0.1" />
+  <line x1="372" y1="50" x2="384" y2="50" stroke="currentColor" stroke-width="1" opacity="0.2" />
+</svg>

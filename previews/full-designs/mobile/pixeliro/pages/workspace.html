@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Pixeliro — My Workspace</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #f9fafb;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #666;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e5e5e5;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-success: #22c55e;
+  --kit-warning: #f59e0b;
+  --kit-info: #3b82f6;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 11px;
+  --kit-text-sm: 13px;
+  --kit-text-md: 15px;
+  --kit-text-lg: 17px;
+  --kit-text-xl: 20px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 30px;
+  --kit-radius: 8px;
+  --kit-radius-md: 12px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 24px;
+  --kit-radius-full: 9999px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --kit-shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); width: 430px; min-height: 100vh; overflow-x: hidden; }
+
+/* Status Bar */
+.status-bar {
+  height: 54px;
+  padding: 14px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--kit-surface);
+}
+.status-time { font-size: var(--kit-text-md); font-weight: 600; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.status-icons svg { width: 18px; height: 18px; fill: var(--kit-text); }
+
+/* Top Bar */
+.top-bar {
+  height: 56px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--kit-surface);
+}
+.top-bar h1 { font-size: var(--kit-text-xl); font-weight: 800; flex: 1; letter-spacing: -0.3px; }
+.add-btn {
+  width: 36px; height: 36px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-primary);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+}
+.add-btn svg { width: 20px; height: 20px; stroke: var(--kit-primary-text); }
+
+/* Tab Bar */
+.tab-bar {
+  display: flex;
+  background: var(--kit-surface);
+  border-bottom: 1px solid var(--kit-border);
+  padding: 0 20px;
+}
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+  color: var(--kit-text-3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tab.active {
+  color: var(--kit-primary);
+  border-bottom-color: var(--kit-primary);
+}
+
+/* Search */
+.search-wrap {
+  padding: 16px 20px 8px;
+}
+.search-input {
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: var(--kit-radius-md);
+  background: var(--kit-surface);
+  padding: 0 16px 0 44px;
+  font-family: var(--kit-font);
+  font-size: var(--kit-text-sm);
+  color: var(--kit-text);
+  box-shadow: var(--kit-shadow);
+  outline: none;
+  position: relative;
+}
+.search-wrap { position: relative; }
+.search-icon {
+  position: absolute;
+  left: 34px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px; height: 18px;
+  color: var(--kit-text-3);
+  margin-top: 4px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 16px 20px 160px;
+}
+
+.palette-card {
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.palette-card:hover { transform: translateY(-2px); box-shadow: var(--kit-shadow-md); }
+
+.palette-colors {
+  height: 40px;
+  display: flex;
+}
+.palette-colors div { flex: 1; }
+
+.palette-info {
+  padding: 12px 14px;
+}
+.palette-title {
+  font-size: var(--kit-text-sm);
+  font-weight: 700;
+  color: var(--kit-text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.palette-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.palette-date {
+  font-size: var(--kit-text-xs);
+  color: var(--kit-text-3);
+}
+.palette-count {
+  font-size: var(--kit-text-xs);
+  color: var(--kit-text-2);
+  font-weight: 600;
+  background: var(--kit-surface-2);
+  padding: 2px 8px;
+  border-radius: var(--kit-radius-full);
+}
+
+/* FAB */
+.fab {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--kit-radius-full);
+  background: linear-gradient(135deg, var(--kit-primary), var(--kit-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(99,102,241,0.4);
+  cursor: pointer;
+  transition: transform 0.15s;
+  z-index: 10;
+}
+.fab:hover { transform: scale(1.08); }
+.fab svg { width: 26px; height: 26px; stroke: var(--kit-primary-text); stroke-width: 2.5; }
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 430px;
+  height: 80px;
+  background: var(--kit-surface);
+  border-top: 1px solid var(--kit-border);
+  display: flex;
+  padding: 0 8px;
+  padding-bottom: 20px;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--kit-text-3);
+  transition: color 0.2s;
+}
+.nav-item.active { color: var(--kit-primary); }
+.nav-item svg { width: 22px; height: 22px; }
+.nav-label { font-size: 10px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24"><path d="M12 3C7.8 3 4.1 4.8 1.6 7.6l1.4 1.4C5.1 6.7 8.3 5 12 5s6.9 1.7 9 4l1.4-1.4C19.9 4.8 16.2 3 12 3zm0 4c-2.8 0-5.2 1.2-7 3l1.4 1.4C8.1 9.9 9.9 9 12 9s3.9.9 5.6 2.4L19 10c-1.8-1.8-4.2-3-7-3zm0 4c-1.7 0-3.2.7-4.2 1.8L12 17l4.2-4.2C15.2 11.7 13.7 11 12 11z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <h1>My Workspace</h1>
+    <div class="add-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+    </div>
+  </div>
+
+  <!-- Tab Bar -->
+  <div class="tab-bar">
+    <div class="tab active">Palettes</div>
+    <div class="tab">Tokens</div>
+    <div class="tab">Designs</div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input class="search-input" type="text" placeholder="Search palettes..." readonly>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid">
+    <!-- Card 1 -->
+    <div class="palette-card">
+      <div class="palette-colors">
+        <div style="background: #6366f1;"></div>
+        <div style="background: #818cf8;"></div>
+        <div style="background: #a78bfa;"></div>
+        <div style="background: #c4b5fd;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-title">Indigo Dreams</div>
+        <div class="palette-meta">
+          <span class="palette-date">Mar 28</span>
+          <span class="palette-count">5 colors</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="palette-card">
+      <div class="palette-colors">
+        <div style="background: #f59e0b;"></div>
+        <div style="background: #fbbf24;"></div>
+        <div style="background: #fcd34d;"></div>
+        <div style="background: #fde68a;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-title">Sunrise Glow</div>
+        <div class="palette-meta">
+          <span class="palette-date">Mar 25</span>
+          <span class="palette-count">5 colors</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="palette-card">
+      <div class="palette-colors">
+        <div style="background: #22c55e;"></div>
+        <div style="background: #4ade80;"></div>
+        <div style="background: #86efac;"></div>
+        <div style="background: #bbf7d0;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-title">Forest Fresh</div>
+        <div class="palette-meta">
+          <span class="palette-date">Mar 20</span>
+          <span class="palette-count">5 colors</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="palette-card">
+      <div class="palette-colors">
+        <div style="background: #ec4899;"></div>
+        <div style="background: #f472b6;"></div>
+        <div style="background: #f9a8d4;"></div>
+        <div style="background: #fbcfe8;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-title">Blush Bloom</div>
+        <div class="palette-meta">
+          <span class="palette-date">Mar 15</span>
+          <span class="palette-count">5 colors</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAB -->
+  <div class="fab">
+    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+      <span class="nav-label">Create</span>
+    </div>
+    <div class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-label">Workspace</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span class="nav-label">Settings</span>
+    </div>
+  </nav>
+</body>
+</html>

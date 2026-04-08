@@ -1,0 +1,33 @@
+<!--
+  @name: Time Picker — Clock
+  @category: inputs
+  @kit: app-mobile
+  @width: 328
+  @height: 400
+  @tags: time, picker, clock, modal, form
+-->
+<div data-component="Time Picker — Clock" style="width:328px;background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-xl, 28px);box-shadow:var(--kit-shadow-lg, 0 10px 24px rgba(0,0,0,0.08));font-family:var(--kit-font, system-ui, -apple-system, sans-serif);padding:24px;box-sizing:border-box">
+  <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">Select time</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:24px">
+    <div style="width:80px;height:64px;background:var(--kit-surface-2, #F1F5F9);border-radius:var(--kit-radius, 8px);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:400;color:var(--kit-primary, #6366F1)">10</div>
+    <div style="font-size:40px;color:var(--kit-text-2, #475569)">:</div>
+    <div style="width:80px;height:64px;background:var(--kit-surface-2, #F1F5F9);border-radius:var(--kit-radius, 8px);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:400;color:var(--kit-text, #0F172A)">30</div>
+    <div style="display:flex;flex-direction:column;gap:2px;margin-left:8px">
+      <div style="padding:4px 12px;border-radius:var(--kit-radius-sm, 4px);background:var(--kit-secondary, #64748B);color:var(--kit-secondary-fg, #FFFFFF);font-size:12px;font-weight:500;text-align:center">AM</div>
+      <div style="padding:4px 12px;border-radius:var(--kit-radius-sm, 4px);border:1px solid var(--kit-border, #E2E8F0);font-size:12px;color:var(--kit-text-2, #475569);text-align:center;cursor:pointer">PM</div>
+    </div>
+  </div>
+  <div style="width:200px;height:200px;border-radius:100px;background:var(--kit-surface-2, #F1F5F9);margin:0 auto 20px;position:relative">
+    <div style="position:absolute;top:50%;left:50%;width:8px;height:8px;border-radius:4px;background:var(--kit-primary, #6366F1);transform:translate(-50%,-50%)"></div>
+    <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);font-size:14px;color:var(--kit-text, #0F172A)">12</div>
+    <div style="position:absolute;top:50%;right:12px;transform:translateY(-50%);font-size:14px;color:var(--kit-text, #0F172A)">3</div>
+    <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:14px;color:var(--kit-text, #0F172A)">6</div>
+    <div style="position:absolute;top:50%;left:12px;transform:translateY(-50%);font-size:14px;color:var(--kit-text, #0F172A)">9</div>
+    <div style="position:absolute;top:12px;left:50%;width:2px;height:88px;background:var(--kit-primary, #6366F1);transform-origin:bottom center;transform:translateX(-50%) rotate(-60deg)"></div>
+    <div style="position:absolute;top:3px;left:50%;transform:translate(-50%,0) rotate(-60deg);transform-origin:center 97px"><div style="width:36px;height:36px;border-radius:18px;background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:500">10</div></div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;gap:8px">
+    <div style="padding:8px 16px;border-radius:20px;font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-primary, #6366F1);cursor:pointer">Cancel</div>
+    <div style="padding:8px 16px;border-radius:20px;font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-primary, #6366F1);cursor:pointer">OK</div>
+  </div>
+</div>

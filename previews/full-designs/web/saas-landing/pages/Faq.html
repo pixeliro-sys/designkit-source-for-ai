@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faq</title>
+<style>
+/* Auto-generated from tokenkit.json — DO NOT EDIT MANUALLY */
+:root {
+  /* colors */
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #ffffff;
+  --kit-surface: #f8f9fa;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #1a1a2e;
+  --kit-text-2: #64748b;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e2e8f0;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-error-bg: #fef2f2;
+  --kit-success: #22c55e;
+  --kit-success-bg: #f0fdf4;
+  --kit-warning: #f59e0b;
+  --kit-warning-bg: #fffbeb;
+  --kit-info: #3b82f6;
+  --kit-info-bg: #eef2ff;
+
+  /* typography */
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 12px;
+  --kit-text-sm: 14px;
+  --kit-text-md: 16px;
+  --kit-text-lg: 18px;
+  --kit-text-xl: 22px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 32px;
+  --kit-text-4xl: 48px;
+
+  /* spacing */
+  --kit-space-1: 4px;
+  --kit-space-2: 8px;
+  --kit-space-3: 12px;
+  --kit-space-4: 16px;
+  --kit-space-5: 20px;
+  --kit-space-6: 24px;
+  --kit-space-8: 32px;
+  --kit-space-10: 40px;
+  --kit-space-12: 48px;
+  --kit-space-16: 80px;
+
+  /* radii */
+  --kit-radius-sm: 6px;
+  --kit-radius: 8px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 20px;
+  --kit-radius-full: 9999px;
+
+  /* shadows */
+  --kit-shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --kit-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --kit-shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --kit-shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+
+
+  /* aliases */
+  --kit-color-primary: var(--kit-primary);
+  --kit-color-primary-dark: var(--kit-primary);
+  --kit-color-primary-light: var(--kit-surface-2);
+  --kit-color-secondary: var(--kit-secondary);
+  --kit-color-accent: var(--kit-accent);
+  --kit-color-bg: var(--kit-bg);
+  --kit-color-surface: var(--kit-surface);
+  --kit-color-border: var(--kit-border);
+  --kit-color-text: var(--kit-text);
+  --kit-color-text-secondary: var(--kit-text-2);
+  --kit-color-white: #ffffff;
+  --kit-on-primary: var(--kit-primary-text);
+  --kit-primary-dark: var(--kit-primary);
+  --kit-primary-hover: var(--kit-primary);
+  --kit-bg-base: var(--kit-bg);
+  --kit-bg-card: var(--kit-surface);
+  --kit-bg-raised: var(--kit-surface-2);
+  --kit-bg-surface: var(--kit-surface);
+  --kit-bg-page: var(--kit-bg);
+  --kit-danger: var(--kit-error);
+  --kit-danger-bg: var(--kit-error-bg);
+  --kit-text-disabled: var(--kit-text-3);
+  --kit-surface-3: var(--kit-surface-2);
+}
+
+/* Base — Web (full width) */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  width: 100%;
+  font-family: var(--kit-font, 'Inter', system-ui, sans-serif);
+  font-size: var(--kit-text-md, 16px);
+  background: var(--kit-bg, #ffffff);
+  color: var(--kit-text, #1a1a2e);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea { font-family: inherit; }
+
+/* Shared component styles — extracted from page files */
+/* SaaS Landing (web) */
+
+.btn-primary { display: inline-flex; align-items: center; gap: var(--kit-space-2, 8px); padding: var(--kit-space-2, 8px) var(--kit-space-6, 20px); background: var(--kit-primary, #6366f1); color: var(--kit-primary-text, #ffffff); border-radius: var(--kit-radius, 8px); font-size: var(--kit-text-sm, 14px); font-weight: 600; border: none; cursor: pointer; transition: opacity 0.2s; }
+
+.btn-outline { display: inline-flex; align-items: center; gap: var(--kit-space-2, 8px); padding: var(--kit-space-2, 8px) var(--kit-space-6, 20px); background: transparent; color: var(--kit-primary, #6366f1); border: 2px solid var(--kit-primary, #6366f1); border-radius: var(--kit-radius, 8px); font-size: var(--kit-text-sm, 14px); font-weight: 600; cursor: pointer; transition: all 0.2s; }
+
+.form-group { margin-bottom: var(--kit-space-4, 16px); }
+
+.form-group label { display: block; font-size: var(--kit-text-sm, 14px); font-weight: 500; margin-bottom: var(--kit-space-1, 4px); color: var(--kit-text, #1a1a2e); }
+
+.form-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--kit-space-4, 16px); }
+
+.submit-btn { width: 100%; padding: var(--kit-space-3, 12px); background: var(--kit-primary, #6366f1); color: var(--kit-primary-text, #ffffff); border: none; border-radius: var(--kit-radius, 8px); font-size: var(--kit-text-md, 16px); font-weight: 600; cursor: pointer; margin-top: var(--kit-space-2, 8px); }
+
+.cta-section h2 { font-size: var(--kit-text-3xl, 36px); font-weight: 700; color: var(--kit-primary-text, #ffffff); margin-bottom: var(--kit-space-3, 12px); }
+
+.cta-section p { font-size: var(--kit-text-md, 16px); color: var(--kit-text-2, #64748b); margin-bottom: var(--kit-space-4, 16px); }
+
+.feature-list { list-style: none; text-align: left; margin: var(--kit-space-6, 24px) 0; }
+
+.feature-list li { display: flex; align-items: flex-start; gap: var(--kit-space-2, 8px); padding: var(--kit-space-2, 8px) 0; font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); }
+
+.feature-list li svg { width: 20px; height: 20px; color: var(--kit-success, #22c55e); flex-shrink: 0; margin-top: 2px; }
+
+.divider { display: flex; align-items: center; gap: var(--kit-space-3, 12px); margin: var(--kit-space-4, 16px) 0; }
+
+.btn-white { display: inline-flex; align-items: center; gap: var(--kit-space-2, 8px); padding: var(--kit-space-3, 12px) var(--kit-space-6, 24px); background: var(--kit-bg, #ffffff); color: var(--kit-primary, #6366f1); border-radius: var(--kit-radius, 8px); font-size: var(--kit-text-md, 16px); font-weight: 600; border: none; cursor: pointer; }
+
+.pricing-card { background: var(--kit-bg, #ffffff); border: 1px solid var(--kit-border, #e2e8f0); border-radius: var(--kit-radius-lg, 16px); padding: var(--kit-space-8, 48px) var(--kit-space-6, 24px); text-align: center; position: relative; }
+
+.pricing-card.popular { border-color: var(--kit-primary, #6366f1); box-shadow: 0 8px 32px rgba(99,102,241,0.15); transform: scale(1.05); }
+
+.pricing-card h3 { font-size: var(--kit-text-lg, 18px); font-weight: 600; margin-bottom: var(--kit-space-2, 8px); color: var(--kit-text, #1a1a2e); }
+
+.btn-full { width: 100%; justify-content: center; text-align: center; display: block; padding: var(--kit-space-3, 12px); border-radius: var(--kit-radius, 8px); font-weight: 600; font-size: var(--kit-text-sm, 14px); }
+
+.form-group input:focus { outline: 2px solid var(--kit-primary, #6366f1); border-color: transparent; }
+
+.legal-header { padding: var(--kit-space-12, 64px) var(--kit-space-8, 48px) var(--kit-space-6, 24px); text-align: center; }
+
+.legal-header h1 { font-size: var(--kit-text-3xl, 36px); font-weight: 800; margin-bottom: var(--kit-space-2, 8px); }
+
+.legal-header p { font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); }
+
+.legal-content { max-width: 800px; margin: 0 auto; padding: var(--kit-space-8, 48px) var(--kit-space-6, 24px); }
+
+.legal-content h2 { font-size: var(--kit-text-xl, 22px); font-weight: 700; margin: var(--kit-space-8, 48px) 0 var(--kit-space-3, 12px); }
+
+.legal-content p { font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); margin-bottom: var(--kit-space-3, 12px); line-height: 1.8; }
+
+.legal-content ul { padding-left: var(--kit-space-6, 24px); margin-bottom: var(--kit-space-3, 12px); }
+
+.legal-content ul li { font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); margin-bottom: var(--kit-space-1, 4px); }
+
+/* Recovered shared rules */
+/* Navbar */
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: var(--kit-space-4, 16px) var(--kit-space-8, 48px); background: var(--kit-bg, #ffffff); border-bottom: 1px solid var(--kit-border, #e2e8f0); position: sticky; top: 0; z-index: 100; }
+
+.btn-primary:hover { opacity: 0.9; }
+
+.btn-outline:hover { background: var(--kit-primary, #6366f1); color: var(--kit-primary-text, #ffffff); }
+
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: var(--kit-space-4, 16px) var(--kit-space-8, 48px); background: var(--kit-bg, #ffffff); border-bottom: 1px solid var(--kit-border, #e2e8f0); }
+
+.navbar-links a.active { color: var(--kit-primary, #6366f1); }
+
+.navbar-links a { font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); font-weight: 500; transition: color 0.2s; }
+
+.btn-primary {
+    padding: var(--kit-space-3, 12px) var(--kit-space-6, 24px);
+    font-size: var(--kit-text-md, 16px); }
+
+/* Footer */
+.footer { background: var(--kit-text, #1a1a2e); color: rgba(255,255,255,0.7); padding: var(--kit-space-12, 64px) var(--kit-space-8, 48px) var(--kit-space-6, 24px); }
+
+.page-hero { text-align: center; padding: var(--kit-space-16, 80px) var(--kit-space-8, 48px) var(--kit-space-8, 48px); }
+
+.article-meta .tag { padding: 2px 10px; background: var(--kit-info-bg, #eef2ff); color: var(--kit-primary, #6366f1); font-size: var(--kit-text-xs, 12px); font-weight: 600; border-radius: 4px; }
+
+.blog-card .tag { display: inline-block; padding: 2px 8px; background: var(--kit-info-bg, #eef2ff); color: var(--kit-primary, #6366f1); font-size: var(--kit-text-xs, 12px); font-weight: 600; border-radius: 4px; margin-bottom: var(--kit-space-2, 8px); }
+
+.team-card-info .role { font-size: var(--kit-text-sm, 14px); color: var(--kit-primary, #6366f1); font-weight: 500; margin-bottom: var(--kit-space-3, 12px); }
+
+.form-row label { display: flex; align-items: center; gap: var(--kit-space-2, 8px); font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); cursor: pointer; }
+
+.form-row label input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--kit-primary, #6366f1); }
+
+.form-row a { font-size: var(--kit-text-sm, 14px); }
+
+.form-group input { width: 100%; padding: var(--kit-space-3, 12px); border: 1px solid var(--kit-border, #e2e8f0); border-radius: var(--kit-radius, 8px); font-size: var(--kit-text-sm, 14px); background: var(--kit-bg, #ffffff); color: var(--kit-text, #1a1a2e); font-family: inherit; }
+
+.form-group input, .form-group select { width: 100%; padding: var(--kit-space-3, 12px); border: 1px solid var(--kit-border, #e2e8f0); border-radius: var(--kit-radius, 8px); font-size: var(--kit-text-sm, 14px); background: var(--kit-bg, #ffffff); color: var(--kit-text, #1a1a2e); font-family: inherit; }
+
+.submit-btn:hover { opacity: 0.9; }
+
+/* CTA */
+.cta-section { text-align: center; padding: var(--kit-space-16, 80px) var(--kit-space-8, 48px); background: var(--kit-primary, #6366f1); }
+
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--kit-border, #e2e8f0); }
+
+.divider span { font-size: var(--kit-text-xs, 12px); color: var(--kit-text-2, #64748b); text-transform: uppercase; }
+
+.cta-section { text-align: center; padding: var(--kit-space-12, 64px) var(--kit-space-8, 48px); background: var(--kit-surface, #f8f9fa); }
+
+.cta-section a { display: inline-block; padding: var(--kit-space-3, 12px) var(--kit-space-6, 24px); background: var(--kit-primary, #6366f1); color: var(--kit-primary-text, #ffffff); border-radius: var(--kit-radius, 8px); font-weight: 600; }
+
+/* Cards */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--kit-space-6, 24px); max-width: 1080px; margin: 0 auto; padding: 0 var(--kit-space-8, 48px) var(--kit-space-16, 80px); align-items: start; }
+
+.pricing-card .subtitle { font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); }
+
+.btn-full.primary { background: var(--kit-primary, #6366f1); color: var(--kit-primary-text, #ffffff); }
+
+.btn-full.outline { border: 2px solid var(--kit-primary, #6366f1); color: var(--kit-primary, #6366f1); }
+
+.signup-card .subtitle { text-align: center; font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); margin-bottom: var(--kit-space-6, 24px); }
+
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: var(--kit-space-3, 12px); border: 1px solid var(--kit-border, #e2e8f0); border-radius: var(--kit-radius, 8px); font-size: var(--kit-text-sm, 14px); background: var(--kit-bg, #ffffff); color: var(--kit-text, #1a1a2e); font-family: inherit; }
+
+.form-group textarea { min-height: 120px; resize: vertical; }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--kit-space-6, 24px); max-width: 1080px; margin: 0 auto; align-items: start; }
+
+.login-card .subtitle { text-align: center; font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); margin-bottom: var(--kit-space-6, 24px); }
+
+.legal-content h3 { font-size: var(--kit-text-md, 16px); font-weight: 600; margin: var(--kit-space-4, 16px) 0 var(--kit-space-2, 8px); }
+
+.author-box .role { font-size: var(--kit-text-sm, 14px); color: var(--kit-primary, #6366f1); }
+
+.legal-content table { width: 100%; border-collapse: collapse; margin: var(--kit-space-4, 16px) 0; }
+
+.legal-content table th, .legal-content table td { padding: var(--kit-space-2, 8px) var(--kit-space-3, 12px); border: 1px solid var(--kit-border, #e2e8f0); font-size: var(--kit-text-sm, 14px); text-align: left; }
+
+.legal-content table th { background: var(--kit-surface, #f8f9fa); font-weight: 600; color: var(--kit-text, #1a1a2e); }
+
+.legal-content table td { color: var(--kit-text-2, #64748b); }
+
+body { width: 100%; background: var(--kit-bg, #ffffff); color: var(--kit-text, #1a1a2e); }
+.faq-container { max-width: 800px; margin: 0 auto; padding: var(--kit-space-12, 64px) var(--kit-space-6, 24px); }
+.faq-section { margin-bottom: var(--kit-space-10, 40px); }
+.faq-section h2 { font-size: var(--kit-text-xl, 22px); font-weight: 700; margin-bottom: var(--kit-space-4, 16px); padding-bottom: var(--kit-space-2, 8px); border-bottom: 2px solid var(--kit-primary, #6366f1); display: inline-block; }
+.accordion-item { border: 1px solid var(--kit-border, #e2e8f0); border-radius: var(--kit-radius, 8px); margin-bottom: var(--kit-space-2, 8px); overflow: hidden; }
+.accordion-trigger { width: 100%; padding: var(--kit-space-4, 16px); background: var(--kit-bg, #ffffff); border: none; text-align: left; font-size: var(--kit-text-md, 16px); font-weight: 600; color: var(--kit-text, #1a1a2e); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; }
+.accordion-trigger:hover { background: var(--kit-surface, #f8f9fa); }
+.accordion-trigger svg { width: 20px; height: 20px; color: var(--kit-text-2, #64748b); transition: transform 0.2s; flex-shrink: 0; }
+.accordion-trigger.open svg { transform: rotate(180deg); }
+.accordion-content { padding: 0 var(--kit-space-4, 16px) var(--kit-space-4, 16px); font-size: var(--kit-text-sm, 14px); color: var(--kit-text-2, #64748b); line-height: 1.7; display: none; }
+.accordion-content.show { display: block; }
+.cta-section { text-align: center; padding: var(--kit-space-12, 64px) var(--kit-space-8, 48px); background: var(--kit-surface, #f8f9fa); }
+  .cta-section h2 {
+    font-size: var(--kit-text-2xl, 28px);
+    margin-bottom: var(--kit-space-2, 8px); }
+.cta-section a { display: inline-block; padding: var(--kit-space-3, 12px) var(--kit-space-6, 24px); background: var(--kit-primary, #6366f1); color: var(--kit-primary-text, #ffffff); border-radius: var(--kit-radius, 8px); font-weight: 600; }
+
+/* === Common === */
+.navbar-brand { font-size: 22px; font-weight: 700; color: var(--kit-primary, #6366f1); display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="home.html" class="navbar-brand">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+    CloudSync
+  </a>
+</nav>
+
+
+<section class="page-hero">
+  <h1>Frequently Asked Questions</h1>
+  <p>Everything you need to know about CloudSync. Can't find your answer? Contact our support team.</p>
+</section>
+
+<div class="faq-container">
+  <div class="faq-section">
+    <h2>General</h2>
+    <div class="accordion-item">
+      <button class="accordion-trigger open" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        What is CloudSync?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content show">CloudSync is a modern file synchronization platform designed for teams. It provides real-time file sync, collaboration tools, enterprise-grade security, and cross-platform apps for Mac, Windows, Linux, iOS, and Android.</div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        How is CloudSync different from Dropbox or Google Drive?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">CloudSync is built specifically for teams and enterprises. Our delta-sync engine is up to 10x faster than traditional sync, we offer granular permission controls, real-time co-editing, and enterprise security features like SSO/SAML and advanced audit logging — all in a single platform.</div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Pricing & Billing</h2>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        Can I change my plan later?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">Absolutely. You can upgrade or downgrade your plan at any time from your account settings. When upgrading, you'll be prorated for the remaining billing period. When downgrading, the change takes effect at the next billing cycle.</div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        What payment methods do you accept?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for annual Enterprise plans. All payments are processed securely through Stripe.</div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        Do you offer discounts for nonprofits or education?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">Yes, we offer 50% off for verified nonprofits and educational institutions. Contact our sales team with your organization details and we'll set up your discount within 24 hours.</div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Security & Privacy</h2>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        How is my data encrypted?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">All data is encrypted with AES-256 both at rest and in transit (TLS 1.3). Enterprise customers can also enable zero-knowledge encryption, where even CloudSync cannot access your files.</div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        Where is my data stored?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">By default, data is stored in AWS data centers in the US (us-east-1) and EU (eu-west-1). Enterprise customers can choose their preferred data residency region to comply with local regulations like GDPR.</div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        Is CloudSync GDPR compliant?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">Yes. CloudSync is fully GDPR compliant. We have a Data Processing Agreement (DPA) available for all customers, support data residency in the EU, and provide tools for data export and deletion upon request.</div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Technical</h2>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        What platforms are supported?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">CloudSync has native apps for macOS, Windows, Linux (Ubuntu, Fedora, Debian), iOS, and Android. We also have a full-featured web interface that works in all modern browsers. CLI tools are available for advanced users and CI/CD integrations.</div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')">
+        Is there an API?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="accordion-content">Yes! We have a comprehensive REST API and webhooks for building custom integrations. API access is available on Professional and Enterprise plans. Check our developer documentation at docs.cloudsync.io for details.</div>
+    </div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <h2>Still have questions?</h2>
+  <p>Our support team is here to help. Reach out anytime.</p>
+  <a href="contact.html">Contact Support</a>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 CloudSync, Inc. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!--
+  @name: Form — Profile Edit
+  @kit: app-mobile
+  @width: 360
+  @height: 450
+  @tags: form, profile, edit, account
+-->
+<div data-component="Form — Profile Edit" style="width:100%;background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-md, 12px);padding:var(--kit-space-6, 24px);box-sizing:border-box;font-family:var(--kit-font, Inter, system-ui, sans-serif)">
+  <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:var(--kit-space-6, 24px)">
+    <div style="position:relative;margin-bottom:var(--kit-space-2, 8px)">
+      <div style="width:80px;height:80px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-surface-2, #F1F5F9);display:flex;align-items:center;justify-content:center;overflow:hidden">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3, #94A3B8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;background:var(--kit-primary, #6366F1);border-radius:var(--kit-radius-full, 9999px);display:flex;align-items:center;justify-content:center;border:2px solid var(--kit-bg, #FFFFFF);cursor:pointer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      </div>
+    </div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-primary, #6366F1);font-weight:var(--kit-font-medium, 500)">Change Photo</div>
+  </div>
+  <form style="display:flex;flex-direction:column;gap:var(--kit-space-4, 16px)">
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">Full Name</label>
+      <input type="text" value="Alex Johnson" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">Username</label>
+      <input type="text" value="@alexjohnson" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">Bio</label>
+      <textarea rows="3" placeholder="Tell us about yourself..." style="border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:10px 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);resize:none;box-sizing:border-box">Designer and creative thinker based in San Francisco.</textarea>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">Email</label>
+      <input type="email" value="alex@example.com" disabled style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text-3, #94A3B8);background:var(--kit-surface, #F8FAFC);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box;cursor:not-allowed" />
+    </div>
+    <button type="submit" style="height:46px;background:var(--kit-primary, #6366F1);color:#FFFFFF;border:none;border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-semibold, 600);cursor:pointer;font-family:var(--kit-font, Inter, system-ui, sans-serif)">Save Changes</button>
+  </form>
+</div>

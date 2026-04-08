@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog / Content Site</title>
+<style>
+  :root { }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: var(--kit-font, Inter, system-ui, sans-serif);
+    background: var(--kit-bg, #FFFFFF);
+    color: var(--kit-text, #0F172A); }
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header style="width:100%;padding:16px 64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+  <div style="display:flex;align-items:center;gap:32px;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Insight</span>
+    </div>
+    <nav style="display:flex;gap:24px;">
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-primary,#6366F1);cursor:pointer;">Home</span>
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Technology</span>
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Design</span>
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Business</span>
+      <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);cursor:pointer;">Culture</span>
+    </nav>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius,8px);border:1px solid var(--kit-border,#E2E8F0);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">Search...</span>
+    </div>
+    <div style="height:36px;padding:0 16px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:flex;align-items:center;cursor:pointer;">
+      <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Sign In</span>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== FEATURED ARTICLE ==================== -->
+<section style="width:100%;padding:48px 64px;">
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;">
+    <!-- Image -->
+    <div style="border-radius:var(--kit-radius-lg,16px);overflow:hidden;box-shadow:var(--kit-shadow-md,0 4px 6px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.06));">
+      <img src="https://placehold.jp/640x400" alt="Featured Article" style="width:100%;height:400px;object-fit:cover;display:block;" />
+    </div>
+    <!-- Content -->
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <span style="padding:4px 12px;background:rgba(99,102,241,0.1);color:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);">Featured</span>
+        <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Technology</span>
+      </div>
+      <h2 style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);line-height:1.25;margin-bottom:16px;">The Future of Web Development: What to Expect in 2025</h2>
+      <p style="font-size:var(--kit-text-md,15px);color:var(--kit-text-2,#475569);line-height:1.7;margin-bottom:20px;">From AI-powered code assistants to edge-first architectures, the web development landscape is evolving faster than ever. Here's a deep dive into the trends shaping the future.</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="https://placehold.jp/36x36" alt="Author" style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+        <div>
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Sarah Anderson</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Mar 15, 2024 &middot; 8 min read</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ARTICLE GRID ==================== -->
+<section style="width:100%;padding:0 64px 64px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;">
+      <h2 style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Latest Articles</h2>
+      <div style="display:flex;gap:8px;">
+        <span style="padding:6px 14px;background:var(--kit-primary,#6366F1);color:var(--kit-primary-fg,#FFFFFF);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);cursor:pointer;">All</span>
+        <span style="padding:6px 14px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);cursor:pointer;">Technology</span>
+        <span style="padding:6px 14px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);cursor:pointer;">Design</span>
+        <span style="padding:6px 14px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);cursor:pointer;">Business</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+      <!-- Article 1 -->
+      <article style="background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-md,12px);overflow:hidden;border:1px solid var(--kit-border,#E2E8F0);cursor:pointer;">
+        <img src="https://placehold.jp/380x220" alt="Article" style="width:100%;height:220px;object-fit:cover;display:block;" />
+        <div style="padding:20px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-primary,#6366F1);">Design</span>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">&middot; 5 min read</span>
+          </div>
+          <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;line-height:1.3;">Creating a Design System That Actually Scales</h3>
+          <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);line-height:1.6;margin-bottom:16px;">A practical guide to building design systems that grow with your organization without becoming a maintenance burden.</p>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <img src="https://placehold.jp/28x28" alt="Author" style="width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+            <div>
+              <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">Emma Wilson</span>
+              <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);"> &middot; Mar 14</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article style="background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-md,12px);overflow:hidden;border:1px solid var(--kit-border,#E2E8F0);cursor:pointer;">
+        <img src="https://placehold.jp/380x220" alt="Article" style="width:100%;height:220px;object-fit:cover;display:block;" />
+        <div style="padding:20px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-success,#22C55E);">Business</span>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">&middot; 7 min read</span>
+          </div>
+          <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;line-height:1.3;">How Remote Teams Build Trust Across Time Zones</h3>
+          <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);line-height:1.6;margin-bottom:16px;">Strategies for building high-trust remote teams when your colleagues span 12+ time zones. Real case studies included.</p>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <img src="https://placehold.jp/28x28" alt="Author" style="width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+            <div>
+              <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">David Chen</span>
+              <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);"> &middot; Mar 13</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article style="background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-md,12px);overflow:hidden;border:1px solid var(--kit-border,#E2E8F0);cursor:pointer;">
+        <img src="https://placehold.jp/380x220" alt="Article" style="width:100%;height:220px;object-fit:cover;display:block;" />
+        <div style="padding:20px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-warning,#F59E0B);">Technology</span>
+            <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">&middot; 10 min read</span>
+          </div>
+          <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;line-height:1.3;">Understanding AI Agents: Beyond Simple Chatbots</h3>
+          <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);line-height:1.6;margin-bottom:16px;">A comprehensive look at how AI agents are transforming software development and why they matter for every engineer.</p>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <img src="https://placehold.jp/28x28" alt="Author" style="width:28px;height:28px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+            <div>
+              <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);color:var(--kit-text,#0F172A);">Alex Rivera</span>
+              <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);"> &middot; Mar 12</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ARTICLE DETAIL ==================== -->
+<section style="width:100%;padding:64px;border-top:1px solid var(--kit-border,#E2E8F0);background:var(--kit-surface,#F8FAFC);">
+  <div style="max-width:720px;margin:0 auto;">
+    <!-- Category + Meta -->
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <span style="padding:4px 12px;background:rgba(99,102,241,0.1);color:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);">Technology</span>
+      <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">8 min read</span>
+    </div>
+
+    <!-- Title -->
+    <h1 style="font-size:40px;font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);line-height:1.2;margin-bottom:20px;">The Future of Web Development: What to Expect in 2025</h1>
+
+    <!-- Author -->
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <img src="https://placehold.jp/44x44" alt="Author" style="width:44px;height:44px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+      <div>
+        <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Sarah Anderson</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Senior Editor &middot; March 15, 2024</div>
+      </div>
+      <div style="flex:1;"></div>
+      <div style="display:flex;gap:8px;">
+        <div style="width:32px;height:32px;border-radius:var(--kit-radius-full,9999px);border:1px solid var(--kit-border,#E2E8F0);display:flex;align-items:center;justify-content:center;cursor:pointer;background:var(--kit-bg,#FFFFFF);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5"/></svg>
+        </div>
+        <div style="width:32px;height:32px;border-radius:var(--kit-radius-full,9999px);border:1px solid var(--kit-border,#E2E8F0);display:flex;align-items:center;justify-content:center;cursor:pointer;background:var(--kit-bg,#FFFFFF);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div style="width:32px;height:32px;border-radius:var(--kit-radius-full,9999px);border:1px solid var(--kit-border,#E2E8F0);display:flex;align-items:center;justify-content:center;cursor:pointer;background:var(--kit-bg,#FFFFFF);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <p style="font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);line-height:1.8;">The web development ecosystem continues to evolve at a breathtaking pace. As we look ahead to 2025, several emerging trends are poised to fundamentally reshape how we build for the web.</p>
+
+      <h2 style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-top:8px;">1. AI-Powered Development</h2>
+      <p style="font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);line-height:1.8;">AI coding assistants have moved beyond simple autocomplete. The next generation of tools can understand entire codebases, suggest architectural patterns, and even handle complex refactoring tasks. This isn't about replacing developers -- it's about amplifying their capabilities.</p>
+
+      <!-- Quote Block -->
+      <div style="border-left:4px solid var(--kit-primary,#6366F1);padding:16px 24px;background:var(--kit-bg,#FFFFFF);border-radius:0 var(--kit-radius,8px) var(--kit-radius,8px) 0;margin:8px 0;">
+        <p style="font-size:var(--kit-text-md,16px);font-style:italic;color:var(--kit-text,#0F172A);line-height:1.7;">"The best developers in 2025 won't be the ones who write the most code, but the ones who best collaborate with AI to solve complex problems."</p>
+        <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);margin-top:8px;">-- Dr. Maya Patel, Stanford CS</p>
+      </div>
+
+      <h2 style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-top:8px;">2. Edge-First Architecture</h2>
+      <p style="font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);line-height:1.8;">The shift toward edge computing is accelerating. With platforms like Cloudflare Workers, Deno Deploy, and Vercel Edge Functions, developers can run server-side logic closer to users than ever before, resulting in dramatically reduced latency.</p>
+
+      <!-- Image -->
+      <div style="border-radius:var(--kit-radius-md,12px);overflow:hidden;margin:8px 0;">
+        <img src="https://placehold.jp/720x400" alt="Diagram" style="width:100%;display:block;" />
+        <div style="padding:12px;background:var(--kit-bg,#FFFFFF);text-align:center;">
+          <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Fig 1: Edge computing architecture reducing latency by 60%</span>
+        </div>
+      </div>
+
+      <p style="font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);line-height:1.8;">As these platforms mature, we're seeing a new generation of frameworks built specifically for the edge, combining the best of server-rendered and client-side approaches.</p>
+    </div>
+
+    <!-- Tags -->
+    <div style="display:flex;gap:8px;margin-top:32px;padding-top:32px;border-top:1px solid var(--kit-border,#E2E8F0);">
+      <span style="padding:4px 12px;background:var(--kit-surface-2,#F1F5F9);color:var(--kit-text-2,#475569);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);">#webdev</span>
+      <span style="padding:4px 12px;background:var(--kit-surface-2,#F1F5F9);color:var(--kit-text-2,#475569);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);">#ai</span>
+      <span style="padding:4px 12px;background:var(--kit-surface-2,#F1F5F9);color:var(--kit-text-2,#475569);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);">#edge</span>
+      <span style="padding:4px 12px;background:var(--kit-surface-2,#F1F5F9);color:var(--kit-text-2,#475569);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-medium,500);">#future</span>
+    </div>
+
+    <!-- Related Articles -->
+    <div style="margin-top:48px;">
+      <h3 style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:20px;">Related Articles</h3>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;gap:16px;padding:16px;background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-md,12px);border:1px solid var(--kit-border,#E2E8F0);cursor:pointer;">
+          <img src="https://placehold.jp/120x80" alt="Related" style="width:120px;height:80px;border-radius:var(--kit-radius,8px);object-fit:cover;display:block;flex-shrink:0;" />
+          <div>
+            <h4 style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:4px;line-height:1.3;">Building React Server Components From Scratch</h4>
+            <p style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Mike Chen &middot; Mar 10, 2024</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;padding:16px;background:var(--kit-bg,#FFFFFF);border-radius:var(--kit-radius-md,12px);border:1px solid var(--kit-border,#E2E8F0);cursor:pointer;">
+          <img src="https://placehold.jp/120x80" alt="Related" style="width:120px;height:80px;border-radius:var(--kit-radius,8px);object-fit:cover;display:block;flex-shrink:0;" />
+          <div>
+            <h4 style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:4px;line-height:1.3;">The Complete Guide to CSS Container Queries</h4>
+            <p style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Lisa Park &middot; Mar 8, 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NEWSLETTER CTA ==================== -->
+<section style="width:100%;padding:64px;border-top:1px solid var(--kit-border,#E2E8F0);">
+  <div style="max-width:560px;margin:0 auto;text-align:center;">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <h3 style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:8px;">Subscribe to our Newsletter</h3>
+    <p style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);margin-bottom:24px;line-height:1.6;">Get the latest articles delivered straight to your inbox. No spam, unsubscribe anytime.</p>
+    <div style="display:flex;gap:8px;">
+      <div style="flex:1;height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 16px;display:flex;align-items:center;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">Enter your email</span>
+      </div>
+      <div style="height:44px;padding:0 24px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:flex;align-items:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Subscribe</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer style="width:100%;padding:40px 64px;border-top:1px solid var(--kit-border,#E2E8F0);background:var(--kit-surface,#F8FAFC);">
+  <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Insight</span>
+      </div>
+      <p style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);line-height:1.6;max-width:260px;">Thoughtful perspectives on technology, design, and the future of work.</p>
+    </div>
+    <div>
+      <h4 style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:14px;">Categories</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Technology</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Design</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Business</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Culture</span>
+      </div>
+    </div>
+    <div>
+      <h4 style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:14px;">Company</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">About</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Careers</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Write for Us</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Contact</span>
+      </div>
+    </div>
+    <div>
+      <h4 style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:14px;">Legal</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Privacy Policy</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Terms of Use</span>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);cursor:pointer;">Cookie Policy</span>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--kit-border,#E2E8F0);padding-top:20px;display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">2024 Insight Blog. All rights reserved.</span>
+    <div style="display:flex;gap:16px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Social Media App</title>
+<style>
+  :root { }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: var(--kit-font, Inter, system-ui, sans-serif);
+    background: var(--kit-surface, #F8FAFC);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 16px; }
+    .screen { overflow-x: hidden;position:relative;
+    width: 390px;
+    background: var(--kit-bg, #FFFFFF);
+    border-radius: var(--kit-radius-lg, 16px);
+    box-shadow: var(--kit-shadow-lg, 0 10px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04));
+    display: flex;
+    flex-direction: column;
+    position: relative; }
+  .screen-label {
+    text-align: center;
+    font-size: var(--kit-text-sm, 13px);
+    font-weight: var(--kit-font-semibold, 600);
+    color: var(--kit-text-3, #94A3B8);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
+  .screen-content { flex:1; padding-bottom:72px; }
+  .bottom-nav {
+    height:64px;
+    background:var(--kit-bg,#FFFFFF); border-top:1px solid var(--kit-border,#E2E8F0);
+    display:flex; align-items:center; justify-content:space-around; padding:0 8px; }
+  .nav-item { display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; padding:4px 12px; }
+  .nav-item span { font-size:10px; font-weight:var(--kit-font-medium,500); color:var(--kit-text-3,#94A3B8); }
+  .nav-item.active span { color:var(--kit-primary,#6366F1); }
+  .nav-item svg { color:var(--kit-text-3,#94A3B8); }
+  .nav-item.active svg { color:var(--kit-primary,#6366F1); }
+</style>
+</head>
+<body>
+
+<!-- ==================== SCREEN 1: FEED ==================== -->
+<div class="screen-label">Feed</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <span style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Socialite</span>
+      <div style="display:flex;gap:16px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div style="position:relative;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <div style="position:absolute;top:-4px;right:-6px;min-width:14px;height:14px;background:var(--kit-danger,#EF4444);border-radius:var(--kit-radius-full,9999px);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:var(--kit-font-bold,700);color:var(--kit-text-inverse);padding:0 3px;">5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stories Row -->
+    <div style="padding:16px 20px;display:flex;gap:14px;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <!-- Your Story -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;">
+        <div style="width:62px;height:62px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;position:relative;">
+          <img src="https://placehold.jp/56x56" alt="You" style="width:56px;height:56px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+          <div style="position:absolute;bottom:0;right:0;width:20px;height:20px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-primary,#6366F1);border:2px solid var(--kit-bg,#FFFFFF);display:flex;align-items:center;justify-content:center;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-inverse)" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <span style="font-size:11px;color:var(--kit-text-2,#475569);">Your Story</span>
+      </div>
+      <!-- Story 1 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;">
+        <div style="width:62px;height:62px;border-radius:var(--kit-radius-full,9999px);background:linear-gradient(135deg,var(--kit-primary,#6366F1),var(--kit-accent,#F59E0B));padding:2px;">
+          <img src="https://placehold.jp/58x58" alt="Sarah" style="width:58px;height:58px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;border:2px solid var(--kit-bg,#FFFFFF);" />
+        </div>
+        <span style="font-size:11px;color:var(--kit-text-2,#475569);">Sarah</span>
+      </div>
+      <!-- Story 2 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;">
+        <div style="width:62px;height:62px;border-radius:var(--kit-radius-full,9999px);background:linear-gradient(135deg,var(--kit-primary,#6366F1),var(--kit-accent,#F59E0B));padding:2px;">
+          <img src="https://placehold.jp/58x58" alt="Mike" style="width:58px;height:58px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;border:2px solid var(--kit-bg,#FFFFFF);" />
+        </div>
+        <span style="font-size:11px;color:var(--kit-text-2,#475569);">Mike</span>
+      </div>
+      <!-- Story 3 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;">
+        <div style="width:62px;height:62px;border-radius:var(--kit-radius-full,9999px);background:linear-gradient(135deg,var(--kit-primary,#6366F1),var(--kit-accent,#F59E0B));padding:2px;">
+          <img src="https://placehold.jp/58x58" alt="Lisa" style="width:58px;height:58px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;border:2px solid var(--kit-bg,#FFFFFF);" />
+        </div>
+        <span style="font-size:11px;color:var(--kit-text-2,#475569);">Lisa</span>
+      </div>
+      <!-- Story 4 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;">
+        <div style="width:62px;height:62px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-border,#E2E8F0);padding:2px;">
+          <img src="https://placehold.jp/58x58" alt="Alex" style="width:58px;height:58px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;border:2px solid var(--kit-bg,#FFFFFF);" />
+        </div>
+        <span style="font-size:11px;color:var(--kit-text-3,#94A3B8);">Alex</span>
+      </div>
+    </div>
+
+    <!-- Post Card 1 -->
+    <div style="border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:10px;">
+        <img src="https://placehold.jp/40x40" alt="Emma" style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+        <div style="flex:1;">
+          <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Emma Wilson</span>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">2 hours ago</div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+      </div>
+      <div style="padding:0 20px 12px;">
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.5;">Just finished an amazing hike up Mount Rainier! The views from the summit were absolutely breathtaking. Nature never disappoints.</span>
+      </div>
+      <img src="https://placehold.jp/390x260" alt="Mountain view" style="width:100%;height:260px;object-fit:cover;display:block;" />
+      <div style="padding:12px 20px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;gap:20px;">
+          <div style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--kit-danger,#EF4444)" stroke="var(--kit-danger,#EF4444)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">248</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">42</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">18</span>
+          </div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </div>
+    </div>
+
+    <!-- Post Card 2 (Text only) -->
+    <div style="border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:10px;">
+        <img src="https://placehold.jp/40x40" alt="David" style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+        <div style="flex:1;">
+          <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">David Chen</span>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">5 hours ago</div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+      </div>
+      <div style="padding:0 20px 16px;">
+        <span style="font-size:var(--kit-text-md,15px);color:var(--kit-text,#0F172A);line-height:1.6;">Just launched my first open-source project! It's a design token generator that converts Figma variables to CSS custom properties. Check it out and let me know what you think!</span>
+      </div>
+      <div style="padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--kit-border,#E2E8F0);">
+        <div style="display:flex;gap:20px;">
+          <div style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">89</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">23</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">7</span>
+          </div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Explore</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span>Create</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Chat</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 2: PROFILE ==================== -->
+<div class="screen-label">Profile</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Cover Photo -->
+    <div style="width:100%;height:180px;position:relative;">
+      <img src="https://placehold.jp/390x180" alt="Cover" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <div style="position:absolute;top:12px;left:12px;width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-inverse)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <div style="position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-inverse)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+      </div>
+    </div>
+
+    <!-- Avatar + Info -->
+    <div style="padding:0 20px;margin-top:-40px;position:relative;z-index:1;">
+      <div style="width:80px;height:80px;border-radius:var(--kit-radius-full,9999px);border:4px solid var(--kit-bg,#FFFFFF);overflow:hidden;">
+        <img src="https://placehold.jp/76x76" alt="Sarah" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div style="margin-top:12px;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Sarah Anderson</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--kit-primary,#6366F1)" stroke="var(--kit-primary,#6366F1)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01" stroke="var(--kit-text-inverse)"/></svg>
+        </div>
+        <div style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);margin-top:2px;">@sarahdesigns</div>
+        <div style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);margin-top:8px;line-height:1.5;">UX Designer & travel enthusiast. Creating beautiful digital experiences. Based in San Francisco.</div>
+      </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div style="padding:20px;display:flex;justify-content:space-around;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <div style="text-align:center;">
+        <div style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">342</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Posts</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">12.4K</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Followers</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">891</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Following</div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div style="padding:16px 20px;display:flex;gap:10px;">
+      <div style="flex:1;height:40px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Follow</span>
+      </div>
+      <div style="flex:1;height:40px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Message</span>
+      </div>
+      <div style="width:40px;height:40px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+
+    <!-- Photo Grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;padding:0 2px;">
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+      <img src="https://placehold.jp/130x130" alt="Photo" style="width:100%;aspect-ratio:1;object-fit:cover;display:block;" />
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Explore</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span>Create</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Chat</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 3: CHAT LIST ==================== -->
+<div class="screen-label">Chat List</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Messages</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </div>
+
+    <!-- Search -->
+    <div style="padding:0 20px 16px;">
+      <div style="display:flex;align-items:center;gap:10px;height:40px;background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius,8px);padding:0 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">Search conversations...</span>
+      </div>
+    </div>
+
+    <!-- Conversation Items -->
+    <div style="display:flex;flex-direction:column;">
+      <!-- Conversation 1 - Unread -->
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:12px;background:var(--kit-surface,#F8FAFC);cursor:pointer;">
+        <div style="position:relative;flex-shrink:0;">
+          <img src="https://placehold.jp/48x48" alt="Sarah" style="width:48px;height:48px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+          <div style="position:absolute;bottom:1px;right:1px;width:12px;height:12px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-success,#22C55E);border:2px solid var(--kit-surface,#F8FAFC);"></div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Sarah Anderson</span>
+            <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-primary,#6366F1);font-weight:var(--kit-font-medium,500);">2m ago</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:240px;font-weight:var(--kit-font-medium,500);">Hey! Are you coming to the design meetup tonight?</span>
+            <div style="min-width:18px;height:18px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-full,9999px);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:var(--kit-font-bold,700);color:var(--kit-primary-fg,#FFFFFF);padding:0 4px;">2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conversation 2 -->
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;">
+        <div style="position:relative;flex-shrink:0;">
+          <img src="https://placehold.jp/48x48" alt="Mike" style="width:48px;height:48px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;" />
+          <div style="position:absolute;bottom:1px;right:1px;width:12px;height:12px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-success,#22C55E);border:2px solid var(--kit-bg,#FFFFFF);"></div>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Mike Chen</span>
+            <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">1h ago</span>
+          </div>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:260px;">Sounds good! I'll send you the Figma link</span>
+        </div>
+      </div>
+
+      <!-- Conversation 3 -->
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;">
+        <img src="https://placehold.jp/48x48" alt="Design Team" style="width:48px;height:48px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;flex-shrink:0;" />
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Design Team</span>
+            <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">3h ago</span>
+          </div>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:260px;">Lisa: The new brand guidelines look amazing!</span>
+        </div>
+      </div>
+
+      <!-- Conversation 4 -->
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;">
+        <img src="https://placehold.jp/48x48" alt="Alex" style="width:48px;height:48px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;flex-shrink:0;" />
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Alex Rivera</span>
+            <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">Yesterday</span>
+          </div>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:260px;">Thanks for the recommendation!</span>
+        </div>
+      </div>
+
+      <!-- Conversation 5 -->
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;">
+        <img src="https://placehold.jp/48x48" alt="Jordan" style="width:48px;height:48px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;flex-shrink:0;" />
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Jordan Lee</span>
+            <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">2d ago</span>
+          </div>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:260px;">Let's catch up this weekend!</span>
+        </div>
+      </div>
+
+      <!-- Conversation 6 -->
+      <div style="padding:12px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;">
+        <img src="https://placehold.jp/48x48" alt="Taylor" style="width:48px;height:48px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;display:block;flex-shrink:0;" />
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Taylor Swift</span>
+            <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">1w ago</span>
+          </div>
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:260px;">The portfolio review went great!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Explore</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span>Create</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Chat</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 4: NOTIFICATIONS ==================== -->
+<div class="screen-label">Notifications</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <span style="font-size:var(--kit-text-xl,20px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Notifications</span>
+      <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-primary,#6366F1);cursor:pointer;">Mark all read</span>
+    </div>
+
+    <!-- Section: Today -->
+    <div style="padding:16px 20px 8px;">
+      <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-3,#94A3B8);text-transform:uppercase;letter-spacing:0.5px;">Today</span>
+    </div>
+
+    <!-- Notification: Like -->
+    <div style="padding:12px 20px;display:flex;gap:12px;align-items:flex-start;background:var(--kit-surface,#F8FAFC);cursor:pointer;">
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--kit-danger,#EF4444)" stroke="var(--kit-danger,#EF4444)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.4;"><b>Sarah, Mike</b> and <b>12 others</b> liked your post</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">2 minutes ago</div>
+      </div>
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius,8px);overflow:hidden;flex-shrink:0;">
+        <img src="https://placehold.jp/40x40" alt="Post" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+    </div>
+
+    <!-- Notification: Follow -->
+    <div style="padding:12px 20px;display:flex;gap:12px;align-items:flex-start;background:var(--kit-surface,#F8FAFC);cursor:pointer;">
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.4;"><b>Alex Rivera</b> started following you</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">15 minutes ago</div>
+      </div>
+      <div style="height:30px;padding:0 14px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:flex;align-items:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Follow</span>
+      </div>
+    </div>
+
+    <!-- Notification: Comment -->
+    <div style="padding:12px 20px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;">
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.4;"><b>Emma Wilson</b> commented on your photo: "This is absolutely stunning!"</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">1 hour ago</div>
+      </div>
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius,8px);overflow:hidden;flex-shrink:0;">
+        <img src="https://placehold.jp/40x40" alt="Post" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+    </div>
+
+    <!-- Section: This Week -->
+    <div style="padding:16px 20px 8px;">
+      <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-3,#94A3B8);text-transform:uppercase;letter-spacing:0.5px;">This Week</span>
+    </div>
+
+    <!-- Notification: Mention -->
+    <div style="padding:12px 20px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;">
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info,#3B82F6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.4;"><b>Mike Chen</b> mentioned you in a comment</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">2 days ago</div>
+      </div>
+    </div>
+
+    <!-- Notification: Milestone -->
+    <div style="padding:12px 20px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;">
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--kit-warning,#F59E0B)" stroke="var(--kit-warning,#F59E0B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.4;">Congrats! Your post reached <b>1,000 likes</b></div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">3 days ago</div>
+      </div>
+    </div>
+
+    <!-- Notification: Follow -->
+    <div style="padding:12px 20px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;">
+      <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);line-height:1.4;"><b>Jordan Lee</b> and <b>3 others</b> started following you</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">5 days ago</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Explore</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span>Create</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Chat</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span>Alerts</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Pixeliro — Palette Result</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #f9fafb;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #666;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e5e5e5;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-success: #22c55e;
+  --kit-warning: #f59e0b;
+  --kit-info: #3b82f6;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 11px;
+  --kit-text-sm: 13px;
+  --kit-text-md: 15px;
+  --kit-text-lg: 17px;
+  --kit-text-xl: 20px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 30px;
+  --kit-radius: 8px;
+  --kit-radius-md: 12px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 24px;
+  --kit-radius-full: 9999px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --kit-shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); width: 430px; min-height: 100vh; overflow-x: hidden; }
+
+.result-page {
+  width: 430px;
+  min-height: 100vh;
+  background: var(--kit-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status bar */
+.status-bar {
+  height: 54px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--kit-surface);
+}
+
+.status-bar .time {
+  font-size: var(--kit-text-sm);
+  font-weight: 700;
+  color: var(--kit-text);
+}
+
+.status-bar .icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-bar .icons svg {
+  color: var(--kit-text);
+}
+
+/* Top bar */
+.top-bar {
+  height: 56px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--kit-surface);
+  border-bottom: 1px solid var(--kit-border);
+}
+
+.back-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-surface-2);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--kit-text);
+}
+
+.top-bar h1 {
+  font-size: var(--kit-text-lg);
+  font-weight: 700;
+  color: var(--kit-text);
+  flex: 1;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+/* Color bar */
+.color-bar {
+  display: flex;
+  height: 64px;
+  border-radius: var(--kit-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--kit-shadow-md);
+}
+
+.color-bar-segment {
+  flex: 1;
+}
+
+/* Color details */
+.color-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.color-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-md);
+}
+
+.color-detail-row:first-child { border-radius: var(--kit-radius-md) var(--kit-radius-md) 4px 4px; }
+.color-detail-row:last-child { border-radius: 4px 4px var(--kit-radius-md) var(--kit-radius-md); }
+.color-detail-row:not(:first-child):not(:last-child) { border-radius: 4px; }
+
+.cd-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--kit-radius);
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.cd-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cd-name {
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+  color: var(--kit-text);
+}
+
+.cd-values {
+  font-size: var(--kit-text-xs);
+  color: var(--kit-text-3);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+.cd-hex {
+  font-size: var(--kit-text-sm);
+  font-weight: 700;
+  color: var(--kit-text-2);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* Action buttons row */
+.actions-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-action {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--kit-radius-md);
+  font-family: var(--kit-font);
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-action.primary {
+  background: var(--kit-primary);
+  color: var(--kit-primary-text);
+  border: none;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.25);
+}
+
+.btn-action.outline {
+  background: var(--kit-surface);
+  color: var(--kit-text);
+  border: 1.5px solid var(--kit-border);
+}
+
+/* Apply to brand */
+.btn-brand {
+  width: 100%;
+  height: 48px;
+  border-radius: var(--kit-radius-md);
+  background: linear-gradient(135deg, var(--kit-primary), var(--kit-secondary));
+  color: var(--kit-primary-text);
+  border: none;
+  font-family: var(--kit-font);
+  font-size: var(--kit-text-md);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(99,102,241,0.3);
+}
+
+/* Token export */
+.token-section {
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--kit-border);
+}
+
+.token-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--kit-border);
+}
+
+.token-header h3 {
+  font-size: var(--kit-text-sm);
+  font-weight: 700;
+  color: var(--kit-text);
+}
+
+.token-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--kit-radius-full);
+  background: rgba(99,102,241,0.1);
+  color: var(--kit-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.token-code {
+  padding: 16px;
+  background: #1e1e2e;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #cdd6f4;
+  overflow-x: auto;
+}
+
+.token-code .prop {
+  color: #89b4fa;
+}
+
+.token-code .val {
+  color: #a6e3a1;
+}
+
+.token-code .comment {
+  color: #585b70;
+}
+
+.token-code .selector {
+  color: #f9e2af;
+}
+
+/* Bottom nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 430px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--kit-surface);
+  border-top: 1px solid var(--kit-border);
+  padding-bottom: 8px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.nav-item svg {
+  color: var(--kit-text-3);
+}
+
+.nav-item.active svg {
+  color: var(--kit-primary);
+}
+
+.nav-item span {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--kit-text-3);
+}
+
+.nav-item.active span {
+  color: var(--kit-primary);
+}
+</style>
+</head>
+<body>
+  <div class="result-page">
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="time">9:41</span>
+      <div class="icons">
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="7" width="3" height="5" rx="0.5"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="0.5"/><rect x="9" y="2" width="3" height="10" rx="0.5"/><rect x="13.5" y="0" width="3" height="12" rx="0.5" opacity="0.3"/></svg>
+        <svg width="16" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.55a11 11 0 0114 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+        <svg width="27" height="12" viewBox="0 0 27 12" fill="currentColor"><rect x="0" y="0" width="24" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="2" y="2" width="18" height="8" rx="1" fill="currentColor"/><rect x="25" y="3.5" width="2" height="5" rx="1" opacity="0.4"/></svg>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <button class="back-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <h1>Palette Result</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Large color bar -->
+      <div class="color-bar">
+        <div class="color-bar-segment" style="background: #1e3a5f;"></div>
+        <div class="color-bar-segment" style="background: #3b82f6;"></div>
+        <div class="color-bar-segment" style="background: #06b6d4;"></div>
+        <div class="color-bar-segment" style="background: #10b981;"></div>
+        <div class="color-bar-segment" style="background: #f0fdf4;"></div>
+      </div>
+
+      <!-- Color details -->
+      <div class="color-details">
+        <div class="color-detail-row">
+          <div class="cd-swatch" style="background: #1e3a5f;"></div>
+          <div class="cd-info">
+            <span class="cd-name">Navy Blue</span>
+            <span class="cd-values">rgb(30, 58, 95)</span>
+          </div>
+          <span class="cd-hex">#1E3A5F</span>
+        </div>
+
+        <div class="color-detail-row">
+          <div class="cd-swatch" style="background: #3b82f6;"></div>
+          <div class="cd-info">
+            <span class="cd-name">Royal Blue</span>
+            <span class="cd-values">rgb(59, 130, 246)</span>
+          </div>
+          <span class="cd-hex">#3B82F6</span>
+        </div>
+
+        <div class="color-detail-row">
+          <div class="cd-swatch" style="background: #06b6d4;"></div>
+          <div class="cd-info">
+            <span class="cd-name">Cyan</span>
+            <span class="cd-values">rgb(6, 182, 212)</span>
+          </div>
+          <span class="cd-hex">#06B6D4</span>
+        </div>
+
+        <div class="color-detail-row">
+          <div class="cd-swatch" style="background: #10b981;"></div>
+          <div class="cd-info">
+            <span class="cd-name">Emerald</span>
+            <span class="cd-values">rgb(16, 185, 129)</span>
+          </div>
+          <span class="cd-hex">#10B981</span>
+        </div>
+
+        <div class="color-detail-row">
+          <div class="cd-swatch" style="background: #f0fdf4;"></div>
+          <div class="cd-info">
+            <span class="cd-name">Mint Cream</span>
+            <span class="cd-values">rgb(240, 253, 244)</span>
+          </div>
+          <span class="cd-hex">#F0FDF4</span>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="actions-row">
+        <button class="btn-action primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save
+        </button>
+        <button class="btn-action outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Copy CSS
+        </button>
+        <button class="btn-action outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Share
+        </button>
+      </div>
+
+      <!-- Apply to Brand -->
+      <button class="btn-brand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        Apply to Brand System
+      </button>
+
+      <!-- Token export -->
+      <div class="token-section">
+        <div class="token-header">
+          <h3>CSS Custom Properties</h3>
+          <span class="token-badge">Export</span>
+        </div>
+        <div class="token-code">
+          <span class="comment">/* Fintech Palette — Generated by Pixeliro */</span><br>
+          <span class="selector">:root</span> {<br>
+          &nbsp;&nbsp;<span class="prop">--color-primary</span>: <span class="val">#1e3a5f</span>;<br>
+          &nbsp;&nbsp;<span class="prop">--color-secondary</span>: <span class="val">#3b82f6</span>;<br>
+          &nbsp;&nbsp;<span class="prop">--color-accent</span>: <span class="val">#06b6d4</span>;<br>
+          &nbsp;&nbsp;<span class="prop">--color-success</span>: <span class="val">#10b981</span>;<br>
+          &nbsp;&nbsp;<span class="prop">--color-bg</span>: <span class="val">#f0fdf4</span>;<br>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <div class="bottom-nav">
+      <div class="nav-item active">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <span>Chat</span>
+      </div>
+      <div class="nav-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>Workspace</span>
+      </div>
+      <div class="nav-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <span>Settings</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Pixeliro — Upgrade to Pro</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #f9fafb;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #666;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e5e5e5;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-success: #22c55e;
+  --kit-warning: #f59e0b;
+  --kit-info: #3b82f6;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 11px;
+  --kit-text-sm: 13px;
+  --kit-text-md: 15px;
+  --kit-text-lg: 17px;
+  --kit-text-xl: 20px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 30px;
+  --kit-radius: 8px;
+  --kit-radius-md: 12px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 24px;
+  --kit-radius-full: 9999px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --kit-shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); width: 430px; min-height: 100vh; overflow-x: hidden; }
+
+/* Status Bar */
+.status-bar {
+  height: 54px;
+  padding: 14px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--kit-surface);
+}
+.status-time { font-size: var(--kit-text-md); font-weight: 600; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.status-icons svg { width: 18px; height: 18px; fill: var(--kit-text); }
+
+/* Close Button */
+.close-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 20px 0;
+  background: var(--kit-surface);
+}
+.close-btn {
+  width: 36px; height: 36px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-surface-2);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.close-btn:hover { background: var(--kit-border); }
+.close-btn svg { width: 18px; height: 18px; color: var(--kit-text-2); }
+
+/* Hero */
+.hero {
+  background: var(--kit-surface);
+  padding: 28px 28px 32px;
+  text-align: center;
+}
+.sparkle-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.12));
+  border-radius: var(--kit-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sparkle-icon svg { width: 36px; height: 36px; color: var(--kit-primary); }
+
+.hero-title {
+  font-size: var(--kit-text-2xl);
+  font-weight: 800;
+  color: var(--kit-text);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.hero-subtitle {
+  font-size: var(--kit-text-md);
+  color: var(--kit-text-2);
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Feature List */
+.feature-list {
+  padding: 0 28px 24px;
+  background: var(--kit-surface);
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--kit-border);
+}
+.feature-item:last-child { border-bottom: none; }
+.feature-check {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--kit-radius-full);
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.feature-check svg { width: 14px; height: 14px; color: var(--kit-primary); }
+.feature-text {
+  font-size: var(--kit-text-md);
+  font-weight: 600;
+  color: var(--kit-text);
+}
+
+/* Plan Selector */
+.plan-selector {
+  padding: 0 28px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.plan-option {
+  flex: 1;
+  padding: 16px 14px;
+  border-radius: var(--kit-radius-md);
+  border: 2px solid var(--kit-border);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  background: var(--kit-surface);
+}
+.plan-option.selected {
+  border-color: var(--kit-primary);
+  box-shadow: 0 0 0 1px var(--kit-primary), 0 4px 14px rgba(99,102,241,0.15);
+}
+.plan-period {
+  font-size: var(--kit-text-sm);
+  font-weight: 700;
+  color: var(--kit-text);
+  margin-bottom: 4px;
+}
+.plan-price {
+  font-size: var(--kit-text-xl);
+  font-weight: 800;
+  color: var(--kit-text);
+  letter-spacing: -0.3px;
+}
+.plan-unit {
+  font-size: var(--kit-text-xs);
+  font-weight: 500;
+  color: var(--kit-text-3);
+}
+.plan-save {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  background: var(--kit-accent);
+  color: var(--kit-text-inverse);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--kit-radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Radio indicator */
+.plan-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--kit-radius-full);
+  border: 2px solid var(--kit-border-strong);
+  margin: 10px auto 0;
+  position: relative;
+}
+.plan-option.selected .plan-radio {
+  border-color: var(--kit-primary);
+}
+.plan-option.selected .plan-radio::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-primary);
+}
+
+/* Subscribe Button */
+.subscribe-wrap {
+  padding: 0 28px;
+  margin-bottom: 16px;
+}
+.subscribe-btn {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: var(--kit-radius-lg);
+  background: linear-gradient(135deg, var(--kit-primary), var(--kit-secondary));
+  color: var(--kit-primary-text);
+  font-family: var(--kit-font);
+  font-size: var(--kit-text-lg);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(99,102,241,0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: -0.2px;
+}
+.subscribe-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(99,102,241,0.45); }
+.subscribe-btn:active { transform: translateY(0); }
+
+/* Restore + Fine Print */
+.footer-links {
+  text-align: center;
+  padding: 0 28px 40px;
+}
+.restore-link {
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+  color: var(--kit-primary);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.fine-print {
+  font-size: var(--kit-text-xs);
+  color: var(--kit-text-3);
+  line-height: 1.5;
+}
+</style>
+</head>
+<body>
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24"><path d="M12 3C7.8 3 4.1 4.8 1.6 7.6l1.4 1.4C5.1 6.7 8.3 5 12 5s6.9 1.7 9 4l1.4-1.4C19.9 4.8 16.2 3 12 3zm0 4c-2.8 0-5.2 1.2-7 3l1.4 1.4C8.1 9.9 9.9 9 12 9s3.9.9 5.6 2.4L19 10c-1.8-1.8-4.2-3-7-3zm0 4c-1.7 0-3.2.7-4.2 1.8L12 17l4.2-4.2C15.2 11.7 13.7 11 12 11z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+
+  <!-- Close Button -->
+  <div class="close-row">
+    <div class="close-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="sparkle-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/>
+        <path d="M5 3v4"/>
+        <path d="M3 5h4"/>
+        <path d="M19 17v4"/>
+        <path d="M17 19h4"/>
+      </svg>
+    </div>
+    <div class="hero-title">Pixeliro Pro</div>
+    <div class="hero-subtitle">Unlock the full design system toolkit</div>
+  </div>
+
+  <!-- Feature List -->
+  <div class="feature-list">
+    <div class="feature-item">
+      <div class="feature-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="feature-text">Unlimited palettes & tokens</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="feature-text">400+ component previews</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="feature-text">Dark mode preview</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="feature-text">Export CSS / Tailwind / Swift</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="feature-text">AI image generation</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="feature-text">Priority support</div>
+    </div>
+  </div>
+
+  <!-- Plan Selector -->
+  <div class="plan-selector">
+    <div class="plan-option selected">
+      <div class="plan-period">Monthly</div>
+      <div class="plan-price">$4.99</div>
+      <div class="plan-unit">/month</div>
+      <div class="plan-radio"></div>
+    </div>
+    <div class="plan-option">
+      <div class="plan-save">Save 33%</div>
+      <div class="plan-period">Yearly</div>
+      <div class="plan-price">$39.99</div>
+      <div class="plan-unit">/year</div>
+      <div class="plan-radio"></div>
+    </div>
+  </div>
+
+  <!-- Subscribe Button -->
+  <div class="subscribe-wrap">
+    <button class="subscribe-btn">Subscribe</button>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+    <a class="restore-link">Restore Purchases</a>
+    <div class="fine-print">Cancel anytime. Recurring billing.</div>
+  </div>
+</body>
+</html>

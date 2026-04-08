@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaaS Landing — All Screens</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  :root {}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { overflow-x: hidden; 
+    background: var(--kit-bg, #f5f5f5);
+    font-family: var(--kit-font, Inter, system-ui, sans-serif);
+    color: var(--kit-text, #111);
+    display: flex;
+    flex-direction: column; }
+  .header {
+    background: var(--kit-surface, #fff);
+    border-bottom: 1px solid var(--kit-border, #e5e5e5);
+    padding: 16px 20px;
+    text-align: center; }
+  .header h1 { font-size: 18px; font-weight: 700; color: var(--kit-text, #111); }
+  .header p { font-size: 13px; color: var(--kit-text-2, #666); margin-top: 4px; }
+  .tabs-wrapper {
+    background: var(--kit-surface, #fff);
+    border-bottom: 1px solid var(--kit-border, #e5e5e5);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; }
+  .tabs-wrapper::-webkit-scrollbar { display: none; }
+  .tabs {
+    display: flex; gap: 4px;
+    padding: 8px 12px;
+    min-width: max-content; }
+  .tab {
+    padding: 8px 14px; border-radius: 8px;
+    font-size: 12px; font-weight: 500;
+    cursor: pointer; white-space: nowrap;
+    border: 1px solid var(--kit-border, #e5e5e5);
+    background: var(--kit-bg, #f5f5f5);
+    color: var(--kit-text-2, #666);
+    transition: all 0.2s;
+    font-family: inherit; }
+  .tab:hover {
+    background: var(--kit-info-bg, #eef2ff);
+    color: var(--kit-primary, #6366f1);
+    border-color: var(--kit-primary, #6366f1); }
+  .tab.active {
+    background: var(--kit-primary, #6366f1);
+    color: var(--kit-primary-text, #fff);
+    border-color: var(--kit-primary, #6366f1); }
+  .preview-area {
+    flex: 1; display: flex;
+    justify-content: center; align-items: flex-start;
+    padding: 24px 16px; }
+  .phone-frame { width: 100%; height: 100%; border: 1px solid var(--kit-border, #e5e5e5);
+    border-radius: 8px; overflow: hidden;
+    background: var(--kit-surface, #fff); }
+  .phone-frame iframe { width: 100%; height: 80vh; border: none; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>SaaS Landing</h1>
+  <p>14 screens</p>
+</div>
+<div class="tabs-wrapper">
+  <div class="tabs">
+  <button class="tab active" onclick="show('pages/404.html',this)">404</button>
+  <button class="tab" onclick="show('pages/about.html',this)">About</button>
+  <button class="tab" onclick="show('pages/blog.html',this)">Blog</button>
+  <button class="tab" onclick="show('pages/blog-post.html',this)">BlogPost</button>
+  <button class="tab" onclick="show('pages/contact.html',this)">Contact</button>
+  <button class="tab" onclick="show('pages/faq.html',this)">Faq</button>
+  <button class="tab" onclick="show('pages/features.html',this)">Features</button>
+  <button class="tab" onclick="show('pages/home.html',this)">Home</button>
+  <button class="tab" onclick="show('pages/login.html',this)">Login</button>
+  <button class="tab" onclick="show('pages/pricing.html',this)">Pricing</button>
+  <button class="tab" onclick="show('pages/privacy.html',this)">Privacy</button>
+  <button class="tab" onclick="show('pages/signup.html',this)">Signup</button>
+  <button class="tab" onclick="show('pages/team.html',this)">Team</button>
+  <button class="tab" onclick="show('pages/terms.html',this)">Terms</button>
+  </div>
+</div>
+<div class="preview-area">
+  <div class="phone-frame">
+    <iframe id="frame" src="pages/404.html"></iframe>
+  </div>
+</div>
+<script>
+function show(src, btn) {
+  document.getElementById('frame').src = src;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

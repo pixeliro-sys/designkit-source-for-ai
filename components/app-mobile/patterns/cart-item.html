@@ -1,0 +1,23 @@
+<!--
+  @name: Cart Item Row
+  @category: patterns
+  @kit: app-mobile
+  @width: 360
+  @height: 100
+  @tags: cart, item, ecommerce, quantity, price
+-->
+<div data-component="Cart Item Row" style="display:flex;width:100%;padding:12px 0;gap:12px;font-family:var(--kit-font, system-ui, -apple-system, sans-serif);align-items:center">
+  <img src="https://placehold.jp/80x80.png" style="width:80px;height:80px;border-radius:var(--kit-radius, 8px);object-fit:cover;flex-shrink:0;display:block" alt="Product"/>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text, #0F172A)">Product Name</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);margin-top:2px">Size: M • Color: Blue</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+      <div style="display:flex;align-items:center;gap:0;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);overflow:hidden">
+        <div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--kit-text-2, #475569)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <div style="width:36px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--kit-text, #0F172A);border-left:1px solid var(--kit-border, #E2E8F0);border-right:1px solid var(--kit-border, #E2E8F0)">2</div>
+        <div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--kit-text-2, #475569)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      </div>
+      <div style="font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-bold, 700);color:var(--kit-text, #0F172A)">$79.99</div>
+    </div>
+  </div>
+</div>

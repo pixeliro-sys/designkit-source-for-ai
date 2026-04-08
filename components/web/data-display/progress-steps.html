@@ -1,0 +1,39 @@
+<!--
+  @name: Progress Steps
+  @kit: web
+  @width: 400
+  @height: 50
+  @tags: progress, steps, indicator, flow
+-->
+<div data-component="Progress Steps" style="width:100%;box-sizing:border-box;display:flex;align-items:center;padding:var(--kit-space-2, 8px) 0;font-family:var(--kit-font, Inter, system-ui, sans-serif);">
+
+  <!-- Step 1: Completed -->
+  <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-success, #22C55E);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+
+  <!-- Line 1: Completed -->
+  <div style="flex:1;height:2px;background:var(--kit-success, #22C55E);margin:0 var(--kit-space-1, 4px);"></div>
+
+  <!-- Step 2: Completed -->
+  <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-success, #22C55E);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+
+  <!-- Line 2: Partial (completed to active) -->
+  <div style="flex:1;height:2px;background:linear-gradient(to right, var(--kit-success, #22C55E), var(--kit-primary, #6366F1));margin:0 var(--kit-space-1, 4px);"></div>
+
+  <!-- Step 3: Active -->
+  <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 4px rgba(99,102,241,0.2);">
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-bold, 700);color:#FFFFFF;">3</span>
+  </div>
+
+  <!-- Line 3: Pending -->
+  <div style="flex:1;height:2px;background:var(--kit-border, #E2E8F0);margin:0 var(--kit-space-1, 4px);"></div>
+
+  <!-- Step 4: Pending -->
+  <div style="width:32px;height:32px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-surface-2, #F1F5F9);border:2px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+    <span style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-3, #94A3B8);">4</span>
+  </div>
+
+</div>

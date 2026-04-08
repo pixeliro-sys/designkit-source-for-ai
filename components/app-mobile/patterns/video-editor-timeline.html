@@ -1,0 +1,36 @@
+<!--
+  @name: Video Editor — Timeline
+  @category: patterns
+  @kit: app-mobile
+  @width: 360
+  @height: 200
+  @tags: video, editor, timeline, trim, cut, layers, editing
+-->
+<div data-component="Video Editor — Timeline" style="width:100%;font-family:var(--kit-font, system-ui, -apple-system, sans-serif);background:var(--kit-text, #0F172A);border-radius:var(--kit-radius-md, 12px);padding:16px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+    <div style="cursor:pointer;color:#FFFFFF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></div>
+    <div style="cursor:pointer;color:#FFFFFF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+    <div style="flex:1"></div>
+    <div style="cursor:pointer;color:var(--kit-primary, #6366F1);display:flex;align-items:center;gap:4px;font-size:13px;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Preview</div>
+  </div>
+  <div style="position:relative;margin-bottom:12px">
+    <div style="position:absolute;left:35%;top:0;bottom:0;width:2px;background:var(--kit-primary, #6366F1);z-index:2"><div style="width:12px;height:12px;border-radius:6px;background:var(--kit-primary, #6366F1);position:absolute;top:-6px;left:-5px"></div></div>
+    <div style="display:flex;gap:2px;height:48px;border-radius:6px;overflow:hidden">
+      <div style="flex:1;background:linear-gradient(90deg, #4F46E5, #6366F1, #818CF8, #6366F1, #4F46E5);border-radius:4px;border:2px solid var(--kit-primary, #6366F1);box-sizing:border-box;position:relative">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:8px;background:rgba(255,255,255,0.3);cursor:ew-resize;border-radius:4px 0 0 4px"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:8px;background:rgba(255,255,255,0.3);cursor:ew-resize;border-radius:0 4px 4px 0"></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:2px;height:32px;margin-top:4px">
+      <div style="flex:1;background:rgba(34,197,94,0.3);border-radius:4px;display:flex;align-items:center;padding:0 8px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><div style="flex:1;height:16px;margin-left:6px;display:flex;align-items:center;gap:1px"><div style="width:2px;height:4px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:10px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:6px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:14px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:8px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:12px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:5px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:10px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:3px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:8px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:14px;background:#22C55E;border-radius:1px"></div><div style="width:2px;height:6px;background:#22C55E;border-radius:1px"></div></div></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,0.4)"><span>0:00</span><span>0:30</span><span>1:00</span><span>1:30</span><span>2:00</span></div>
+  <div style="display:flex;justify-content:center;gap:24px;margin-top:16px">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/></svg><span style="font-size:10px;color:rgba(255,255,255,0.5)">Split</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span style="font-size:10px;color:rgba(255,255,255,0.5)">Delete</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span style="font-size:10px;color:rgba(255,255,255,0.5)">Copy</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><span style="font-size:10px;color:rgba(255,255,255,0.5)">Audio</span></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg><span style="font-size:10px;color:rgba(255,255,255,0.5)">Text</span></div>
+  </div>
+</div>

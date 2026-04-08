@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Finance App</title>
+<style>
+  :root { }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: var(--kit-font, Inter, system-ui, sans-serif);
+    background: var(--kit-surface, #F8FAFC);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 16px; }
+    .screen { overflow-x: hidden;position:relative;
+    width: 390px;
+    background: var(--kit-bg, #FFFFFF);
+    border-radius: var(--kit-radius-lg, 16px);
+    box-shadow: var(--kit-shadow-lg, 0 10px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04));
+    display: flex;
+    flex-direction: column;
+    position: relative; }
+  .screen-label {
+    text-align: center;
+    font-size: var(--kit-text-sm, 13px);
+    font-weight: var(--kit-font-semibold, 600);
+    color: var(--kit-text-3, #94A3B8);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
+  .screen-content { flex:1; padding-bottom:72px; }
+  .bottom-nav {
+    height:64px;
+    background:var(--kit-bg,#FFFFFF); border-top:1px solid var(--kit-border,#E2E8F0);
+    display:flex; align-items:center; justify-content:space-around; padding:0 8px; }
+  .nav-item { display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; padding:4px 12px; }
+  .nav-item span { font-size:10px; font-weight:var(--kit-font-medium,500); color:var(--kit-text-3,#94A3B8); }
+  .nav-item.active span { color:var(--kit-primary,#6366F1); }
+  .nav-item svg { color:var(--kit-text-3,#94A3B8); }
+  .nav-item.active svg { color:var(--kit-primary,#6366F1); }
+</style>
+</head>
+<body>
+
+<!-- ==================== SCREEN 1: DASHBOARD ==================== -->
+<div class="screen-label">Dashboard</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">Good Morning</div>
+        <div style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">John Doe</div>
+      </div>
+      <div style="display:flex;gap:12px;">
+        <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;position:relative;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <div style="position:absolute;top:8px;right:10px;width:8px;height:8px;background:var(--kit-danger,#EF4444);border-radius:var(--kit-radius-full,9999px);border:2px solid var(--kit-bg,#FFFFFF);"></div>
+        </div>
+        <div style="width:40px;height:40px;border-radius:var(--kit-radius-full,9999px);overflow:hidden;">
+          <img src="https://placehold.jp/40x40" alt="Avatar" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Balance Card -->
+    <div style="padding:0 20px 20px;">
+      <div style="width:100%;border-radius:var(--kit-radius-lg,16px);background:linear-gradient(135deg,var(--kit-primary,#6366F1),var(--kit-primary-hover,#4F46E5));padding:24px;color:var(--kit-text-inverse);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:60px;background:rgba(255,255,255,0.1);"></div>
+        <div style="position:absolute;bottom:-40px;left:20px;width:80px;height:80px;border-radius:40px;background:rgba(255,255,255,0.06);"></div>
+        <div style="font-size:var(--kit-text-sm,13px);opacity:0.8;margin-bottom:4px;">Total Balance</div>
+        <div style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);margin-bottom:20px;">$24,562.80</div>
+        <div style="display:flex;gap:8px;">
+          <div style="display:flex;align-items:center;gap:4px;font-size:var(--kit-text-xs,12px);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            <span>+12.5%</span>
+          </div>
+          <span style="font-size:var(--kit-text-xs,12px);opacity:0.7;">vs last month</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div style="padding:0 20px 24px;display:flex;justify-content:space-between;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:var(--kit-radius-md,12px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
+        <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-2,#475569);font-weight:var(--kit-font-medium,500);">Send</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:var(--kit-radius-md,12px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-2,#475569);font-weight:var(--kit-font-medium,500);">Request</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:var(--kit-radius-md,12px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-warning,#F59E0B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-2,#475569);font-weight:var(--kit-font-medium,500);">Pay</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;">
+        <div style="width:52px;height:52px;border-radius:var(--kit-radius-md,12px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info,#3B82F6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-2,#475569);font-weight:var(--kit-font-medium,500);">History</span>
+      </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div style="padding:0 20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">Recent Transactions</span>
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-primary,#6366F1);cursor:pointer;">See All</span>
+      </div>
+
+      <!-- Transaction 1 -->
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Salary Deposit</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Mar 15, 2024</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-success,#22C55E);">+$4,500.00</span>
+      </div>
+
+      <!-- Transaction 2 -->
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-danger,#EF4444)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Amazon</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Mar 14, 2024</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-danger,#EF4444);">-$89.99</span>
+      </div>
+
+      <!-- Transaction 3 -->
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-warning,#F59E0B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Starbucks</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Mar 14, 2024</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-danger,#EF4444);">-$6.50</span>
+      </div>
+
+      <!-- Transaction 4 -->
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0;">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(99,102,241,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary,#6366F1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Transfer to Mike</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Mar 13, 2024</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-danger,#EF4444);">-$200.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <span>Cards</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <span>Stats</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>Settings</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 2: TRANSACTIONS ==================== -->
+<div class="screen-label">Transactions</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Transactions</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+    </div>
+
+    <!-- Filter Chips -->
+    <div style="padding:16px 20px;display:flex;gap:8px;">
+      <div style="padding:8px 16px;background:var(--kit-primary,#6366F1);color:var(--kit-primary-fg,#FFFFFF);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;">All</div>
+      <div style="padding:8px 16px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;">Income</div>
+      <div style="padding:8px 16px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;">Expense</div>
+      <div style="padding:8px 16px;background:var(--kit-surface,#F8FAFC);color:var(--kit-text-2,#475569);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-full,9999px);font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);white-space:nowrap;">Transfer</div>
+    </div>
+
+    <!-- Date Section -->
+    <div style="padding:8px 20px;">
+      <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-3,#94A3B8);text-transform:uppercase;letter-spacing:0.5px;">March 15, 2024</span>
+    </div>
+
+    <!-- Transaction Items -->
+    <div style="padding:0 20px;">
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Salary Deposit</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Checking *4567</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-success,#22C55E);">+$4,500.00</span>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-danger,#EF4444)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Rent Payment</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Auto-pay</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-danger,#EF4444);">-$1,800.00</span>
+      </div>
+    </div>
+
+    <div style="padding:16px 20px 8px;">
+      <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-3,#94A3B8);text-transform:uppercase;letter-spacing:0.5px;">March 14, 2024</span>
+    </div>
+
+    <div style="padding:0 20px;">
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-danger,#EF4444)" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Amazon Purchase</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Shopping</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-danger,#EF4444);">-$89.99</span>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-warning,#F59E0B)" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Starbucks</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Food & Drink</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-danger,#EF4444);">-$6.50</span>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 0;">
+        <div style="width:44px;height:44px;border-radius:var(--kit-radius-md,12px);background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info,#3B82F6)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Netflix</div>
+          <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Entertainment</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-bold,700);color:var(--kit-danger,#EF4444);">-$15.99</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <span>Cards</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+      <span>Stats</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+      <span>Settings</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 3: CARD DETAIL ==================== -->
+<div class="screen-label">Card Detail</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">My Card</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+    </div>
+
+    <!-- Virtual Card -->
+    <div style="padding:0 20px 24px;">
+      <div style="width:100%;height:210px;border-radius:var(--kit-radius-lg,16px);background:linear-gradient(135deg,var(--kit-primary,#6366F1),var(--kit-accent,#F59E0B));padding:24px;color:var(--kit-text-inverse);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:70px;background:rgba(255,255,255,0.08);"></div>
+        <div style="position:absolute;bottom:-50px;left:-20px;width:100px;height:100px;border-radius:50px;background:rgba(255,255,255,0.06);"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);letter-spacing:1px;">FINBANK</span>
+          <svg width="32" height="24" viewBox="0 0 32 24"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.3)"/><circle cx="20" cy="12" r="10" fill="rgba(255,255,255,0.2)"/></svg>
+        </div>
+        <div>
+          <div style="font-size:var(--kit-text-lg,17px);font-weight:var(--kit-font-medium,500);letter-spacing:3px;margin-bottom:4px;">4532 **** **** 7890</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div>
+            <div style="font-size:10px;opacity:0.7;text-transform:uppercase;">Card Holder</div>
+            <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);">JOHN DOE</div>
+          </div>
+          <div>
+            <div style="font-size:10px;opacity:0.7;text-transform:uppercase;">Expires</div>
+            <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);">09/27</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Actions -->
+    <div style="padding:0 20px 24px;display:flex;gap:10px;">
+      <div style="flex:1;height:44px;background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-2,#475569);">Lock</span>
+      </div>
+      <div style="flex:1;height:44px;background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06"/></svg>
+        <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-2,#475569);">Settings</span>
+      </div>
+      <div style="flex:1;height:44px;background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2,#475569)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span style="font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-2,#475569);">Details</span>
+      </div>
+    </div>
+
+    <!-- Spending Chart Placeholder -->
+    <div style="padding:0 20px 20px;">
+      <div style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:16px;">Monthly Spending</div>
+      <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:20px;display:flex;flex-direction:column;gap:12px;">
+        <!-- Chart bars -->
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;height:120px;gap:8px;padding-bottom:24px;border-bottom:1px solid var(--kit-border,#E2E8F0);position:relative;">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:40%;background:var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px) var(--kit-radius,8px) 0 0;"></div>
+            <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);position:absolute;bottom:4px;">Mon</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:65%;background:var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px) var(--kit-radius,8px) 0 0;"></div>
+            <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);position:absolute;bottom:4px;">Tue</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:45%;background:var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px) var(--kit-radius,8px) 0 0;"></div>
+            <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);position:absolute;bottom:4px;">Wed</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:80%;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px) var(--kit-radius,8px) 0 0;"></div>
+            <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);position:absolute;bottom:4px;">Thu</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:55%;background:var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px) var(--kit-radius,8px) 0 0;"></div>
+            <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);position:absolute;bottom:4px;">Fri</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:90%;background:var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px) var(--kit-radius,8px) 0 0;"></div>
+            <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);position:absolute;bottom:4px;">Sat</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:30%;background:var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px) var(--kit-radius,8px) 0 0;"></div>
+            <span style="font-size:10px;color:var(--kit-text-3,#94A3B8);position:absolute;bottom:4px;">Sun</span>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">This week</span>
+          <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$1,284.50</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Card Transactions -->
+    <div style="padding:0 20px;">
+      <div style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);margin-bottom:12px;">Recent</div>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+        <div style="width:40px;height:40px;border-radius:var(--kit-radius,8px);background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-danger,#EF4444)" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Apple Store</div>
+          <div style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">Today, 2:30 PM</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">-$999.00</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 0;">
+        <div style="width:40px;height:40px;border-radius:var(--kit-radius,8px);background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-warning,#F59E0B)" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Uber Eats</div>
+          <div style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">Today, 12:15 PM</div>
+        </div>
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">-$24.50</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <span>Cards</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+      <span>Stats</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>
+      <span>Settings</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN 4: SEND MONEY ==================== -->
+<div class="screen-label">Send Money</div>
+<div class="screen">
+  <div class="screen-content">
+    <!-- Header -->
+    <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--kit-border,#E2E8F0);">
+      <div style="width:36px;height:36px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text,#0F172A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Send Money</span>
+      <div style="width:36px;"></div>
+    </div>
+
+    <!-- Search Recipient -->
+    <div style="padding:20px;">
+      <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:12px;">To</div>
+      <div style="display:flex;align-items:center;gap:10px;height:44px;background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius,8px);padding:0 14px;border:1px solid var(--kit-border,#E2E8F0);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">Search name or account number</span>
+      </div>
+    </div>
+
+    <!-- Recent Recipients -->
+    <div style="padding:0 20px 20px;">
+      <div style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text-3,#94A3B8);margin-bottom:16px;">Recent</div>
+      <div style="display:flex;gap:20px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;">
+          <div style="width:52px;height:52px;border-radius:var(--kit-radius-full,9999px);border:2px solid var(--kit-primary,#6366F1);padding:2px;">
+            <img src="https://placehold.jp/48x48" alt="Mike" style="width:100%;height:100%;border-radius:var(--kit-radius-full,9999px);object-fit:cover;" />
+          </div>
+          <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-2,#475569);">Mike</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;">
+          <img src="https://placehold.jp/52x52" alt="Sarah" style="width:52px;height:52px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;" />
+          <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-2,#475569);">Sarah</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;">
+          <img src="https://placehold.jp/52x52" alt="Alex" style="width:52px;height:52px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;" />
+          <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-2,#475569);">Alex</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;">
+          <img src="https://placehold.jp/52x52" alt="Lisa" style="width:52px;height:52px;border-radius:var(--kit-radius-full,9999px);object-fit:cover;" />
+          <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-2,#475569);">Lisa</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;">
+          <div style="width:52px;height:52px;border-radius:var(--kit-radius-full,9999px);background:var(--kit-surface,#F8FAFC);border:1px dashed var(--kit-border-strong,#CBD5E1);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3,#94A3B8)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <span style="font-size:var(--kit-text-xs,11px);color:var(--kit-text-3,#94A3B8);">Add</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amount Input -->
+    <div style="padding:0 20px 24px;">
+      <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:12px;">Amount</div>
+      <div style="background:var(--kit-surface,#F8FAFC);border-radius:var(--kit-radius-md,12px);padding:24px;text-align:center;border:2px solid var(--kit-primary,#6366F1);">
+        <div style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$250.00</div>
+        <div style="font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);margin-top:4px;">Available: $24,562.80</div>
+      </div>
+    </div>
+
+    <!-- Quick Amounts -->
+    <div style="padding:0 20px 24px;display:flex;gap:8px;">
+      <div style="flex:1;height:36px;background:var(--kit-surface,#F8FAFC);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">$50</span>
+      </div>
+      <div style="flex:1;height:36px;background:var(--kit-surface,#F8FAFC);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">$100</span>
+      </div>
+      <div style="flex:1;height:36px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-primary-fg,#FFFFFF);">$250</span>
+      </div>
+      <div style="flex:1;height:36px;background:var(--kit-surface,#F8FAFC);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <span style="font-size:var(--kit-text-sm,13px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">$500</span>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div style="padding:0 20px 24px;">
+      <div style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);margin-bottom:8px;">Note (optional)</div>
+      <div style="height:44px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,8px);padding:0 14px;display:flex;align-items:center;">
+        <span style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-3,#94A3B8);">Add a note...</span>
+      </div>
+    </div>
+
+    <!-- Send Button -->
+    <div style="padding:0 20px 24px;">
+      <div style="width:100%;height:52px;background:var(--kit-primary,#6366F1);border-radius:var(--kit-radius-md,12px);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary-fg,#FFFFFF)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span style="font-size:var(--kit-text-md,15px);font-weight:var(--kit-font-semibold,600);color:var(--kit-primary-fg,#FFFFFF);">Send $250.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <span>Cards</span>
+    </div>
+    <div class="nav-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <span>Send</span>
+    </div>
+    <div class="nav-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>
+      <span>Settings</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

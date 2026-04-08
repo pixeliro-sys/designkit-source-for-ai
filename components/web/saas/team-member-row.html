@@ -1,0 +1,30 @@
+<!--
+  @name: Team Member Row
+  @kit: web
+  @width: 700
+  @height: 64
+  @tags: team, member, user, admin, saas
+-->
+<div data-component="Team Member Row" style="width:100%;max-width:700px;box-sizing:border-box;padding:14px 16px;font-family:var(--kit-font, Inter, system-ui, sans-serif);background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius, 8px);border:1px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;gap:12px">
+  <div style="width:36px;height:36px;border-radius:var(--kit-radius-full, 9999px);overflow:hidden;flex-shrink:0">
+    <img src="https://placehold.jp/36x36.png" alt="Sarah Chen" style="width:100%;height:100%;object-fit:cover;display:block"/>
+  </div>
+  <div style="flex:1;min-width:0">
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A)">Sarah Chen</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8)">sarah@acme.com</div>
+  </div>
+  <span style="padding:4px 10px;background:rgba(99,102,241,0.1);color:var(--kit-primary, #6366F1);font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);border-radius:var(--kit-radius-full, 9999px);flex-shrink:0">Admin</span>
+  <div style="display:flex;align-items:center;gap:5px;flex-shrink:0">
+    <span style="width:8px;height:8px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-success, #22C55E)"></span>
+    <span style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-2, #475569)">Active</span>
+  </div>
+  <span style="font-size:var(--kit-text-xs, 12px);color:var(--kit-text-3, #94A3B8);flex-shrink:0;width:60px;text-align:right">2h ago</span>
+  <div style="display:flex;gap:6px;flex-shrink:0">
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius, 8px);border:1px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;cursor:pointer" title="Edit">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2, #475569)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    </div>
+    <div style="width:32px;height:32px;border-radius:var(--kit-radius, 8px);border:1px solid var(--kit-border, #E2E8F0);display:flex;align-items:center;justify-content:center;cursor:pointer" title="Remove">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--kit-danger, #EF4444)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="18" y1="11" x2="22" y2="11"/></svg>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Pixeliro — Token Preview</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #f9fafb;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #666;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e5e5e5;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-success: #22c55e;
+  --kit-warning: #f59e0b;
+  --kit-info: #3b82f6;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 11px;
+  --kit-text-sm: 13px;
+  --kit-text-md: 15px;
+  --kit-text-lg: 17px;
+  --kit-text-xl: 20px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 30px;
+  --kit-radius: 8px;
+  --kit-radius-md: 12px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 24px;
+  --kit-radius-full: 9999px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --kit-shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); width: 430px; min-height: 100vh; overflow-x: hidden; }
+
+/* Status Bar */
+.status-bar {
+  height: 54px;
+  padding: 14px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--kit-surface);
+}
+.status-time { font-size: var(--kit-text-md); font-weight: 600; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.status-icons svg { width: 18px; height: 18px; fill: var(--kit-text); }
+
+/* Top Bar */
+.top-bar {
+  height: 52px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--kit-surface);
+  border-bottom: 1px solid var(--kit-border);
+}
+.top-bar .back-btn {
+  width: 36px; height: 36px;
+  border-radius: var(--kit-radius-full);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.top-bar .back-btn:hover { background: var(--kit-surface-2); }
+.top-bar h1 { font-size: var(--kit-text-lg); font-weight: 700; flex: 1; }
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 20px 20px 100px;
+  overflow-y: auto;
+}
+
+.section-title {
+  font-size: var(--kit-text-sm);
+  font-weight: 700;
+  color: var(--kit-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+.section-title:first-child { margin-top: 0; }
+
+/* Color Picker */
+.color-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--kit-surface);
+  padding: 16px;
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow);
+}
+.color-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-primary);
+  box-shadow: 0 2px 8px rgba(99,102,241,0.35);
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 3px solid var(--kit-surface);
+  outline: 2px solid var(--kit-primary);
+}
+.hex-input {
+  flex: 1;
+  height: 44px;
+  border: 2px solid var(--kit-border);
+  border-radius: var(--kit-radius);
+  padding: 0 14px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: var(--kit-text-md);
+  font-weight: 600;
+  color: var(--kit-text);
+  background: var(--kit-surface);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.hex-input:focus { border-color: var(--kit-primary); }
+
+/* Presets */
+.preset-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.preset-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--kit-radius-full);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, transform 0.15s;
+  box-shadow: var(--kit-shadow);
+}
+.preset-circle:hover { transform: scale(1.1); }
+.preset-circle.active { border-color: var(--kit-text); border-width: 3px; }
+
+/* Component Previews */
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.preview-card {
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.preview-label {
+  font-size: var(--kit-text-xs);
+  font-weight: 600;
+  color: var(--kit-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Mini Components */
+.mini-btn {
+  width: 100%;
+  height: 36px;
+  border-radius: var(--kit-radius);
+  background: var(--kit-primary);
+  color: var(--kit-primary-text);
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-family: var(--kit-font);
+}
+.mini-card-prev {
+  width: 100%;
+  height: 56px;
+  border-radius: var(--kit-radius);
+  background: var(--kit-surface);
+  border: 1px solid var(--kit-border);
+  box-shadow: var(--kit-shadow);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mini-card-line {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--kit-surface-2);
+  margin-bottom: 6px;
+}
+.mini-card-line:last-child { width: 60%; margin-bottom: 0; }
+.mini-input-prev {
+  width: 100%;
+  height: 36px;
+  border-radius: var(--kit-radius);
+  border: 2px solid var(--kit-border);
+  background: var(--kit-surface);
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.mini-input-text {
+  font-size: var(--kit-text-sm);
+  color: var(--kit-text-3);
+}
+.mini-badge-prev {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: var(--kit-radius-full);
+  background: rgba(99,102,241,0.1);
+  color: var(--kit-primary);
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+}
+
+/* Full Preview Button */
+.btn-full-preview {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: var(--kit-radius-md);
+  background: var(--kit-primary);
+  color: var(--kit-primary-text);
+  font-family: var(--kit-font);
+  font-size: var(--kit-text-md);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 14px rgba(99,102,241,0.25);
+}
+
+/* Token List */
+.token-list {
+  background: var(--kit-surface);
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow);
+  overflow: hidden;
+}
+.token-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  border-bottom: 1px solid var(--kit-border);
+}
+.token-row:last-child { border-bottom: none; }
+.token-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--kit-radius);
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.token-name {
+  flex: 1;
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+  color: var(--kit-text);
+}
+.token-hex {
+  font-size: var(--kit-text-xs);
+  font-weight: 600;
+  color: var(--kit-text-3);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 430px;
+  height: 80px;
+  background: var(--kit-surface);
+  border-top: 1px solid var(--kit-border);
+  display: flex;
+  padding: 0 8px;
+  padding-bottom: 20px;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--kit-text-3);
+  transition: color 0.2s;
+}
+.nav-item.active { color: var(--kit-primary); }
+.nav-item svg { width: 22px; height: 22px; }
+.nav-label { font-size: 10px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24"><path d="M12 3C7.8 3 4.1 4.8 1.6 7.6l1.4 1.4C5.1 6.7 8.3 5 12 5s6.9 1.7 9 4l1.4-1.4C19.9 4.8 16.2 3 12 3zm0 4c-2.8 0-5.2 1.2-7 3l1.4 1.4C8.1 9.9 9.9 9 12 9s3.9.9 5.6 2.4L19 10c-1.8-1.8-4.2-3-7-3zm0 4c-1.7 0-3.2.7-4.2 1.8L12 17l4.2-4.2C15.2 11.7 13.7 11 12 11z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="back-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </div>
+    <h1>Token Preview</h1>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- Color Picker -->
+    <div class="section-title">Active Color</div>
+    <div class="color-picker-row">
+      <div class="color-circle"></div>
+      <input class="hex-input" type="text" value="#6366F1" readonly>
+    </div>
+
+    <!-- Presets -->
+    <div class="preset-row">
+      <div class="preset-circle active" style="background: #6366f1;"></div>
+      <div class="preset-circle" style="background: #8b5cf6;"></div>
+      <div class="preset-circle" style="background: #ec4899;"></div>
+      <div class="preset-circle" style="background: #ef4444;"></div>
+      <div class="preset-circle" style="background: #f59e0b;"></div>
+      <div class="preset-circle" style="background: #22c55e;"></div>
+      <div class="preset-circle" style="background: #3b82f6;"></div>
+      <div class="preset-circle" style="background: #14b8a6;"></div>
+    </div>
+
+    <!-- Component Previews -->
+    <div class="section-title">Component Previews</div>
+    <div class="preview-grid">
+      <div class="preview-card">
+        <div class="preview-label">Button</div>
+        <button class="mini-btn">Get Started</button>
+      </div>
+      <div class="preview-card">
+        <div class="preview-label">Card</div>
+        <div class="mini-card-prev">
+          <div class="mini-card-line"></div>
+          <div class="mini-card-line"></div>
+        </div>
+      </div>
+      <div class="preview-card">
+        <div class="preview-label">Input</div>
+        <div class="mini-input-prev">
+          <span class="mini-input-text">Enter email...</span>
+        </div>
+      </div>
+      <div class="preview-card">
+        <div class="preview-label">Badge</div>
+        <div class="mini-badge-prev">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Active
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-full-preview">See Full Preview</button>
+
+    <!-- Token List -->
+    <div class="section-title">Token Values</div>
+    <div class="token-list">
+      <div class="token-row">
+        <div class="token-swatch" style="background: #6366f1;"></div>
+        <div class="token-name">--primary</div>
+        <div class="token-hex">#6366F1</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #8b5cf6;"></div>
+        <div class="token-name">--secondary</div>
+        <div class="token-hex">#8B5CF6</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #f59e0b;"></div>
+        <div class="token-name">--accent</div>
+        <div class="token-hex">#F59E0B</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #f9fafb;"></div>
+        <div class="token-name">--bg</div>
+        <div class="token-hex">#F9FAFB</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #ffffff; border-color: var(--kit-border-strong);"></div>
+        <div class="token-name">--surface</div>
+        <div class="token-hex">#FFFFFF</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #111827;"></div>
+        <div class="token-name">--text</div>
+        <div class="token-hex">#111827</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #6b7280;"></div>
+        <div class="token-name">--text-2</div>
+        <div class="token-hex">#6B7280</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #e5e5e5;"></div>
+        <div class="token-name">--border</div>
+        <div class="token-hex">#E5E5E5</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #ef4444;"></div>
+        <div class="token-name">--error</div>
+        <div class="token-hex">#EF4444</div>
+      </div>
+      <div class="token-row">
+        <div class="token-swatch" style="background: #22c55e;"></div>
+        <div class="token-name">--success</div>
+        <div class="token-hex">#22C55E</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+      <span class="nav-label">Create</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-label">Workspace</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span class="nav-label">Settings</span>
+    </div>
+  </nav>
+</body>
+</html>

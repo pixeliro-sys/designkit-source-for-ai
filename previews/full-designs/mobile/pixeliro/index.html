@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixeliro — Design Spec Index</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-secondary: #8b5cf6;
+  --kit-bg: #f4f4f6;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #555;
+  --kit-text-3: #9ca3af;
+  --kit-border: #e5e5e5;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-radius-lg: 16px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --kit-shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--kit-font);
+  background: var(--kit-bg);
+  color: var(--kit-text);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top bar ── */
+.topbar {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--kit-primary), var(--kit-secondary));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 24px;
+  height: 56px;
+}
+.topbar-logo {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.topbar-title { font-size: 15px; font-weight: 700; }
+.topbar-sub   { font-size: 12px; opacity: 0.7; }
+.topbar-badge {
+  margin-left: auto;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 999px;
+  font-size: 11px; font-weight: 600;
+  padding: 2px 10px; white-space: nowrap;
+}
+.topbar-site {
+  font-size: 11px; opacity: 0.65;
+  color: #fff; text-decoration: none;
+  border-left: 1px solid rgba(255,255,255,0.25);
+  padding-left: 14px; margin-left: 6px;
+  white-space: nowrap;
+}
+.topbar-site:hover { opacity: 1; }
+
+/* ── Main split ── */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Left: grid panel ── */
+.panel-left {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 20px 40px;
+  min-width: 0;
+}
+
+.section-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--kit-text-3);
+  margin-bottom: 12px; padding-left: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--kit-surface);
+  border: 2px solid var(--kit-border);
+  border-radius: var(--kit-radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  box-shadow: var(--kit-shadow);
+  transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
+  user-select: none;
+}
+.card:hover {
+  border-color: #c7d2fe;
+  box-shadow: var(--kit-shadow-md);
+  transform: translateY(-1px);
+}
+.card.active {
+  border-color: var(--kit-primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15), var(--kit-shadow-md);
+}
+
+.card-preview {
+  width: 100%;
+  background: var(--kit-surface-2);
+  overflow: hidden;
+  position: relative;
+}
+.card-preview iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 430px; height: 932px;
+  border: none;
+  pointer-events: none;
+  transform-origin: top left;
+  display: block;
+}
+
+.card-body {
+  padding: 10px 12px 12px;
+  border-top: 1px solid var(--kit-border);
+}
+.card-num {
+  font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--kit-primary); margin-bottom: 2px;
+}
+.card-name {
+  font-size: 12px; font-weight: 600; color: var(--kit-text);
+}
+.card-desc {
+  font-size: 11px; color: var(--kit-text-2); line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* ── Info strip ── */
+.info-strip {
+  background: var(--kit-surface);
+  border: 1px solid var(--kit-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex; flex-wrap: wrap; gap: 18px;
+}
+.info-item { display: flex; flex-direction: column; gap: 2px; }
+.info-label { font-size: 10px; color: var(--kit-text-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; }
+.info-value { font-size: 13px; color: var(--kit-text); font-weight: 500; }
+.info-value code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px; background: var(--kit-surface-2);
+  padding: 1px 5px; border-radius: 4px;
+}
+
+/* ── Right: preview panel ── */
+.panel-right {
+  flex-shrink: 0;
+  width: 480px;
+  border-left: 1px solid var(--kit-border);
+  background: #1e1e2e;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.preview-topbar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  background: #16161f;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.preview-dots { display: flex; gap: 6px; }
+.preview-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.preview-dots span:nth-child(1) { background: #ff5f57; }
+.preview-dots span:nth-child(2) { background: #febc2e; }
+.preview-dots span:nth-child(3) { background: #28c840; }
+.preview-title {
+  font-size: 12px; color: rgba(255,255,255,0.5);
+  font-family: 'SF Mono', monospace;
+  flex: 1; text-align: center;
+}
+.preview-actions { display: flex; gap: 6px; margin-left: auto; }
+.preview-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.7);
+  font-size: 11px; font-weight: 500;
+  padding: 3px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 4px;
+  transition: background 0.12s;
+}
+.preview-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.preview-btn svg { width: 11px; height: 11px; }
+
+.preview-nav {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px;
+  background: #16161f;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+.nav-btn {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.6);
+  font-size: 13px; line-height: 1;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.nav-btn:hover { background: rgba(255,255,255,0.14); color: #fff; }
+.nav-btn:disabled { opacity: 0.25; cursor: default; }
+.nav-label {
+  flex: 1;
+  font-size: 12px; color: rgba(255,255,255,0.55);
+  text-align: center;
+}
+.nav-label strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+.preview-body {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 24px 16px;
+}
+
+.phone-wrap {
+  position: relative;
+  width: 430px;
+  flex-shrink: 0;
+}
+.phone-wrap iframe {
+  display: block;
+  width: 430px;
+  height: 932px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+
+.preview-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: rgba(255,255,255,0.25);
+}
+.preview-empty-icon { font-size: 40px; opacity: 0.4; }
+.preview-empty p { font-size: 13px; }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-logo">🎨</div>
+  <div>
+    <div class="topbar-title">Pixeliro Mobile</div>
+    <div class="topbar-sub">Design tokens · Color brand · UI specs</div>
+  </div>
+  <div class="topbar-badge">12 Screens</div>
+  <a class="topbar-site" href="https://pixeliro.com" target="_blank">pixeliro.com ↗</a>
+</div>
+
+<!-- Split layout -->
+<div class="main">
+
+  <!-- Left: grid -->
+  <div class="panel-left" id="panelLeft">
+    <div class="section-label">All Screens</div>
+    <div class="grid" id="screenGrid"></div>
+
+    <div class="section-label">Platform Specs</div>
+    <div class="info-strip">
+      <div class="info-item">
+        <span class="info-label">Target Width</span>
+        <span class="info-value">430px (iPhone 16 Pro Max)</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Status Bar</span>
+        <span class="info-value">54px</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Bottom Nav</span>
+        <span class="info-value">83px (safe area)</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Primary Color</span>
+        <span class="info-value"><code>#6366F1</code> Indigo</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Architecture</span>
+        <span class="info-value">WebView + Native IAP/Camera/Push</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Dark Mode</span>
+        <span class="info-value">Token-swap ready</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: preview -->
+  <div class="panel-right">
+    <!-- fake browser chrome -->
+    <div class="preview-topbar">
+      <div class="preview-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="preview-title" id="previewUrl">— select a screen —</div>
+      <div class="preview-actions">
+        <a class="preview-btn" id="openBtn" href="#" target="_blank">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M2 10L10 2M10 2H5M10 2V7"/>
+          </svg>
+          Open
+        </a>
+      </div>
+    </div>
+    <!-- prev / next -->
+    <div class="preview-nav">
+      <button class="nav-btn" id="prevBtn" disabled>‹</button>
+      <div class="nav-label" id="navLabel">Click a card to preview</div>
+      <button class="nav-btn" id="nextBtn" disabled>›</button>
+    </div>
+    <!-- preview body -->
+    <div class="preview-body" id="previewBody">
+      <div class="preview-empty">
+        <div class="preview-empty-icon">📱</div>
+        <p>Select a screen from the grid</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const screens = [
+  { num: 1,  name: 'Splash',               file: 'pages/splash.html',         desc: 'Brand splash with logo + tagline' },
+  { num: 2,  name: 'Onboarding',           file: 'pages/onboarding.html',     desc: '3-step feature intro with illustrations' },
+  { num: 3,  name: 'Login',                file: 'pages/login.html',          desc: 'Google OAuth + email/password' },
+  { num: 4,  name: 'Chat (Home)',          file: 'pages/chat.html',           desc: 'Main screen — chat input + command results' },
+  { num: 5,  name: 'Command Picker',       file: 'pages/commands.html',       desc: 'Slash command grid with categories' },
+  { num: 6,  name: 'Color Palette Result', file: 'pages/palette-result.html', desc: 'Generated palette with swatches + actions' },
+  { num: 7,  name: 'Brand System Result',  file: 'pages/brand-result.html',   desc: 'Full brand system with roles + CSS export' },
+  { num: 8,  name: 'Token Preview',        file: 'pages/token-preview.html',  desc: 'Live preview with component thumbnails' },
+  { num: 9,  name: 'My Workspace',         file: 'pages/workspace.html',      desc: 'Saved palettes, tokens, designs list' },
+  { num: 10, name: 'Design Editor',        file: 'pages/editor.html',         desc: 'Simplified canvas with layers' },
+  { num: 11, name: 'Settings',             file: 'pages/settings.html',       desc: 'Account, plan, theme, security' },
+  { num: 12, name: 'Upgrade Pro',          file: 'pages/upgrade.html',        desc: 'In-app purchase screen (native IAP trigger)' },
+];
+
+let activeIndex = -1;
+const cards = [];
+
+const grid       = document.getElementById('screenGrid');
+const previewBody = document.getElementById('previewBody');
+const previewUrl  = document.getElementById('previewUrl');
+const openBtn     = document.getElementById('openBtn');
+const navLabel    = document.getElementById('navLabel');
+const prevBtn     = document.getElementById('prevBtn');
+const nextBtn     = document.getElementById('nextBtn');
+
+// Build grid cards
+screens.forEach((s, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-preview">
+      <iframe src="${s.file}" loading="lazy" title="${s.name}"></iframe>
+    </div>
+    <div class="card-body">
+      <div class="card-num">Screen ${String(s.num).padStart(2,'0')}</div>
+      <div class="card-name">${s.name}</div>
+      <div class="card-desc">${s.desc}</div>
+    </div>
+  `;
+  card.addEventListener('click', () => selectScreen(i));
+  grid.appendChild(card);
+  cards.push(card);
+});
+
+// Select a screen
+function selectScreen(i) {
+  if (i < 0 || i >= screens.length) return;
+  const s = screens[i];
+
+  // Update active card
+  if (activeIndex >= 0) cards[activeIndex].classList.remove('active');
+  cards[i].classList.add('active');
+  activeIndex = i;
+
+  // Scroll card into view in left panel
+  cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Update preview panel
+  previewUrl.textContent = s.file;
+  openBtn.href = s.file;
+  navLabel.innerHTML = `<strong>${s.name}</strong> — ${i + 1} / ${screens.length}`;
+  prevBtn.disabled = i === 0;
+  nextBtn.disabled = i === screens.length - 1;
+
+  previewBody.innerHTML = `
+    <div class="phone-wrap">
+      <iframe src="${s.file}" title="${s.name}"></iframe>
+    </div>
+  `;
+}
+
+// Prev / next
+prevBtn.addEventListener('click', () => selectScreen(activeIndex - 1));
+nextBtn.addEventListener('click', () => selectScreen(activeIndex + 1));
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   selectScreen(activeIndex - 1);
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown')  selectScreen(activeIndex + 1);
+});
+
+// Scale thumbnail iframes
+function scaleFrames() {
+  document.querySelectorAll('.card-preview').forEach(container => {
+    const iframe = container.querySelector('iframe');
+    if (!iframe) return;
+    const w = container.offsetWidth;
+    if (!w) return;
+    const scale = w / 430;
+    iframe.style.transform = `scale(${scale})`;
+    container.style.height = Math.round(932 * scale) + 'px';
+  });
+}
+
+window.addEventListener('load', scaleFrames);
+window.addEventListener('resize', scaleFrames);
+requestAnimationFrame(scaleFrames);
+</script>
+</body>
+</html>

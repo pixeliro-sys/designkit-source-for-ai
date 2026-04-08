@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Pixeliro — Editor</title>
+<style>
+:root {
+  --kit-primary: #6366f1;
+  --kit-primary-text: #ffffff;
+  --kit-secondary: #8b5cf6;
+  --kit-accent: #f59e0b;
+  --kit-bg: #f9fafb;
+  --kit-surface: #fff;
+  --kit-surface-2: #f3f4f6;
+  --kit-text: #111;
+  --kit-text-2: #666;
+  --kit-text-3: #9ca3af;
+  --kit-text-inverse: #ffffff;
+  --kit-border: #e5e5e5;
+  --kit-border-strong: #d1d5db;
+  --kit-error: #ef4444;
+  --kit-success: #22c55e;
+  --kit-warning: #f59e0b;
+  --kit-info: #3b82f6;
+  --kit-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --kit-text-xs: 11px;
+  --kit-text-sm: 13px;
+  --kit-text-md: 15px;
+  --kit-text-lg: 17px;
+  --kit-text-xl: 20px;
+  --kit-text-2xl: 24px;
+  --kit-text-3xl: 30px;
+  --kit-radius: 8px;
+  --kit-radius-md: 12px;
+  --kit-radius-lg: 16px;
+  --kit-radius-xl: 24px;
+  --kit-radius-full: 9999px;
+  --kit-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --kit-shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); width: 430px; min-height: 100vh; overflow-x: hidden; display: flex; flex-direction: column; }
+
+/* Status Bar */
+.status-bar {
+  height: 54px;
+  padding: 14px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--kit-surface);
+}
+.status-time { font-size: var(--kit-text-md); font-weight: 600; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.status-icons svg { width: 18px; height: 18px; fill: var(--kit-text); }
+
+/* Top Bar */
+.top-bar {
+  height: 52px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--kit-surface);
+  border-bottom: 1px solid var(--kit-border);
+}
+.icon-btn {
+  width: 36px; height: 36px;
+  border-radius: var(--kit-radius-full);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.icon-btn:hover { background: var(--kit-surface-2); }
+.top-bar h1 { font-size: var(--kit-text-md); font-weight: 700; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.save-btn {
+  color: var(--kit-primary);
+}
+
+/* Canvas Area */
+.canvas-area {
+  flex: 1;
+  background: var(--kit-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  position: relative;
+  min-height: 460px;
+}
+
+/* Checkerboard subtle */
+.canvas-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.02) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  pointer-events: none;
+}
+
+/* Phone Frame */
+.phone-frame {
+  width: 260px;
+  height: 460px;
+  background: var(--kit-surface);
+  border-radius: 28px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--kit-border);
+}
+
+/* Phone Inner App */
+.phone-status {
+  height: 28px;
+  background: var(--kit-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone-notch {
+  width: 80px;
+  height: 6px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
+}
+
+.phone-header {
+  background: var(--kit-primary);
+  padding: 12px 16px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phone-header-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--kit-radius-full);
+  background: rgba(255,255,255,0.25);
+}
+.phone-header-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--kit-primary-text);
+  flex: 1;
+}
+.phone-header-dots {
+  display: flex;
+  gap: 3px;
+}
+.phone-header-dots span {
+  width: 3px; height: 3px;
+  border-radius: var(--kit-radius-full);
+  background: rgba(255,255,255,0.6);
+}
+
+.phone-hero {
+  padding: 20px 16px;
+  text-align: center;
+}
+.phone-hero-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--kit-text);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+.phone-hero-desc {
+  font-size: 10px;
+  color: var(--kit-text-2);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.phone-hero-btn {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: var(--kit-radius-full);
+  background: var(--kit-primary);
+  color: var(--kit-primary-text);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.phone-cards {
+  padding: 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phone-mini-card {
+  background: var(--kit-surface-2);
+  border-radius: var(--kit-radius);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phone-mini-card-icon {
+  width: 28px; height: 28px;
+  border-radius: var(--kit-radius);
+  flex-shrink: 0;
+}
+.phone-mini-card-lines { flex: 1; }
+.phone-mini-card-line {
+  height: 5px;
+  border-radius: 2px;
+  background: var(--kit-border);
+  margin-bottom: 4px;
+}
+.phone-mini-card-line:last-child { width: 60%; margin-bottom: 0; }
+
+/* Bottom Toolbar */
+.bottom-toolbar {
+  height: 56px;
+  background: var(--kit-surface);
+  border-top: 1px solid var(--kit-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 24px;
+}
+.tool-btn {
+  width: 44px; height: 44px;
+  border-radius: var(--kit-radius-md);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  color: var(--kit-text-2);
+  transition: color 0.15s, background 0.15s;
+}
+.tool-btn:hover { background: var(--kit-surface-2); color: var(--kit-primary); }
+.tool-btn svg { width: 20px; height: 20px; }
+.tool-btn span { font-size: 9px; font-weight: 600; }
+
+/* Layer Panel (Bottom Sheet Peek) */
+.layer-panel {
+  background: var(--kit-surface);
+  border-top: 1px solid var(--kit-border);
+  padding: 12px 20px 0;
+}
+.layer-handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--kit-border-strong);
+  margin: 0 auto 12px;
+}
+.layer-panel-title {
+  font-size: var(--kit-text-sm);
+  font-weight: 700;
+  color: var(--kit-text);
+  margin-bottom: 10px;
+}
+.layer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--kit-border);
+}
+.layer-item:last-child { border-bottom: none; }
+.layer-thumb {
+  width: 32px; height: 32px;
+  border-radius: var(--kit-radius);
+  flex-shrink: 0;
+}
+.layer-name {
+  flex: 1;
+  font-size: var(--kit-text-sm);
+  font-weight: 600;
+  color: var(--kit-text);
+}
+.layer-type {
+  font-size: var(--kit-text-xs);
+  color: var(--kit-text-3);
+  background: var(--kit-surface-2);
+  padding: 2px 8px;
+  border-radius: var(--kit-radius-full);
+  font-weight: 500;
+}
+.layer-eye {
+  width: 20px; height: 20px;
+  color: var(--kit-text-3);
+  cursor: pointer;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  height: 80px;
+  background: var(--kit-surface);
+  border-top: 1px solid var(--kit-border);
+  display: flex;
+  padding: 0 8px;
+  padding-bottom: 20px;
+  flex-shrink: 0;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--kit-text-3);
+  transition: color 0.2s;
+}
+.nav-item.active { color: var(--kit-primary); }
+.nav-item svg { width: 22px; height: 22px; }
+.nav-label { font-size: 10px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-icons">
+      <svg viewBox="0 0 24 24"><path d="M12 3C7.8 3 4.1 4.8 1.6 7.6l1.4 1.4C5.1 6.7 8.3 5 12 5s6.9 1.7 9 4l1.4-1.4C19.9 4.8 16.2 3 12 3zm0 4c-2.8 0-5.2 1.2-7 3l1.4 1.4C8.1 9.9 9.9 9 12 9s3.9.9 5.6 2.4L19 10c-1.8-1.8-4.2-3-7-3zm0 4c-1.7 0-3.2.7-4.2 1.8L12 17l4.2-4.2C15.2 11.7 13.7 11 12 11z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="icon-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </div>
+    <h1>Mobile App Design</h1>
+    <div class="icon-btn save-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+    </div>
+  </div>
+
+  <!-- Canvas Area -->
+  <div class="canvas-area">
+    <div class="phone-frame">
+      <!-- Phone Status -->
+      <div class="phone-status">
+        <div class="phone-notch"></div>
+      </div>
+
+      <!-- Phone Header -->
+      <div class="phone-header">
+        <div class="phone-header-avatar"></div>
+        <div class="phone-header-title">My App</div>
+        <div class="phone-header-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Phone Hero -->
+      <div class="phone-hero">
+        <div class="phone-hero-title">Welcome Back</div>
+        <div class="phone-hero-desc">Manage your design tokens and create beautiful color systems for your projects.</div>
+        <div class="phone-hero-btn">Get Started</div>
+      </div>
+
+      <!-- Phone Cards -->
+      <div class="phone-cards">
+        <div class="phone-mini-card">
+          <div class="phone-mini-card-icon" style="background: linear-gradient(135deg, #6366f1, #818cf8);"></div>
+          <div class="phone-mini-card-lines">
+            <div class="phone-mini-card-line"></div>
+            <div class="phone-mini-card-line"></div>
+          </div>
+        </div>
+        <div class="phone-mini-card">
+          <div class="phone-mini-card-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);"></div>
+          <div class="phone-mini-card-lines">
+            <div class="phone-mini-card-line"></div>
+            <div class="phone-mini-card-line"></div>
+          </div>
+        </div>
+        <div class="phone-mini-card">
+          <div class="phone-mini-card-icon" style="background: linear-gradient(135deg, #22c55e, #4ade80);"></div>
+          <div class="phone-mini-card-lines">
+            <div class="phone-mini-card-line"></div>
+            <div class="phone-mini-card-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Toolbar -->
+  <div class="bottom-toolbar">
+    <div class="tool-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      <span>Layers</span>
+    </div>
+    <div class="tool-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Parts</span>
+    </div>
+    <div class="tool-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Export</span>
+    </div>
+    <div class="tool-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+      <span>Share</span>
+    </div>
+  </div>
+
+  <!-- Layer Panel (Peek) -->
+  <div class="layer-panel">
+    <div class="layer-handle"></div>
+    <div class="layer-panel-title">Layers</div>
+    <div class="layer-item">
+      <div class="layer-thumb" style="background: var(--kit-primary);"></div>
+      <div class="layer-name">Header</div>
+      <div class="layer-type">Group</div>
+      <svg class="layer-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div class="layer-item">
+      <div class="layer-thumb" style="background: var(--kit-surface-2);"></div>
+      <div class="layer-name">Hero Section</div>
+      <div class="layer-type">Frame</div>
+      <svg class="layer-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div class="layer-item">
+      <div class="layer-thumb" style="background: linear-gradient(135deg, #6366f1, #818cf8); border-radius: var(--kit-radius-full);"></div>
+      <div class="layer-name">CTA Button</div>
+      <div class="layer-type">Button</div>
+      <svg class="layer-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+      <span class="nav-label">Create</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span class="nav-label">Workspace</span>
+    </div>
+    <div class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span class="nav-label">Settings</span>
+    </div>
+  </nav>
+</body>
+</html>

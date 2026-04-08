@@ -1,0 +1,41 @@
+<!--
+  @name: Form — Address
+  @kit: app-mobile
+  @width: 360
+  @height: 380
+  @tags: form, address, shipping, delivery
+-->
+<div data-component="Form — Address" style="width:100%;background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-md, 12px);padding:var(--kit-space-6, 24px);box-sizing:border-box;font-family:var(--kit-font, Inter, system-ui, sans-serif)">
+  <div style="font-size:var(--kit-text-lg, 18px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:var(--kit-space-5, 20px)">Shipping Address</div>
+  <form style="display:flex;flex-direction:column;gap:var(--kit-space-4, 16px)">
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">Street Address</label>
+      <input type="text" placeholder="123 Main Street" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+    </div>
+    <div style="display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+      <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">Apt / Suite (optional)</label>
+      <input type="text" placeholder="Apt 4B" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+    </div>
+    <div style="display:flex;gap:var(--kit-space-3, 12px)">
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+        <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">City</label>
+        <input type="text" placeholder="New York" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+        <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">State</label>
+        <input type="text" placeholder="NY" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+      </div>
+    </div>
+    <div style="display:flex;gap:var(--kit-space-3, 12px)">
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+        <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">ZIP Code</label>
+        <input type="text" placeholder="10001" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--kit-space-1, 4px)">
+        <label style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-medium, 500);color:var(--kit-text-2, #475569);text-transform:uppercase;letter-spacing:0.5px">Country</label>
+        <input type="text" placeholder="United States" style="height:44px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);padding:0 12px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box" />
+      </div>
+    </div>
+    <button type="submit" style="height:46px;background:var(--kit-primary, #6366F1);color:#FFFFFF;border:none;border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-semibold, 600);cursor:pointer;font-family:var(--kit-font, Inter, system-ui, sans-serif)">Save Address</button>
+  </form>
+</div>

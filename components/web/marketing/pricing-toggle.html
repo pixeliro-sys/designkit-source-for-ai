@@ -1,0 +1,85 @@
+<!--
+  @name: Pricing Table — Toggle
+  @kit: web
+  @width: 1200
+  @height: 550
+  @tags: pricing, toggle, monthly, yearly
+-->
+<div data-component="Pricing Table — Toggle" style="width:100%;box-sizing:border-box;padding:64px 40px;background:var(--kit-bg,#FFFFFF);font-family:var(--kit-font,Inter,system-ui,sans-serif);">
+  <!-- Header -->
+  <div style="text-align:center;margin-bottom:32px;">
+    <h2 style="margin:0 0 12px 0;font-size:var(--kit-text-2xl,24px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);letter-spacing:-0.02em;">Choose the right plan for you</h2>
+    <p style="margin:0;font-size:var(--kit-text-md,16px);color:var(--kit-text-2,#475569);">Start free, scale as you grow. Cancel anytime.</p>
+  </div>
+
+  <!-- Toggle -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:48px;">
+    <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-medium,500);color:var(--kit-text-2,#475569);">Monthly</span>
+    <div style="width:48px;height:26px;border-radius:13px;background:var(--kit-primary,#6366F1);padding:3px;box-sizing:border-box;cursor:pointer;">
+      <div style="width:20px;height:20px;border-radius:50%;background:var(--kit-primary-fg,#FFFFFF);margin-left:22px;"></div>
+    </div>
+    <span style="font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Yearly</span>
+    <span style="padding:4px 10px;border-radius:9999px;background:var(--kit-success,#22C55E);color:#FFFFFF;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);">Save 20%</span>
+  </div>
+
+  <!-- Pricing Cards -->
+  <div style="display:flex;gap:24px;align-items:stretch;">
+    <!-- Starter -->
+    <div style="flex:1;padding:32px;border-radius:var(--kit-radius-md,12px);border:1px solid var(--kit-border,#E2E8F0);background:var(--kit-bg,#FFFFFF);display:flex;flex-direction:column;">
+      <h3 style="margin:0 0 4px 0;font-size:var(--kit-text-lg,18px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Starter</h3>
+      <p style="margin:0 0 20px 0;font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Perfect for getting started</p>
+      <div style="margin-bottom:4px;">
+        <span style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$7</span>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">/month</span>
+      </div>
+      <p style="margin:0 0 20px 0;font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Billed annually ($84/year)</p>
+      <ul style="margin:0 0 24px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;flex:1;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 5 projects</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>5 GB storage</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Basic analytics</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Community support</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>API access</li>
+      </ul>
+      <a href="#" style="display:block;text-align:center;padding:12px 24px;border-radius:var(--kit-radius,8px);border:1px solid var(--kit-border,#E2E8F0);background:var(--kit-bg,#FFFFFF);color:var(--kit-text,#0F172A);font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);text-decoration:none;">Start Free Trial</a>
+    </div>
+
+    <!-- Professional (Popular) -->
+    <div style="flex:1;padding:32px;border-radius:var(--kit-radius-md,12px);border:2px solid var(--kit-primary,#6366F1);background:var(--kit-bg,#FFFFFF);display:flex;flex-direction:column;position:relative;">
+      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 16px;background:var(--kit-primary,#6366F1);color:var(--kit-primary-fg,#FFFFFF);border-radius:9999px;font-size:var(--kit-text-xs,12px);font-weight:var(--kit-font-semibold,600);white-space:nowrap;">Most Popular</div>
+      <h3 style="margin:0 0 4px 0;font-size:var(--kit-text-lg,18px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Professional</h3>
+      <p style="margin:0 0 20px 0;font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">Best for growing teams</p>
+      <div style="margin-bottom:4px;">
+        <span style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$23</span>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">/month</span>
+      </div>
+      <p style="margin:0 0 20px 0;font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Billed annually ($276/year)</p>
+      <ul style="margin:0 0 24px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;flex:1;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited projects</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>100 GB storage</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Advanced analytics</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Priority email &amp; chat support</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom integrations</li>
+      </ul>
+      <a href="#" style="display:block;text-align:center;padding:12px 24px;border-radius:var(--kit-radius,8px);border:none;background:var(--kit-primary,#6366F1);color:var(--kit-primary-fg,#FFFFFF);font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);text-decoration:none;">Start Free Trial</a>
+    </div>
+
+    <!-- Enterprise -->
+    <div style="flex:1;padding:32px;border-radius:var(--kit-radius-md,12px);border:1px solid var(--kit-border,#E2E8F0);background:var(--kit-bg,#FFFFFF);display:flex;flex-direction:column;">
+      <h3 style="margin:0 0 4px 0;font-size:var(--kit-text-lg,18px);font-weight:var(--kit-font-semibold,600);color:var(--kit-text,#0F172A);">Enterprise</h3>
+      <p style="margin:0 0 20px 0;font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">For large-scale organizations</p>
+      <div style="margin-bottom:4px;">
+        <span style="font-size:var(--kit-text-3xl,30px);font-weight:var(--kit-font-bold,700);color:var(--kit-text,#0F172A);">$79</span>
+        <span style="font-size:var(--kit-text-sm,14px);color:var(--kit-text-2,#475569);">/month</span>
+      </div>
+      <p style="margin:0 0 20px 0;font-size:var(--kit-text-xs,12px);color:var(--kit-text-3,#94A3B8);">Billed annually ($948/year)</p>
+      <ul style="margin:0 0 24px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;flex:1;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Everything in Professional</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited storage</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SSO &amp; SAML authentication</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>24/7 phone support</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:var(--kit-text-sm,14px);color:var(--kit-text,#0F172A);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success,#22C55E)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom SLA &amp; onboarding</li>
+      </ul>
+      <a href="#" style="display:block;text-align:center;padding:12px 24px;border-radius:var(--kit-radius,8px);border:1px solid var(--kit-border,#E2E8F0);background:var(--kit-bg,#FFFFFF);color:var(--kit-text,#0F172A);font-size:var(--kit-text-sm,14px);font-weight:var(--kit-font-semibold,600);text-decoration:none;">Contact Sales</a>
+    </div>
+  </div>
+</div>

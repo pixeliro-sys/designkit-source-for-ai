@@ -1,0 +1,57 @@
+<!--
+  @name: Form — Search Filters
+  @kit: web
+  @width: 280
+  @height: 420
+  @tags: form, filter, search, sidebar
+-->
+<div data-component="Form — Search Filters" style="width:100%;background:var(--kit-bg, #FFFFFF);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-md, 12px);padding:var(--kit-space-6, 24px);box-sizing:border-box;font-family:var(--kit-font, Inter, system-ui, sans-serif)">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--kit-space-5, 20px)">
+    <div style="font-size:var(--kit-text-lg, 18px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A)">Filters</div>
+    <a href="#" style="font-size:var(--kit-text-sm, 14px);color:var(--kit-primary, #6366F1);text-decoration:none;font-weight:var(--kit-font-medium, 500)">Reset</a>
+  </div>
+  <form style="display:flex;flex-direction:column;gap:var(--kit-space-5, 20px)">
+    <div>
+      <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:var(--kit-space-3, 12px)">Category</div>
+      <div style="display:flex;flex-direction:column;gap:var(--kit-space-2, 8px)">
+        <label style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);cursor:pointer">
+          <input type="checkbox" checked style="width:16px;height:16px;accent-color:var(--kit-primary, #6366F1)" />Design
+        </label>
+        <label style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);cursor:pointer">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--kit-primary, #6366F1)" />Development
+        </label>
+        <label style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);cursor:pointer">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--kit-primary, #6366F1)" />Marketing
+        </label>
+      </div>
+    </div>
+    <div style="height:1px;background:var(--kit-border, #E2E8F0)"></div>
+    <div>
+      <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:var(--kit-space-3, 12px)">Price Range</div>
+      <div style="display:flex;align-items:center;gap:var(--kit-space-2, 8px)">
+        <input type="text" placeholder="Min" style="flex:1;height:36px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-sm, 4px);padding:0 10px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box;text-align:center" />
+        <span style="font-size:var(--kit-text-sm, 14px);color:var(--kit-text-3, #94A3B8)">to</span>
+        <input type="text" placeholder="Max" style="flex:1;height:36px;border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius-sm, 4px);padding:0 10px;font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);background:var(--kit-bg, #FFFFFF);outline:none;font-family:var(--kit-font, Inter, system-ui, sans-serif);box-sizing:border-box;text-align:center" />
+      </div>
+    </div>
+    <div style="height:1px;background:var(--kit-border, #E2E8F0)"></div>
+    <div>
+      <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:var(--kit-space-3, 12px)">Rating</div>
+      <div style="display:flex;flex-direction:column;gap:var(--kit-space-2, 8px)">
+        <label style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);cursor:pointer">
+          <input type="checkbox" checked style="width:16px;height:16px;accent-color:var(--kit-primary, #6366F1)" />
+          <span style="color:var(--kit-warning, #F59E0B)">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span style="color:var(--kit-text-2, #475569)">5</span>
+        </label>
+        <label style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);cursor:pointer">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--kit-primary, #6366F1)" />
+          <span style="color:var(--kit-warning, #F59E0B)">&#9733;&#9733;&#9733;&#9733;</span><span style="color:var(--kit-text-3, #94A3B8)">&#9733;</span> <span style="color:var(--kit-text-2, #475569)">4+</span>
+        </label>
+        <label style="display:flex;align-items:center;gap:var(--kit-space-2, 8px);font-size:var(--kit-text-sm, 14px);color:var(--kit-text, #0F172A);cursor:pointer">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--kit-primary, #6366F1)" />
+          <span style="color:var(--kit-warning, #F59E0B)">&#9733;&#9733;&#9733;</span><span style="color:var(--kit-text-3, #94A3B8)">&#9733;&#9733;</span> <span style="color:var(--kit-text-2, #475569)">3+</span>
+        </label>
+      </div>
+    </div>
+    <button type="submit" style="height:40px;background:var(--kit-primary, #6366F1);color:#FFFFFF;border:none;border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);cursor:pointer;font-family:var(--kit-font, Inter, system-ui, sans-serif)">Apply Filters</button>
+  </form>
+</div>

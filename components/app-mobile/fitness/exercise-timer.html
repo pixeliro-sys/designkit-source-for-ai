@@ -1,0 +1,30 @@
+<!--
+  @name: Exercise Timer
+  @kit: app-mobile
+  @width: 360
+  @height: 220
+  @tags: exercise, timer, countdown, fitness
+-->
+<div data-component="Exercise Timer" style="width:100%;max-width:360px;box-sizing:border-box;padding:16px;font-family:var(--kit-font, Inter, system-ui, sans-serif);background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius-md, 12px);display:flex;flex-direction:column;align-items:center">
+  <div style="position:relative;width:120px;height:120px;margin-bottom:16px">
+    <svg width="120" height="120" viewBox="0 0 120 120" style="transform:rotate(-90deg)">
+      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--kit-surface-2, #F1F5F9)" stroke-width="8"/>
+      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="81.68"/>
+    </svg>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <span style="font-size:var(--kit-text-3xl, 30px);font-weight:var(--kit-font-bold, 700);color:var(--kit-text, #0F172A);line-height:1">00:45</span>
+    </div>
+  </div>
+  <div style="font-size:var(--kit-text-md, 16px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A);margin-bottom:4px">Burpees</div>
+  <div style="font-size:var(--kit-text-sm, 14px);color:var(--kit-text-3, #94A3B8);margin-bottom:16px">Set 3 of 4</div>
+  <div style="display:flex;gap:12px;width:100%">
+    <button style="flex:1;padding:12px 0;background:var(--kit-primary, #6366F1);color:#FFFFFF;border:none;border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);font-family:var(--kit-font, Inter, system-ui, sans-serif);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" stroke="none"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      Pause
+    </button>
+    <button style="flex:1;padding:12px 0;background:var(--kit-bg, #FFFFFF);color:var(--kit-text-2, #475569);border:1px solid var(--kit-border, #E2E8F0);border-radius:var(--kit-radius, 8px);font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);font-family:var(--kit-font, Inter, system-ui, sans-serif);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+      Skip
+    </button>
+  </div>
+</div>

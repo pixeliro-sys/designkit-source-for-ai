@@ -1,0 +1,26 @@
+<!--
+  @name: Line Chart — with Area Fill
+  @category: charts
+  @kit: app-mobile
+  @width: 360
+  @height: 240
+  @tags: chart, line, area, trend, data, visualization
+-->
+<div data-component="Line Chart — with Area Fill" style="width:100%;height:240px;background:var(--kit-surface, #F8FAFC);border-radius:var(--kit-radius-md, 12px);padding:16px;box-sizing:border-box;font-family:var(--kit-font, system-ui, -apple-system, sans-serif)">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <div style="font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A)">Revenue Trend</div>
+    <div style="font-size:var(--kit-text-xs, 12px);color:var(--kit-success, #22C55E)">+12.5%</div>
+  </div>
+  <svg width="100%" height="160" viewBox="0 0 328 160" preserveAspectRatio="none" style="display:block">
+    <defs>
+      <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" style="stop-color:var(--kit-primary, #6366F1);stop-opacity:0.3"/>
+        <stop offset="100%" style="stop-color:var(--kit-primary, #6366F1);stop-opacity:0.02"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,120 L55,100 L110,60 L165,80 L220,30 L275,45 L328,20 L328,160 L0,160 Z" fill="url(#areaGrad)"/>
+    <polyline points="0,120 55,100 110,60 165,80 220,30 275,45 328,20" fill="none" stroke="var(--kit-primary, #6366F1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="220" cy="30" r="4" fill="var(--kit-primary, #6366F1)"/>
+    <circle cx="220" cy="30" r="8" fill="var(--kit-primary, #6366F1)" opacity="0.2"/>
+  </svg>
+</div>

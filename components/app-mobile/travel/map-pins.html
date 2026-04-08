@@ -1,0 +1,42 @@
+<!--
+  @name: Map with Pins
+  @kit: app-mobile
+  @width: 360
+  @height: 250
+  @tags: map, pins, location, travel
+-->
+<div data-component="Map with Pins" style="width:100%;max-width:360px;box-sizing:border-box;font-family:var(--kit-font, Inter, system-ui, sans-serif);background:var(--kit-surface-2, #F1F5F9);border-radius:var(--kit-radius-md, 12px);overflow:hidden;position:relative;height:250px">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg, var(--kit-surface, #F8FAFC) 0%, var(--kit-surface-2, #F1F5F9) 50%, var(--kit-border, #E2E8F0) 100%)"></div>
+  <!-- Pin 1 -->
+  <div style="position:absolute;top:55px;left:80px;display:flex;flex-direction:column;align-items:center">
+    <div style="width:28px;height:28px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(99,102,241,0.4)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div style="width:2px;height:8px;background:var(--kit-primary, #6366F1)"></div>
+  </div>
+  <!-- Pin 2 with popup -->
+  <div style="position:absolute;top:80px;left:180px;display:flex;flex-direction:column;align-items:center">
+    <div style="background:var(--kit-bg, #FFFFFF);border-radius:var(--kit-radius, 8px);padding:8px 12px;box-shadow:0 4px 12px rgba(0,0,0,0.12);margin-bottom:6px;white-space:nowrap">
+      <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-semibold, 600);color:var(--kit-text, #0F172A)">Grand Palace Hotel</div>
+      <div style="font-size:var(--kit-text-xs, 12px);font-weight:var(--kit-font-bold, 700);color:var(--kit-primary, #6366F1);margin-top:2px">$189/night</div>
+    </div>
+    <div style="width:28px;height:28px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(99,102,241,0.4)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div style="width:2px;height:8px;background:var(--kit-primary, #6366F1)"></div>
+  </div>
+  <!-- Pin 3 -->
+  <div style="position:absolute;top:120px;left:290px;display:flex;flex-direction:column;align-items:center">
+    <div style="width:28px;height:28px;border-radius:var(--kit-radius-full, 9999px);background:var(--kit-primary, #6366F1);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(99,102,241,0.4)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div style="width:2px;height:8px;background:var(--kit-primary, #6366F1)"></div>
+  </div>
+  <!-- Bottom button -->
+  <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%)">
+    <button style="display:flex;align-items:center;gap:6px;padding:10px 24px;background:var(--kit-bg, #FFFFFF);color:var(--kit-text, #0F172A);border:none;border-radius:var(--kit-radius-full, 9999px);font-size:var(--kit-text-sm, 14px);font-weight:var(--kit-font-semibold, 600);font-family:var(--kit-font, Inter, system-ui, sans-serif);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.12)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      View List
+    </button>
+  </div>
+</div>
