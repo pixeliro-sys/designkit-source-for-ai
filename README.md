@@ -308,74 +308,57 @@ Shared across both kits.
 
 ---
 
-## Full Design Previews (33)
+## Full Design Previews
 
-Pre-built complete designs. Each includes multiple pages + tokenkit.json.
+Pre-built complete designs with multiple pages, ready to open in browser.
 
-### Mobile (17)
+### Mobile — Pixeliro App (12 screens)
 
-| Design | Pages | Description |
-|--------|-------|-------------|
-| `finance` | 20 | Banking: dashboard, transactions, cards, budget, send money |
-| `fitness` | 15 | Workout tracker, plans, progress, timer |
-| `food` | 14 | Food delivery: restaurants, menu, cart, tracking |
-| `ecommerce` | 18 | Shopping: catalog, product detail, cart, checkout |
-| `social` | 16 | Social network: feed, stories, profile, messages |
-| `chat` | 12 | Messaging: inbox, conversation, calls, contacts |
-| `healthcare` | 15 | Health: appointments, vitals, records, doctors |
-| `education` | 14 | Courses: browse, lesson, quiz, progress |
-| `music` | 12 | Player, playlists, library, artist |
-| `news` | 10 | Feed, categories, article, bookmarks |
-| `realestate` | 14 | Listings, map view, property detail, saved |
-| `travel` | 15 | Flights, hotels, itinerary, booking |
-| `weather` | 8 | Today, forecast, radar, cities |
-| `todo` | 10 | Tasks, projects, calendar, focus |
-| `dating` | 12 | Swipe, match, chat, profile |
+> A design platform app: users type slash commands to generate palettes, brand systems, and token sets.
+
+| # | Screen | Description |
+|---|--------|-------------|
+| 1 | Splash | Brand splash with logo + tagline |
+| 2 | Onboarding | 3-step feature intro with illustrations |
+| 3 | Login | Google OAuth + email/password |
+| 4 | Chat (Home) | Main screen — chat input + command results |
+| 5 | Command Picker | Slash command grid with categories |
+| 6 | Color Palette Result | Generated palette with swatches + actions |
+| 7 | Brand System Result | Full brand system with roles + CSS export |
+| 8 | Token Preview | Live preview with component thumbnails |
+| 9 | My Workspace | Saved palettes, tokens, designs list |
+| 10 | Design Editor | Simplified canvas with layers |
+| 11 | Settings | Account, plan, theme, security |
+| 12 | Upgrade Pro | In-app purchase screen |
+
+📁 [`previews/full-designs/mobile/pixeliro/`](previews/full-designs/mobile/pixeliro/)
 
 ![Mobile Design Previews](images/mobile-src-1.png)
 
-### Web (16)
+### Web — SaaS Landing (14 pages)
 
-| Design | Pages | Description |
-|--------|-------|-------------|
-| `saas-landing` | 8 | Landing: hero, features, pricing, testimonials, blog, auth |
-| `dashboard` | 10 | Analytics dashboard: overview, charts, tables, reports |
-| `analytics` | 8 | Data platform: KPIs, funnels, cohorts, exports |
-| `crm` | 10 | CRM: pipeline, contacts, deals, activities |
-| `ecommerce-store` | 12 | Store: catalog, product, cart, checkout, orders |
-| `blog` | 8 | Blog: home, article, category, author, search |
-| `auth` | 6 | Auth flows: login, signup, forgot, verify, onboarding |
-| `agency` | 8 | Agency site: home, services, portfolio, about, contact |
-| `portfolio` | 6 | Portfolio: home, projects, case study, about |
-| `courses` | 10 | E-learning: browse, course, lesson, quiz, certificate |
-| `project-mgmt` | 8 | Project tool: board, list, gantt, team, settings |
-| `docs` | 6 | Documentation: home, guide, api-ref, changelog |
-| `job-board` | 8 | Jobs: browse, detail, apply, company, profile |
-| `events` | 8 | Events: browse, detail, tickets, schedule |
-| `restaurant` | 6 | Restaurant: menu, reservation, about, catering |
+> Complete marketing site for a SaaS product — all standard pages included.
+
+| Page | File | Description |
+|------|------|-------------|
+| Home | home.html | Hero, features, social proof, CTA |
+| Features | features.html | Feature deep-dive with visuals |
+| Pricing | pricing.html | Plans, comparison, FAQ |
+| Blog | blog.html | Post listing with categories |
+| Blog Post | blog-post.html | Article layout with sidebar |
+| About | about.html | Team, mission, values |
+| Contact | contact.html | Contact form + map |
+| Login | login.html | Auth with OAuth options |
+| Signup | signup.html | Registration flow |
+| Team | team.html | Team members grid |
+| FAQ | Faq.html | Accordion FAQ |
+| Privacy | privacy.html | Privacy policy |
+| Terms | terms.html | Terms of service |
+| 404 | 404.html | Error page |
+
+📁 [`previews/full-designs/web/saas-landing/`](previews/full-designs/web/saas-landing/)
 
 ![SaaS Landing Preview](images/SaaS-src-1.png)
-
-### Full design structure
-
-```
-previews/full-designs/mobile/finance/
-├── tokenkit.json       ← Design tokens (colors, typography, spacing, radii, shadows)
-├── css/
-│   └── tokens.css      ← Generated CSS vars (:root { --kit-primary: ... })
-├── index.html          ← Gallery of all pages
-├── pages/              ← Individual screen HTML files
-│   ├── dashboard.html
-│   ├── transactions.html
-│   └── ...
-├── components/         ← Design-specific components
-├── layout/             ← AppShell.html
-├── ui/                 ← UI primitives (Button, Card, Input...)
-├── common/             ← Shared: logo, icons, typography, colors
-├── assets/             ← Images, fonts (README with asset credits)
-└── specs/
-    └── README.md       ← Design spec: screens, platform, token reference
-```
 
 ---
 
@@ -388,7 +371,7 @@ Make sure `var(--kit-*)` tokens are defined (copy from any `css/tokens.css`).
 
 ### 2. Browse full designs
 
-Open `previews/full-designs/mobile/finance/index.html` in a browser — it shows all pages in a gallery.
+Open `previews/full-designs/mobile/pixeliro/index.html` or `previews/full-designs/web/saas-landing/index.html` in a browser — it shows all pages in a gallery.
 Open individual pages to see the full design at device size.
 
 ### 3. Use with AI (recommended)
