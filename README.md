@@ -6,6 +6,67 @@
 
 ---
 
+## Why DesignKit?
+
+### Design-first, then build
+
+The most common bottleneck in app development isn't coding — it's not knowing what to build. DesignKit solves this by letting you **design first in plain HTML**, then convert to any stack.
+
+```
+Idea → HTML prototype (minutes) → Ship to React / Vue / SwiftUI / Flutter / ...
+```
+
+No Figma license. No design handoff. No waiting. Just open an HTML file, see the UI, and start building.
+
+---
+
+### Useful in design
+
+- **Instant visual prototypes** — 502 components + 33 full-page designs ready to open in any browser. No build step, no setup.
+- **Token-driven theming** — change one CSS variable (`--kit-primary`) and the entire design recolors. Perfect for testing brand colors, dark mode, or client themes in seconds.
+- **AI-ready structure** — feed components to Claude, GPT-4, or Gemini. The AI understands the token system and generates pixel-perfect screens that match your design language.
+- **Mobile + Web in one kit** — 204 mobile components (iOS/Android) and 200 web components share the same token system, so mobile and web feel consistent by default.
+
+---
+
+### Useful in coding
+
+- **Copy-paste HTML → any framework** — each component is a self-contained HTML snippet. Paste it into your project as-is, or ask an AI to convert it:
+
+  ```
+  "Convert this HTML component to a React component using Tailwind CSS"
+  "Turn this into a Vue 3 <script setup> SFC"
+  "Convert to SwiftUI View"
+  "Rewrite as a Flutter Widget"
+  ```
+
+- **Reference UI, not guesswork** — instead of describing UI to an AI ("make a pricing card with a highlighted tier"), paste the HTML and say "implement this". The output is 10× more accurate.
+- **Design tokens as a contract** — `--kit-primary`, `--kit-radius`, `--kit-shadow` work as a shared language between design and code. Map them to your Tailwind config, CSS-in-JS theme, or native style tokens once, and everything stays in sync.
+- **Full-page designs as scaffolding** — open `previews/full-designs/web/dashboard/` and you have a complete SaaS dashboard with 10 pages. Use it as a starter, a reference, or hand it to an AI to scaffold your real app.
+
+---
+
+### Workflow examples
+
+**Solo developer prototyping a SaaS app**
+1. Browse `previews/full-designs/web/saas-landing/` — open `index.html` in browser
+2. Pick the pages you need, swap colors via CSS tokens
+3. Ask Claude: *"Convert this HTML page to Next.js + Tailwind, keep the same layout"*
+4. Ship
+
+**Designer handing off to a dev team**
+1. Customize tokens in `css/tokens.css` to match the brand
+2. Compose pages from components in `components/web/`
+3. Send the HTML files — devs have pixel-perfect reference + working markup
+
+**AI agent generating app screens**
+1. Point the agent at [AI-AGENT.md](AI-AGENT.md)
+2. Agent reads the token system and component library
+3. Agent generates consistent, on-brand single-file HTML screens
+4. Convert each screen to the target framework
+
+---
+
 ## About Pixeliro
 
 **[Pixeliro](https://pixeliro.com)** is an AI-powered design tool — create UI screens, social posts, marketing materials, and full app designs without design skills.
@@ -36,6 +97,12 @@ DesignKit is the component library that powers Pixeliro's editor and AI generati
 | Color Converter | [pixeliro.com/color-converter](https://pixeliro.com/color-converter) |
 | Brand Color Palette | [pixeliro.com/brand-color-palette](https://pixeliro.com/brand-color-palette) |
 | Brand Palettes | [pixeliro.com/brand-palettes](https://pixeliro.com/brand-palettes) |
+
+---
+
+![DesignKit Components](images/kit-src-1.png)
+
+![DesignKit Components](images/kit-src-2.png)
 
 ---
 
@@ -192,6 +259,8 @@ Platform: iOS + Android unified. Size reference: 390×844 (iPhone 14 Pro).
 
 **Full list:** [components/componentmap-app-mobile.md](components/componentmap-app-mobile.md)
 
+![Mobile Components Preview](images/kit-src-4.png)
+
 ---
 
 ## Components — Web (200)
@@ -221,6 +290,8 @@ Platform: Desktop/Web. Size reference: 1440px wide, responsive.
 | `account` | 3 | profile, subscription, payment-method |
 
 **Full list:** [components/componentmap-web.md](components/componentmap-web.md)
+
+![Web Components Preview](images/kit-src-3.png)
 
 ---
 
@@ -261,6 +332,8 @@ Pre-built complete designs. Each includes multiple pages + tokenkit.json.
 | `todo` | 10 | Tasks, projects, calendar, focus |
 | `dating` | 12 | Swipe, match, chat, profile |
 
+![Mobile Design Previews](images/mobile-src-1.png)
+
 ### Web (16)
 
 | Design | Pages | Description |
@@ -280,6 +353,8 @@ Pre-built complete designs. Each includes multiple pages + tokenkit.json.
 | `job-board` | 8 | Jobs: browse, detail, apply, company, profile |
 | `events` | 8 | Events: browse, detail, tickets, schedule |
 | `restaurant` | 6 | Restaurant: menu, reservation, about, catering |
+
+![SaaS Landing Preview](images/SaaS-src-1.png)
 
 ### Full design structure
 
