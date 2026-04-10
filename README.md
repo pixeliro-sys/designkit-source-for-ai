@@ -8,6 +8,29 @@
 
 ---
 
+## CLI
+
+```bash
+npm install -g designkit-ai
+```
+
+| Command | Description |
+|---------|-------------|
+| `designkit list` | Browse all 502 components |
+| `designkit search <query>` | Search by name or tag |
+| `designkit add <id>` | Copy a component to your project |
+| `designkit init` | Add design tokens (css / js / ts / json) |
+| `designkit design "<prompt>"` | Generate UI with AI (Claude / Gemini / GPT-4o) |
+| `designkit convert <file> --to <framework>` | Convert HTML to any framework with AI |
+| `designkit autogen "<prompt>"` | Generate a full multi-screen design project with gallery |
+| `designkit imagine "<prompt>"` | Generate images with Gemini Imagen 3 or DALL-E 3 |
+
+**→ Full CLI reference: [CLI.md](CLI.md)**
+
+![AutoGen — Personal Finance App](images/app-fin.png)
+
+---
+
 ## Why DesignKit?
 
 ### Design-first, then build
@@ -385,27 +408,6 @@ then build this as a React Native app.
 📁 [`previews/full-designs/web/saas-landing/`](previews/full-designs/web/saas-landing/)
 
 ![SaaS Landing Preview](images/SaaS-src-1.png)
-
----
-
-## CLI
-
-```bash
-npm install -g designkit-ai
-```
-
-| Command | Description |
-|---------|-------------|
-| `designkit list` | Browse all 502 components |
-| `designkit search <query>` | Search by name or tag |
-| `designkit add <id>` | Copy a component to your project |
-| `designkit init` | Add design tokens (css / js / ts / json) |
-| `designkit design "<prompt>"` | Generate UI with AI (Claude / Gemini / GPT-4o) |
-| `designkit convert <file> --to <framework>` | Convert HTML to any framework with AI |
-| `designkit autogen "<prompt>"` | Generate a full multi-screen design project with gallery |
-| `designkit imagine "<prompt>"` | Generate images with Gemini Imagen 3 or DALL-E 3 |
-
-**→ Full CLI reference: [CLI.md](CLI.md)**
 
 ---
 
