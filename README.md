@@ -2,7 +2,7 @@
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/pixeliro-sys/designkit-source-for-ai)
 
-> **502 ready-to-use HTML components** + **33 full-page design previews** for Web and Mobile.
+> **502 ready-to-use HTML components** + **2 full-page design previews** for Web and Mobile.
 > Token-based design system. Works with any AI agent to generate beautiful single-file HTML designs.
 > Built by **[Pixeliro](https://pixeliro.com)** — AI-powered design tool for everyone.
 
@@ -24,7 +24,7 @@ No Figma license. No design handoff. No waiting. Just open an HTML file, see the
 
 ### Useful in design
 
-- **Instant visual prototypes** — 502 components + 33 full-page designs ready to open in any browser. No build step, no setup.
+- **Instant visual prototypes** — 502 components + 2 full-page designs ready to open in any browser. No build step, no setup.
 - **Token-driven theming** — change one CSS variable (`--kit-primary`) and the entire design recolors. Perfect for testing brand colors, dark mode, or client themes in seconds.
 - **AI-ready structure** — feed components to Claude, GPT-4, or Gemini. The AI understands the token system and generates pixel-perfect screens that match your design language.
 - **Mobile + Web in one kit** — 204 mobile components (iOS/Android) and 200 web components share the same token system, so mobile and web feel consistent by default.
@@ -120,8 +120,8 @@ DesignKit/
 │
 └── previews/
     └── full-designs/
-        ├── mobile/     17 complete app designs (Finance, Fitness, Food, Social, …)
-        └── web/        16 complete web designs (SaaS, Analytics, Blog, CRM, …)
+        ├── mobile/     1 complete app design  (Pixeliro app — 12 screens)
+        └── web/        1 complete web design  (SaaS Landing — 14 pages)
 ```
 
 **Each component** is a self-contained HTML snippet using CSS custom properties (`--kit-*`).
