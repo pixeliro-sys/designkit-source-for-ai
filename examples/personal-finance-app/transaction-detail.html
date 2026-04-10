@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Transaction Detail — Personal Finance</title>
+  <style>
+    :root {
+      --kit-primary:        #818CF8;
+      --kit-primary-text:   #FFFFFF;
+      --kit-secondary:      #64748B;
+      --kit-accent:         #F59E0B;
+      --kit-bg:             #0B0F1A;
+      --kit-surface:        #131825;
+      --kit-surface-2:      #1C2235;
+      --kit-surface-3:      #2A3148;
+      --kit-text:           #F1F5F9;
+      --kit-text-2:         #94A3B8;
+      --kit-text-3:         #64748B;
+      --kit-text-inverse:   #0F172A;
+      --kit-border:         #1C2235;
+      --kit-border-strong:  #2A3148;
+      --kit-success:        #34D399;
+      --kit-success-bg:     #052E16;
+      --kit-error:          #FB7185;
+      --kit-error-bg:       #4C0519;
+      --kit-warning:        #FBBF24;
+      --kit-warning-bg:     #431407;
+      --kit-info:           #60A5FA;
+      --kit-info-bg:        #172554;
+
+      --kit-font:           Inter, system-ui, -apple-system, sans-serif;
+      --kit-text-xs:        11px;
+      --kit-text-sm:        13px;
+      --kit-text-md:        15px;
+      --kit-text-lg:        17px;
+      --kit-text-xl:        20px;
+      --kit-text-2xl:       24px;
+      --kit-text-3xl:       32px;
+      --kit-text-4xl:       48px;
+
+      --kit-radius-sm:      8px;
+      --kit-radius:         12px;
+      --kit-radius-lg:      16px;
+      --kit-radius-xl:      20px;
+      --kit-radius-full:    9999px;
+
+      --kit-shadow-sm:      0 1px 3px rgba(0,0,0,0.12);
+      --kit-shadow:         0 4px 12px rgba(0,0,0,0.16);
+      --kit-shadow-lg:      0 8px 32px rgba(0,0,0,0.20);
+      --kit-shadow-xl:      0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--kit-font);
+      background: var(--kit-bg);
+      color: var(--kit-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .screen {
+      width: 390px;
+      min-height: 844px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      position: relative;
+      background: var(--kit-bg);
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+
+    <!-- iOS Status Bar -->
+    <div data-component="iOS Status Bar" style="
+      height: 44px; padding: 14px 16px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--kit-bg);
+    ">
+      <span style="font-size: 15px; font-weight: 600; color: var(--kit-text); letter-spacing: 0.2px;">9:41</span>
+      <div style="display: flex; gap: 6px; align-items: center;">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="3" width="3" height="9" rx="1" fill="var(--kit-text)"/>
+          <rect x="4.5" y="2" width="3" height="10" rx="1" fill="var(--kit-text)"/>
+          <rect x="9" y="0" width="3" height="12" rx="1" fill="var(--kit-text)"/>
+          <rect x="13.5" y="0" width="3" height="12" rx="1" fill="var(--kit-text)" opacity="0.3"/>
+        </svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="var(--kit-text)"/>
+          <path d="M3.5 6.5A6.5 6.5 0 0 1 8 5a6.5 6.5 0 0 1 4.5 1.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1 3.5A10 10 0 0 1 8 1a10 10 0 0 1 7 2.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="var(--kit-text)" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="16" height="8" rx="2" fill="var(--kit-text)"/>
+          <path d="M23 4v4a2 2 0 0 0 0-4z" fill="var(--kit-text)" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <header data-component="Top Bar" style="
+      height: 56px; padding: 0 16px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--kit-bg);
+    ">
+      <button type="button" style="
+        width: 40px; height: 40px; border: none; background: var(--kit-surface);
+        border-radius: var(--kit-radius-sm); display: flex; align-items: center;
+        justify-content: center; cursor: pointer;
+      ">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"/>
+          <path d="M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <h1 style="font-size: var(--kit-text-lg); font-weight: 600; color: var(--kit-text);">Transaction Detail</h1>
+      <button type="button" style="
+        width: 40px; height: 40px; border: none; background: var(--kit-surface);
+        border-radius: var(--kit-radius-sm); display: flex; align-items: center;
+        justify-content: center; cursor: pointer;
+      ">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="5" r="1.5" fill="var(--kit-text)"/>
+          <circle cx="12" cy="12" r="1.5" fill="var(--kit-text)"/>
+          <circle cx="12" cy="19" r="1.5" fill="var(--kit-text)"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Scrollable Content -->
+    <main style="padding: 8px 20px 40px; overflow-y: auto;">
+
+      <!-- Large Amount Display -->
+      <div data-component="Large Amount Display" style="
+        text-align: center; padding: 28px 0 24px;
+      ">
+        <div style="
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 64px; height: 64px; border-radius: var(--kit-radius-full);
+          background: rgba(251, 113, 133, 0.12); margin-bottom: 16px;
+        ">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--kit-error)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14"/>
+            <path d="M19 12l-7 7-7-7"/>
+          </svg>
+        </div>
+        <div style="
+          font-size: 42px; font-weight: 700; color: var(--kit-error);
+          letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 12px;
+        ">−$84.50</div>
+        <div style="
+          display: inline-flex; align-items: center; gap: 6px;
+          background: var(--kit-success-bg); border: 1px solid rgba(52, 211, 153, 0.2);
+          border-radius: var(--kit-radius-full); padding: 5px 14px;
+        ">
+          <span style="
+            width: 7px; height: 7px; border-radius: var(--kit-radius-full);
+            background: var(--kit-success); display: inline-block;
+          "></span>
+          <span style="font-size: var(--kit-text-sm); font-weight: 500; color: var(--kit-success);">Completed</span>
+        </div>
+      </div>
+
+      <!-- Merchant Info Card -->
+      <div data-component="Merchant Info Card" style="
+        background: var(--kit-surface); border-radius: var(--kit-radius-lg);
+        padding: 20px; display: flex; align-items: center; gap: 16px;
+        border: 1px solid var(--kit-border); margin-bottom: 16px;
+      ">
+        <div style="
+          width: 52px; height: 52px; border-radius: var(--kit-radius);
+          background: linear-gradient(135deg, #F97316, #FB923C);
+          display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        ">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="font-size: var(--kit-text-lg); font-weight: 600; color: var(--kit-text); margin-bottom: 6px;">Starbucks Coffee</div>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span style="
+              display: inline-flex; align-items: center; gap: 4px;
+              background: rgba(249, 115, 22, 0.12); color: #FB923C;
+              border-radius: var(--kit-radius-full); padding: 3px 10px;
+              font-size: var(--kit-text-xs); font-weight: 600;
+            ">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+              Food & Dining
+            </span>
+            <span style="font-size: var(--kit-text-sm); color: var(--kit-text-3);">Dec 20, 2024 · 8:42 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Rows Section -->
+      <div data-component="Detail Rows Section" style="
+        background: var(--kit-surface); border-radius: var(--kit-radius-lg);
+        border: 1px solid var(--kit-border); margin-bottom: 16px; overflow: hidden;
+      ">
+        <!-- Category -->
+        <div style="
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 16px 20px; border-bottom: 1px solid var(--kit-border);
+        ">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 36px; height: 36px; border-radius: var(--kit-radius-sm);
+              background: var(--kit-surface-2); display: flex;
+              align-items: center; justify-content: center;
+            ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 7h16M4 7v10a2 2 0 002 2h12a2 2 0 002-2V7M9 12h6"/>
+              </svg>
+            </div>
+            <span style="font-size: var(--kit-text-md); color: var(--kit-text-2);">Category</span>
+          </div>
+          <span style="font-size: var(--kit-text-md); font-weight: 500; color: var(--kit-text);">Food & Dining</span>
+        </div>
+
+        <!-- Account -->
+        <div style="
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 16px 20px; border-bottom: 1px solid var(--kit-border);
+        ">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 36px; height: 36px; border-radius: var(--kit-radius-sm);
+              background: var(--kit-surface-2); display: flex;
+              align-items: center; justify-content: center;
+            ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <span style="font-size: var(--kit-text-md); color: var(--kit-text-2);">Account</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="
+              width: 28px; height: 18px; background: linear-gradient(135deg, #1A1F71, #2B3990);
+              border-radius: 3px; display: flex; align-items: center; justify-content: center;
+            ">
+              <span style="font-size: 7px; font-weight: 700; color: white; letter-spacing: 0.3px;">VISA</span>
+            </div>
+            <span style="font-size: var(--kit-text-md); font-weight: 500; color: var(--kit-text);">•••• 4582</span>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div style="
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 16px 20px; border-bottom: 1px solid var(--kit-border);
+        ">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 36px; height: 36px; border-radius: var(--kit-radius-sm);
+              background: var(--kit-surface-2); display: flex;
+              align-items: center; justify-content: center;
+            ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <span style="font-size: var(--kit-text-md); color: var(--kit-text-2);">Payment Method</span>
+          </div>
+          <span style="font-size: var(--kit-text-md); font-weight: 500; color: var(--kit-text);">Contactless</span>
+        </div>
+
+        <!-- Reference Number -->
+        <div style="
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 16px 20px;
+        ">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 36px; height: 36px; border-radius: var(--kit-radius-sm);
+              background: var(--kit-surface-2); display: flex;
+              align-items: center; justify-content: center;
+            ">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/>
+              </svg>
+            </div>
+            <span style="font-size: var(--kit-text-md); color: var(--kit-text-2);">Reference</span>
+          </div>
+          <span style="font-size: var(--kit-text-sm); font-weight: 500; color: var(--kit-text); font-family: 'SF Mono', 'Fira Code', monospace; letter-spacing: 0.5px;">TXN-2024122084</span>
+        </div>
+      </div>
+
+      <!-- Location Row -->
+      <div data-component="Location Row" style="
+        background: var(--kit-surface); border-radius: var(--kit-radius-lg);
+        border: 1px solid var(--kit-border); padding: 16px 20px;
+        display: flex; align-items: center; gap: 14px; margin-bottom: 16px;
+      ">
+        <div style="
+          width: 40px; height: 40px; border-radius: var(--kit-radius-sm);
+          background: var(--kit-info-bg); display: flex;
+          align-items: center; justify-content: center; flex-shrink: 0;
+        ">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="font-size: var(--kit-text-sm); color: var(--kit-text-3); margin-bottom: 2px;">Location</div>
+          <div style="font-size: var(--kit-text-md); color: var(--kit-text); font-weight: 500;">1423 Market Street, San Francisco, CA 94103</div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </div>
+
+      <!-- Notes Section -->
+      <div data-component="Notes Section" style="margin-bottom: 16px;">
+        <div style="
+          font-size: var(--kit-text-sm); font-weight: 600; color: var(--kit-text-2);
+          text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; padding-left: 4px;
+        ">Notes</div>
+        <div style="
+          background: var(--kit-surface); border-radius: var(--kit-radius-lg);
+          border: 1px solid var(--kit-border); padding: 16px 20px;
+        ">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px; flex-shrink: 0;">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <p style="
+              font-size: var(--kit-text-md); color: var(--kit-text); line-height: 1.5;
+              margin: 0;
+            ">Morning coffee and a blueberry muffin before the team standup meeting. Expensed for client breakfast.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Receipt Attachment -->
+      <div data-component="Receipt Attachment" style="margin-bottom: 28px;">
+        <div style="
+          font-size: var(--kit-text-sm); font-weight: 600; color: var(--kit-text-2);
+          text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; padding-left: 4px;
+        ">Receipt</div>
+        <div style="
+          background: var(--kit-surface); border-radius: var(--kit-radius-lg);
+          border: 1px solid var(--kit-border); padding: 16px; display: flex;
+          align-items: center; gap: 16px;
+        ">
+          <div style="
+            width: 64px; height: 80px; border-radius: var(--kit-radius-sm);
+            overflow: hidden; flex-shrink: 0; background: var(--kit-surface-2);
+            border: 1px solid var(--kit-border);
+          ">
+            <img src="https://placehold.jp/64x80.png" alt="Receipt thumbnail" style="
+              width: 100%; height: 100%; object-fit: cover; display: block;
+            "/>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: var(--kit-text-md); font-weight: 500; color: var(--kit-text); margin-bottom: 4px;">receipt_starbucks.jpg</div>
+            <div style="font-size: var(--kit-text-sm); color: var(--kit-text-3);">245 KB · Added Dec 20</div>
+          </div>
+          <button type="button" style="
+            display: flex; align-items: center; gap: 6px;
+            background: var(--kit-surface-2); border: 1px solid var(--kit-border-strong);
+            border-radius: var(--kit-radius-sm); padding: 8px 14px;
+            color: var(--kit-primary); font-size: var(--kit-text-sm);
+            font-weight: 500; cursor: pointer; white-space: nowrap;
+            font-family: var(--kit-font);
+          ">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            View
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons Row -->
+      <div data-component="Action Buttons Row" style="
+        display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;
+      ">
+        <button type="button" style="
+          width: 100%; height: 52px; display: flex; align-items: center;
+          justify-content: center; gap: 10px; background: var(--kit-surface-2);
+          border: 1px solid var(--kit-border-strong); border-radius: var(--kit-radius);
+          color: var(--kit-primary); font-size: var(--kit-text-md); font-weight: 600;
+          cursor: pointer; font-family: var(--kit-font);
+        ">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          Edit Transaction
+        </button>
+        <button type="button" style="
+          width: 100%; height: 48px; display: flex; align-items: center;
+          justify-content: center; gap: 8px; background: transparent;
+          border: none; border-radius: var(--kit-radius);
+          color: var(--kit-error); font-size: var(--kit-text-md); font-weight: 500;
+          cursor: pointer; font-family: var(--kit-font);
+        ">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            <line x1="10" y1="11" x2="10" y2="17"/>
+            <line x1="14" y1="11" x2="14" y2="17"/>
+          </svg>
+          Delete Transaction
+        </button>
+      </div>
+
+      <!-- Bottom safe area spacer -->
+      <div data-component="Bottom Safe Area" style="height: 34px;"></div>
+
+    </main>
+
+  </div>
+</body>
+</html>

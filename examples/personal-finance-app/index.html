@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Finance — Design Preview</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: #09090B;
+      color: #F1F5F9;
+      min-height: 100vh;
+      padding: 40px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 14px;
+      color: #64748B;
+    }
+    .meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 9999px;
+      font-size: 12px;
+      color: #94A3B8;
+    }
+    .color-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #818CF8;
+      display: inline-block;
+    }
+    .grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      border: 1px solid #1E293B;
+      overflow: hidden;
+      background: #111827;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      border-color: #334155;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .frame-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 390/844;
+      overflow: hidden;
+      background: #0F172A;
+    }
+    .frame-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 390px;
+      height: 844px;
+      border: none;
+      transform-origin: top left;
+    }
+    .frame-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
+    .card-label {
+      padding: 12px 16px;
+      border-top: 1px solid #1E293B;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #F1F5F9;
+    }
+    .card-file {
+      font-size: 11px;
+      color: #475569;
+      font-family: monospace;
+    }
+    footer {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #1E293B;
+      font-size: 12px;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Personal Finance</h1>
+    <p>Finance / Banking, dark professional with indigo accents — clean, trustworthy, data-rich</p>
+    <div class="meta">
+      <span class="badge"><span class="color-dot"></span> Primary: #818CF8</span>
+      <span class="badge">Platform: mobile</span>
+      <span class="badge">7 screens</span>
+      <span class="badge">Inter</span>
+    </div>
+  </header>
+  <div class="grid">
+    
+    <a class="card" href="home.html" target="_blank">
+      <div class="frame-wrap">
+        <iframe src="home.html" width="390" height="844" scrolling="no" loading="lazy" title="Home Dashboard"></iframe>
+        <div class="frame-overlay"></div>
+      </div>
+      <div class="card-label">
+        <span class="card-name">Home Dashboard</span>
+        <span class="card-file">home.html</span>
+      </div>
+    </a>
+
+    <a class="card" href="transactions.html" target="_blank">
+      <div class="frame-wrap">
+        <iframe src="transactions.html" width="390" height="844" scrolling="no" loading="lazy" title="Transactions"></iframe>
+        <div class="frame-overlay"></div>
+      </div>
+      <div class="card-label">
+        <span class="card-name">Transactions</span>
+        <span class="card-file">transactions.html</span>
+      </div>
+    </a>
+
+    <a class="card" href="transaction-detail.html" target="_blank">
+      <div class="frame-wrap">
+        <iframe src="transaction-detail.html" width="390" height="844" scrolling="no" loading="lazy" title="Transaction Detail"></iframe>
+        <div class="frame-overlay"></div>
+      </div>
+      <div class="card-label">
+        <span class="card-name">Transaction Detail</span>
+        <span class="card-file">transaction-detail.html</span>
+      </div>
+    </a>
+
+    <a class="card" href="budgets.html" target="_blank">
+      <div class="frame-wrap">
+        <iframe src="budgets.html" width="390" height="844" scrolling="no" loading="lazy" title="Budgets"></iframe>
+        <div class="frame-overlay"></div>
+      </div>
+      <div class="card-label">
+        <span class="card-name">Budgets</span>
+        <span class="card-file">budgets.html</span>
+      </div>
+    </a>
+
+    <a class="card" href="analytics.html" target="_blank">
+      <div class="frame-wrap">
+        <iframe src="analytics.html" width="390" height="844" scrolling="no" loading="lazy" title="Analytics"></iframe>
+        <div class="frame-overlay"></div>
+      </div>
+      <div class="card-label">
+        <span class="card-name">Analytics</span>
+        <span class="card-file">analytics.html</span>
+      </div>
+    </a>
+
+    <a class="card" href="accounts.html" target="_blank">
+      <div class="frame-wrap">
+        <iframe src="accounts.html" width="390" height="844" scrolling="no" loading="lazy" title="Accounts & Cards"></iframe>
+        <div class="frame-overlay"></div>
+      </div>
+      <div class="card-label">
+        <span class="card-name">Accounts & Cards</span>
+        <span class="card-file">accounts.html</span>
+      </div>
+    </a>
+
+    <a class="card" href="profile.html" target="_blank">
+      <div class="frame-wrap">
+        <iframe src="profile.html" width="390" height="844" scrolling="no" loading="lazy" title="Profile & Settings"></iframe>
+        <div class="frame-overlay"></div>
+      </div>
+      <div class="card-label">
+        <span class="card-name">Profile & Settings</span>
+        <span class="card-file">profile.html</span>
+      </div>
+    </a>
+  </div>
+  <footer>Generated by DesignKit AutoGen &middot; 4/10/2026</footer>
+  <script>
+    function scaleFrames() {
+      document.querySelectorAll('.frame-wrap').forEach(wrap => {
+        const iframe = wrap.querySelector('iframe')
+        const w = wrap.offsetWidth
+        if (iframe && w > 0) iframe.style.transform = 'scale(' + (w / 390) + ')'
+      })
+    }
+    window.addEventListener('resize', scaleFrames)
+    window.addEventListener('load', scaleFrames)
+    requestAnimationFrame(scaleFrames)
+  </script>
+</body>
+</html>

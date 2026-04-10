@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Analytics — Personal Finance</title>
+  <style>
+    :root {
+      --kit-primary: #818CF8;
+      --kit-primary-text: #FFFFFF;
+      --kit-secondary: #64748B;
+      --kit-accent: #F59E0B;
+      --kit-bg: #0B0F1A;
+      --kit-surface: #131825;
+      --kit-surface-2: #1C2235;
+      --kit-surface-3: #2A3148;
+      --kit-text: #F1F5F9;
+      --kit-text-2: #94A3B8;
+      --kit-text-3: #64748B;
+      --kit-text-inverse: #0F172A;
+      --kit-border: #1C2235;
+      --kit-border-strong: #2A3148;
+      --kit-success: #34D399;
+      --kit-success-bg: #052E16;
+      --kit-error: #FB7185;
+      --kit-error-bg: #4C0519;
+      --kit-warning: #FBBF24;
+      --kit-warning-bg: #431407;
+      --kit-info: #60A5FA;
+      --kit-info-bg: #172554;
+      --kit-font: Inter, system-ui, -apple-system, sans-serif;
+      --kit-text-xs: 11px;
+      --kit-text-sm: 13px;
+      --kit-text-md: 15px;
+      --kit-text-lg: 17px;
+      --kit-text-xl: 20px;
+      --kit-text-2xl: 24px;
+      --kit-text-3xl: 32px;
+      --kit-text-4xl: 48px;
+      --kit-space-1: 4px;
+      --kit-space-2: 8px;
+      --kit-space-3: 12px;
+      --kit-space-4: 16px;
+      --kit-space-5: 20px;
+      --kit-space-6: 24px;
+      --kit-space-8: 32px;
+      --kit-space-10: 40px;
+      --kit-space-12: 48px;
+      --kit-space-16: 80px;
+      --kit-radius-sm: 8px;
+      --kit-radius: 12px;
+      --kit-radius-lg: 16px;
+      --kit-radius-xl: 20px;
+      --kit-radius-full: 9999px;
+      --kit-shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --kit-shadow: 0 4px 12px rgba(0,0,0,0.16);
+      --kit-shadow-lg: 0 8px 32px rgba(0,0,0,0.20);
+      --kit-shadow-xl: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--kit-font);
+      background: var(--kit-bg);
+      color: var(--kit-text);
+      -webkit-font-smoothing: antialiased;
+    }
+    .screen {
+      width: 390px;
+      min-height: 844px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      position: relative;
+      background: var(--kit-bg);
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+
+    <!-- iOS Status Bar -->
+    <div data-component="iOS Status Bar" style="height:44px; padding:14px 16px 0; display:flex; justify-content:space-between; align-items:center; background:var(--kit-bg); flex-shrink:0;">
+      <span style="font-size:var(--kit-text-md); font-weight:600; color:var(--kit-text); letter-spacing:-0.2px;">9:41</span>
+      <div style="display:flex; gap:6px; align-items:center;">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="3" width="3" height="9" rx="1" fill="var(--kit-text)"/>
+          <rect x="4.5" y="2" width="3" height="10" rx="1" fill="var(--kit-text)"/>
+          <rect x="9" y="0" width="3" height="12" rx="1" fill="var(--kit-text)"/>
+          <rect x="13.5" y="0" width="3" height="12" rx="1" fill="var(--kit-text)" opacity="0.3"/>
+        </svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="var(--kit-text)"/>
+          <path d="M3.5 6.5A6.5 6.5 0 0 1 8 5a6.5 6.5 0 0 1 4.5 1.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1 3.5A10 10 0 0 1 8 1a10 10 0 0 1 7 2.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="var(--kit-text)" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="16" height="8" rx="2" fill="var(--kit-text)"/>
+          <path d="M23 4v4a2 2 0 0 0 0-4z" fill="var(--kit-text)" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <header data-component="Top Bar" style="height:56px; padding:0 20px; display:flex; align-items:center; justify-content:space-between; background:var(--kit-bg); flex-shrink:0;">
+      <h1 style="font-size:var(--kit-text-xl); font-weight:700; color:var(--kit-text); letter-spacing:-0.3px;">Analytics</h1>
+      <button type="button" style="width:40px; height:40px; border-radius:var(--kit-radius); background:var(--kit-surface); border:1px solid var(--kit-border); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Scrollable Content -->
+    <main style="flex:1; overflow-y:auto; padding-bottom:100px;">
+
+      <!-- Time Period Selector -->
+      <div data-component="Time Period Selector" style="padding:4px 20px 16px;">
+        <div style="display:flex; background:var(--kit-surface); border-radius:var(--kit-radius); padding:4px; gap:2px;">
+          <button type="button" style="flex:1; height:36px; border:none; border-radius:var(--kit-radius-sm); background:transparent; color:var(--kit-text-3); font-family:var(--kit-font); font-size:var(--kit-text-sm); font-weight:500; cursor:pointer;">Week</button>
+          <button type="button" style="flex:1; height:36px; border:none; border-radius:var(--kit-radius-sm); background:var(--kit-primary); color:var(--kit-primary-text); font-family:var(--kit-font); font-size:var(--kit-text-sm); font-weight:600; cursor:pointer; box-shadow:0 2px 8px rgba(129,140,248,0.3);">Month</button>
+          <button type="button" style="flex:1; height:36px; border:none; border-radius:var(--kit-radius-sm); background:transparent; color:var(--kit-text-3); font-family:var(--kit-font); font-size:var(--kit-text-sm); font-weight:500; cursor:pointer;">3 Months</button>
+          <button type="button" style="flex:1; height:36px; border:none; border-radius:var(--kit-radius-sm); background:transparent; color:var(--kit-text-3); font-family:var(--kit-font); font-size:var(--kit-text-sm); font-weight:500; cursor:pointer;">Year</button>
+        </div>
+      </div>
+
+      <!-- Spending Trend Chart -->
+      <div data-component="Spending Trend Chart" style="padding:0 20px 20px;">
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); padding:20px; border:1px solid var(--kit-border);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <div>
+              <h2 style="font-size:var(--kit-text-md); font-weight:600; color:var(--kit-text); margin-bottom:2px;">Spending Trend</h2>
+              <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">December 2024</span>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:var(--kit-text-lg); font-weight:700; color:var(--kit-text);">$2,180</div>
+              <div style="font-size:var(--kit-text-xs); color:var(--kit-error);">+8.2% vs Nov</div>
+            </div>
+          </div>
+          <!-- Chart Area -->
+          <div style="position:relative; height:180px; margin-bottom:8px;">
+            <!-- Y-axis labels -->
+            <div style="position:absolute; left:0; top:0; bottom:20px; width:36px; display:flex; flex-direction:column; justify-content:space-between;">
+              <span style="font-size:9px; color:var(--kit-text-3);">$200</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">$150</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">$100</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">$50</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">$0</span>
+            </div>
+            <!-- Grid lines -->
+            <div style="position:absolute; left:40px; right:0; top:0; bottom:20px;">
+              <div style="position:absolute; top:0; left:0; right:0; height:1px; background:var(--kit-border); opacity:0.5;"></div>
+              <div style="position:absolute; top:25%; left:0; right:0; height:1px; background:var(--kit-border); opacity:0.5;"></div>
+              <div style="position:absolute; top:50%; left:0; right:0; height:1px; background:var(--kit-border); opacity:0.5;"></div>
+              <div style="position:absolute; top:75%; left:0; right:0; height:1px; background:var(--kit-border); opacity:0.5;"></div>
+              <div style="position:absolute; top:100%; left:0; right:0; height:1px; background:var(--kit-border); opacity:0.5;"></div>
+              <!-- Average line (dashed) -->
+              <div style="position:absolute; top:52%; left:0; right:0; height:1px; border-top:1.5px dashed var(--kit-accent); opacity:0.6;"></div>
+              <span style="position:absolute; top:52%; right:0; transform:translateY(-120%); font-size:9px; color:var(--kit-accent); font-weight:500; background:var(--kit-surface); padding:0 4px;">Avg $87</span>
+              <!-- SVG Area Chart -->
+              <svg width="100%" height="100%" viewBox="0 0 280 140" preserveAspectRatio="none" style="position:absolute; left:0; top:0;">
+                <defs>
+                  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#818CF8" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#818CF8" stop-opacity="0.02"/>
+                  </linearGradient>
+                </defs>
+                <!-- Area fill -->
+                <path d="M0,105 L20,95 L40,82 L60,90 L80,70 L100,55 L120,62 L140,35 L160,25 L180,45 L200,55 L220,48 L240,60 L260,52 L280,58 L280,140 L0,140 Z" fill="url(#areaGrad)"/>
+                <!-- Line -->
+                <path d="M0,105 L20,95 L40,82 L60,90 L80,70 L100,55 L120,62 L140,35 L160,25 L180,45 L200,55 L220,48 L240,60 L260,52 L280,58" fill="none" stroke="#818CF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Peak dot -->
+                <circle cx="160" cy="25" r="5" fill="#818CF8" stroke="#0B0F1A" stroke-width="2.5"/>
+                <!-- Peak label bg -->
+                <rect x="140" y="4" width="40" height="16" rx="4" fill="#818CF8"/>
+                <text x="160" y="15" text-anchor="middle" font-size="9" font-weight="600" fill="#FFFFFF" font-family="Inter, sans-serif">$186</text>
+              </svg>
+            </div>
+            <!-- X-axis labels -->
+            <div style="position:absolute; left:40px; right:0; bottom:0; display:flex; justify-content:space-between;">
+              <span style="font-size:9px; color:var(--kit-text-3);">1</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">5</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">10</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">15</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">20</span>
+              <span style="font-size:9px; color:var(--kit-text-3); font-weight:600; color:var(--kit-primary);">25</span>
+              <span style="font-size:9px; color:var(--kit-text-3);">31</span>
+            </div>
+          </div>
+          <!-- Peak info -->
+          <div style="display:flex; align-items:center; gap:6px; margin-top:8px;">
+            <div style="width:6px; height:6px; border-radius:var(--kit-radius-full); background:var(--kit-primary);"></div>
+            <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">Peak spending: Dec 15 — $186 (Holiday shopping)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Income vs Expenses Comparison -->
+      <div data-component="Income vs Expenses" style="padding:0 20px 20px;">
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); padding:20px; border:1px solid var(--kit-border);">
+          <h2 style="font-size:var(--kit-text-md); font-weight:600; color:var(--kit-text); margin-bottom:16px;">Income vs Expenses</h2>
+          <!-- Income bar -->
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:8px; height:8px; border-radius:var(--kit-radius-full); background:var(--kit-success);"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text-2);">Income</span>
+              </div>
+              <span style="font-size:var(--kit-text-md); font-weight:700; color:var(--kit-success);">$5,240</span>
+            </div>
+            <div style="height:10px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:100%; background:linear-gradient(90deg, var(--kit-success), #6EE7B7); border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+          <!-- Expense bar -->
+          <div style="margin-bottom:16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:8px; height:8px; border-radius:var(--kit-radius-full); background:var(--kit-error);"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text-2);">Expenses</span>
+              </div>
+              <span style="font-size:var(--kit-text-md); font-weight:700; color:var(--kit-error);">$2,180</span>
+            </div>
+            <div style="height:10px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:41.6%; background:linear-gradient(90deg, var(--kit-error), #FDA4AF); border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+          <!-- Net savings -->
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:var(--kit-success-bg); border-radius:var(--kit-radius); border:1px solid rgba(52,211,153,0.15);">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+              <span style="font-size:var(--kit-text-sm); font-weight:500; color:var(--kit-success);">Net Savings</span>
+            </div>
+            <span style="font-size:var(--kit-text-lg); font-weight:700; color:var(--kit-success);">+$3,060</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Breakdown -->
+      <div data-component="Category Breakdown" style="padding:0 20px 20px;">
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); padding:20px; border:1px solid var(--kit-border);">
+          <h2 style="font-size:var(--kit-text-md); font-weight:600; color:var(--kit-text); margin-bottom:18px;">Category Breakdown</h2>
+
+          <!-- Category 1: Food & Dining -->
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:10px; height:10px; border-radius:3px; background:#F97316;"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text);">Food & Dining</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">19.3%</span>
+                <span style="font-size:var(--kit-text-sm); font-weight:600; color:var(--kit-text);">$420</span>
+              </div>
+            </div>
+            <div style="height:8px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:100%; background:#F97316; border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+
+          <!-- Category 2: Shopping -->
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:10px; height:10px; border-radius:3px; background:var(--kit-primary);"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text);">Shopping</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">17.0%</span>
+                <span style="font-size:var(--kit-text-sm); font-weight:600; color:var(--kit-text);">$370</span>
+              </div>
+            </div>
+            <div style="height:8px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:88%; background:var(--kit-primary); border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+
+          <!-- Category 3: Bills & Utilities -->
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:10px; height:10px; border-radius:3px; background:var(--kit-info);"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text);">Bills & Utilities</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">15.6%</span>
+                <span style="font-size:var(--kit-text-sm); font-weight:600; color:var(--kit-text);">$340</span>
+              </div>
+            </div>
+            <div style="height:8px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:81%; background:var(--kit-info); border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+
+          <!-- Category 4: Transportation -->
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:10px; height:10px; border-radius:3px; background:var(--kit-accent);"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text);">Transportation</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">8.3%</span>
+                <span style="font-size:var(--kit-text-sm); font-weight:600; color:var(--kit-text);">$180</span>
+              </div>
+            </div>
+            <div style="height:8px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:43%; background:var(--kit-accent); border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+
+          <!-- Category 5: Entertainment -->
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:10px; height:10px; border-radius:3px; background:#A78BFA;"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text);">Entertainment</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">3.9%</span>
+                <span style="font-size:var(--kit-text-sm); font-weight:600; color:var(--kit-text);">$85</span>
+              </div>
+            </div>
+            <div style="height:8px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:20%; background:#A78BFA; border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+
+          <!-- Category 6: Health & Fitness -->
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:10px; height:10px; border-radius:3px; background:var(--kit-success);"></div>
+                <span style="font-size:var(--kit-text-sm); color:var(--kit-text);">Health & Fitness</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:var(--kit-text-xs); color:var(--kit-text-3);">2.8%</span>
+                <span style="font-size:var(--kit-text-sm); font-weight:600; color:var(--kit-text);">$60</span>
+              </div>
+            </div>
+            <div style="height:8px; background:var(--kit-surface-2); border-radius:var(--kit-radius-full); overflow:hidden;">
+              <div style="height:100%; width:14.3%; background:var(--kit-success); border-radius:var(--kit-radius-full);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Merchants Section -->
+      <div data-component="Top Merchants" style="padding:0 20px 20px;">
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); padding:20px; border:1px solid var(--kit-border);">
+          <h2 style="font-size:var(--kit-text-md); font-weight:600; color:var(--kit-text); margin-bottom:16px;">Top Merchants</h2>
+
+          <!-- Merchant 1 -->
+          <div style="display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--kit-border);">
+            <div style="width:24px; text-align:center;">
+              <span style="font-size:var

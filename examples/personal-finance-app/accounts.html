@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Accounts & Cards — Personal Finance</title>
+  <style>
+    :root {
+      --kit-primary: #818CF8;
+      --kit-primary-text: #FFFFFF;
+      --kit-secondary: #64748B;
+      --kit-accent: #F59E0B;
+      --kit-bg: #0B0F1A;
+      --kit-surface: #131825;
+      --kit-surface-2: #1C2235;
+      --kit-surface-3: #2A3148;
+      --kit-text: #F1F5F9;
+      --kit-text-2: #94A3B8;
+      --kit-text-3: #64748B;
+      --kit-text-inverse: #0F172A;
+      --kit-border: #1C2235;
+      --kit-border-strong: #2A3148;
+      --kit-success: #34D399;
+      --kit-success-bg: #052E16;
+      --kit-error: #FB7185;
+      --kit-error-bg: #4C0519;
+      --kit-warning: #FBBF24;
+      --kit-warning-bg: #431407;
+      --kit-info: #60A5FA;
+      --kit-info-bg: #172554;
+
+      --kit-font: Inter, system-ui, -apple-system, sans-serif;
+      --kit-text-xs: 11px;
+      --kit-text-sm: 13px;
+      --kit-text-md: 15px;
+      --kit-text-lg: 17px;
+      --kit-text-xl: 20px;
+      --kit-text-2xl: 24px;
+      --kit-text-3xl: 32px;
+      --kit-text-4xl: 48px;
+
+      --kit-radius-sm: 8px;
+      --kit-radius: 12px;
+      --kit-radius-lg: 16px;
+      --kit-radius-xl: 20px;
+      --kit-radius-full: 9999px;
+
+      --kit-shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --kit-shadow: 0 4px 12px rgba(0,0,0,0.16);
+      --kit-shadow-lg: 0 8px 32px rgba(0,0,0,0.20);
+      --kit-shadow-xl: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--kit-font);
+      background: var(--kit-bg);
+      color: var(--kit-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .screen {
+      width: 390px;
+      min-height: 844px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      position: relative;
+      background: var(--kit-bg);
+    }
+
+    .cards-scroll::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+
+    <!-- iOS Status Bar -->
+    <div data-component="iOS Status Bar" style="
+      height: 44px;
+      padding: 14px 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--kit-bg);
+    ">
+      <span style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">9:41</span>
+      <div style="display: flex; gap: 6px; align-items: center;">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="3" width="3" height="9" rx="1" fill="var(--kit-text)"/>
+          <rect x="4.5" y="2" width="3" height="10" rx="1" fill="var(--kit-text)"/>
+          <rect x="9" y="0" width="3" height="12" rx="1" fill="var(--kit-text)"/>
+          <rect x="13.5" y="0" width="3" height="12" rx="1" fill="var(--kit-text)" opacity="0.3"/>
+        </svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="var(--kit-text)"/>
+          <path d="M3.5 6.5A6.5 6.5 0 0 1 8 5a6.5 6.5 0 0 1 4.5 1.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1 3.5A10 10 0 0 1 8 1a10 10 0 0 1 7 2.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="var(--kit-text)" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="16" height="8" rx="2" fill="var(--kit-text)"/>
+          <path d="M23 4v4a2 2 0 0 0 0-4z" fill="var(--kit-text)" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <header data-component="Top Bar" style="
+      height: 56px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--kit-bg);
+    ">
+      <button type="button" style="
+        width: 40px;
+        height: 40px;
+        border-radius: var(--kit-radius-full);
+        border: none;
+        background: var(--kit-surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      ">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"/>
+          <path d="M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <h1 style="
+        font-size: var(--kit-text-lg);
+        font-weight: 700;
+        color: var(--kit-text);
+        flex: 1;
+      ">Accounts & Cards</h1>
+    </header>
+
+    <!-- Scrollable Content -->
+    <main style="
+      padding: 0 0 40px 0;
+      overflow-y: auto;
+    ">
+
+      <!-- Net Worth Summary -->
+      <section data-component="Net Worth Summary" style="
+        padding: 20px 20px 24px;
+        text-align: center;
+      ">
+        <p style="
+          font-size: var(--kit-text-sm);
+          color: var(--kit-text-3);
+          font-weight: 500;
+          margin-bottom: 6px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        ">Total Net Worth</p>
+        <h2 style="
+          font-size: var(--kit-text-4xl);
+          font-weight: 800;
+          color: var(--kit-text);
+          letter-spacing: -1.5px;
+          line-height: 1.1;
+        ">$25,640<span style="font-size: var(--kit-text-2xl); color: var(--kit-text-2);">.83</span></h2>
+        <div style="
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          margin-top: 8px;
+          padding: 4px 10px;
+          background: var(--kit-success-bg);
+          border-radius: var(--kit-radius-full);
+        ">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+          </svg>
+          <span style="font-size: var(--kit-text-xs); font-weight: 600; color: var(--kit-success);">+3.2% this month</span>
+        </div>
+      </section>
+
+      <!-- Cards Carousel -->
+      <section data-component="Cards Carousel" style="padding: 0 0 24px;">
+        <div class="cards-scroll" style="
+          display: flex;
+          gap: 16px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding: 0 20px;
+          -webkit-overflow-scrolling: touch;
+        ">
+          <!-- Card 1 - Visa -->
+          <div style="
+            flex-shrink: 0;
+            width: 320px;
+            height: 195px;
+            border-radius: var(--kit-radius-xl);
+            background: linear-gradient(135deg, #6366F1 0%, #818CF8 40%, #A78BFA 100%);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-snap-align: start;
+            box-shadow: var(--kit-shadow-lg);
+            position: relative;
+            overflow: hidden;
+          ">
+            <!-- Card decorative circles -->
+            <div style="
+              position: absolute;
+              top: -30px;
+              right: -30px;
+              width: 120px;
+              height: 120px;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.08);
+            "></div>
+            <div style="
+              position: absolute;
+              bottom: -40px;
+              left: -20px;
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.05);
+            "></div>
+            <!-- Top row -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1;">
+              <div>
+                <p style="font-size: var(--kit-text-xs); color: rgba(255,255,255,0.7); font-weight: 500; margin-bottom: 2px;">Platinum Card</p>
+                <p style="font-size: var(--kit-text-sm); color: rgba(255,255,255,0.9); font-weight: 600;">Visa</p>
+              </div>
+              <!-- Chip icon -->
+              <div style="
+                width: 36px;
+                height: 28px;
+                border-radius: 5px;
+                background: linear-gradient(135deg, #FFD700, #FFA500);
+                opacity: 0.85;
+              "></div>
+            </div>
+            <!-- Card number -->
+            <div style="position: relative; z-index: 1;">
+              <p style="
+                font-size: var(--kit-text-xl);
+                font-weight: 600;
+                color: var(--kit-primary-text);
+                letter-spacing: 3px;
+                font-variant-numeric: tabular-nums;
+              ">•••• •••• •••• 4582</p>
+            </div>
+            <!-- Bottom row -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; position: relative; z-index: 1;">
+              <div>
+                <p style="font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Card Holder</p>
+                <p style="font-size: var(--kit-text-sm); color: var(--kit-primary-text); font-weight: 600;">ALEX MORGAN</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Expires</p>
+                <p style="font-size: var(--kit-text-sm); color: var(--kit-primary-text); font-weight: 600;">09/27</p>
+              </div>
+              <!-- Visa logo placeholder -->
+              <div style="
+                display: flex;
+                align-items: center;
+              ">
+                <svg width="44" height="16" viewBox="0 0 44 16" fill="none">
+                  <text x="0" y="14" font-family="Inter, sans-serif" font-size="16" font-weight="800" font-style="italic" fill="rgba(255,255,255,0.9)">VISA</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 - Mastercard -->
+          <div style="
+            flex-shrink: 0;
+            width: 320px;
+            height: 195px;
+            border-radius: var(--kit-radius-xl);
+            background: linear-gradient(135deg, #1E293B 0%, #334155 40%, #475569 100%);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-snap-align: start;
+            box-shadow: var(--kit-shadow-lg);
+            position: relative;
+            overflow: hidden;
+          ">
+            <div style="
+              position: absolute;
+              top: -20px;
+              right: -40px;
+              width: 130px;
+              height: 130px;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.04);
+            "></div>
+            <div style="
+              position: absolute;
+              bottom: -50px;
+              left: 40px;
+              width: 110px;
+              height: 110px;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.03);
+            "></div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1;">
+              <div>
+                <p style="font-size: var(--kit-text-xs); color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 2px;">Debit Card</p>
+                <p style="font-size: var(--kit-text-sm); color: rgba(255,255,255,0.85); font-weight: 600;">Mastercard</p>
+              </div>
+              <div style="
+                width: 36px;
+                height: 28px;
+                border-radius: 5px;
+                background: linear-gradient(135deg, #FFD700, #FFA500);
+                opacity: 0.85;
+              "></div>
+            </div>
+            <div style="position: relative; z-index: 1;">
+              <p style="
+                font-size: var(--kit-text-xl);
+                font-weight: 600;
+                color: var(--kit-primary-text);
+                letter-spacing: 3px;
+                font-variant-numeric: tabular-nums;
+              ">•••• •••• •••• 7891</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; position: relative; z-index: 1;">
+              <div>
+                <p style="font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Card Holder</p>
+                <p style="font-size: var(--kit-text-sm); color: var(--kit-primary-text); font-weight: 600;">ALEX MORGAN</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Expires</p>
+                <p style="font-size: var(--kit-text-sm); color: var(--kit-primary-text); font-weight: 600;">03/26</p>
+              </div>
+              <!-- Mastercard logo -->
+              <div style="display: flex; align-items: center; gap: -8px; position: relative;">
+                <div style="width: 22px; height: 22px; border-radius: 50%; background: #EB001B; opacity: 0.9;"></div>
+                <div style="width: 22px; height: 22px; border-radius: 50%; background: #F79E1B; opacity: 0.9; margin-left: -8px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 - Savings Card -->
+          <div style="
+            flex-shrink: 0;
+            width: 320px;
+            height: 195px;
+            border-radius: var(--kit-radius-xl);
+            background: linear-gradient(135deg, #065F46 0%, #059669 40%, #34D399 100%);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-snap-align: start;
+            box-shadow: var(--kit-shadow-lg);
+            position: relative;
+            overflow: hidden;
+          ">
+            <div style="
+              position: absolute;
+              top: 20px;
+              right: -20px;
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.07);
+            "></div>
+            <div style="
+              position: absolute;
+              bottom: -30px;
+              left: -10px;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.05);
+            "></div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1;">
+              <div>
+                <p style="font-size: var(--kit-text-xs); color: rgba(255,255,255,0.7); font-weight: 500; margin-bottom: 2px;">Savings Card</p>
+                <p style="font-size: var(--kit-text-sm); color: rgba(255,255,255,0.9); font-weight: 600;">Visa</p>
+              </div>
+              <div style="
+                width: 36px;
+                height: 28px;
+                border-radius: 5px;
+                background: linear-gradient(135deg, #FFD700, #FFA500);
+                opacity: 0.85;
+              "></div>
+            </div>
+            <div style="position: relative; z-index: 1;">
+              <p style="
+                font-size: var(--kit-text-xl);
+                font-weight: 600;
+                color: var(--kit-primary-text);
+                letter-spacing: 3px;
+                font-variant-numeric: tabular-nums;
+              ">•••• •••• •••• 2036</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; position: relative; z-index: 1;">
+              <div>
+                <p style="font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Card Holder</p>
+                <p style="font-size: var(--kit-text-sm); color: var(--kit-primary-text); font-weight: 600;">ALEX MORGAN</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="font-size: 9px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Expires</p>
+                <p style="font-size: var(--kit-text-sm); color: var(--kit-primary-text); font-weight: 600;">11/28</p>
+              </div>
+              <svg width="44" height="16" viewBox="0 0 44 16" fill="none">
+                <text x="0" y="14" font-family="Inter, sans-serif" font-size="16" font-weight="800" font-style="italic" fill="rgba(255,255,255,0.9)">VISA</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Dots -->
+        <div style="display: flex; justify-content: center; gap: 6px; margin-top: 16px;">
+          <div style="width: 20px; height: 6px; border-radius: var(--kit-radius-full); background: var(--kit-primary);"></div>
+          <div style="width: 6px; height: 6px; border-radius: var(--kit-radius-full); background: var(--kit-surface-3);"></div>
+          <div style="width: 6px; height: 6px; border-radius: var(--kit-radius-full); background: var(--kit-surface-3);"></div>
+        </div>
+      </section>
+
+      <!-- Card Details Row -->
+      <section data-component="Card Details Row" style="
+        margin: 0 20px 24px;
+        padding: 16px 20px;
+        background: var(--kit-surface);
+        border-radius: var(--kit-radius-lg);
+        border: 1px solid var(--kit-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      ">
+        <div style="display: flex; gap: 24px;">
+          <div>
+            <p style="font-size: var(--kit-text-xs); color: var(--kit-text-3); font-weight: 500; margin-bottom: 4px;">Available Balance</p>
+            <p style="font-size: var(--kit-text-lg); color: var(--kit-text); font-weight: 700;">$4,280.50</p>
+          </div>
+          <div>
+            <p style="font-size: var(--kit-text-xs); color: var(--kit-text-3); font-weight: 500; margin-bottom: 4px;">Credit Limit</p>
+            <p style="font-size: var(--kit-text-lg); color: var(--kit-text); font-weight: 700;">$10,000</p>
+          </div>
+        </div>
+        <a href="#" style="
+          font-size: var(--kit-text-sm);
+          color: var(--kit-primary);
+          font-weight: 600;
+          text-decoration: none;
+          white-space: nowrap;
+        ">Manage →</a>
+      </section>
+
+      <!-- Linked Accounts Section -->
+      <section data-component="Linked Accounts" style="padding: 0 20px;">
+        <div style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+        ">
+          <h3 style="
+            font-size: var(--kit-text-lg);
+            font-weight: 700;
+            color: var(--kit-text);
+          ">Bank Accounts</h3>
+          <span style="
+            font-size: var(--kit-text-sm);
+            color: var(--kit-text-3);
+            font-weight: 500;
+          ">3 linked</span>
+        </div>
+
+        <!-- Account 1 - Main Checking -->
+        <div data-component="Account Item" style="
+          padding: 16px;
+          background: var(--kit-surface);
+          border-radius: var(--kit-radius-lg);
+          border: 1px solid var(--kit-border);
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        ">
+          <div style="
+            width: 48px;
+            height: 48px;
+            border-radius: var(--kit-radius);
+            background: var(--kit-info-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          ">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 10h20"/>
+              <path d="M6 16h4"/>
+            </svg>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <p style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">Main Checking</p>
+              <p style="font-size: var(--kit-text-md); font-weight: 700; color: var(--kit-text);">$4,280.50</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <p style="font-size: var(--kit-text-sm); color: var(--kit-text-3);">Chase Bank · ••••3021</p>
+              <span style="
+                font-size: var(--kit-text-xs);
+                color: var(--kit-success);
+                font-weight: 500;
+                background: var(--kit-success-bg);
+                padding: 2px 8px;
+                border-radius: var(--kit-radius-full);
+              ">Active</span>
+            </div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </div>
+
+        <!-- Account 2 - Savings -->
+        <div data-component="Account Item" style="
+          padding: 16px;
+          background: var(--kit-surface);
+          border-radius: var(--kit-radius-lg);
+          border: 1px solid var(--kit-border);
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        ">
+          <div style="
+            width: 48px;
+            height: 48px;
+            border-radius: var(--kit-radius);
+            background: var(--kit-success-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          ">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-0.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2z"/>
+              <path d="M2 9.1C3 11.2 5 12 7.5 12"/>
+              <circle cx="16" cy="10" r="1"/>
+            </svg>
+          </div>
+          <div style="flex: 1; min-width: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <p style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">Savings Account</p>
+              <p style="font-size: var(--kit-text-md); font-weight: 700; color: var(--kit-text);">$12,840.00</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <p style="font-size: var(--kit-text-sm); color: var(--kit-text-3);">Chase Bank · ••••6754</p>
+              <span style="
+                font-size: var(--kit-text-xs);
+                color: var(--kit-success);
+                font-weight: 500;
+                background: var(--kit-success-bg);
+                padding: 2px 8px;
+                border-radius: var(--kit-radius-full);
+              ">Active</span>
+            </div>
+          </div>
+          <svg width="

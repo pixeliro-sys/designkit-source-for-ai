@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Profile & Settings — Personal Finance</title>
+  <style>
+    :root {
+      --kit-primary: #818CF8;
+      --kit-primary-text: #FFFFFF;
+      --kit-secondary: #64748B;
+      --kit-accent: #F59E0B;
+      --kit-bg: #0B0F1A;
+      --kit-surface: #131825;
+      --kit-surface-2: #1C2235;
+      --kit-surface-3: #2A3148;
+      --kit-text: #F1F5F9;
+      --kit-text-2: #94A3B8;
+      --kit-text-3: #64748B;
+      --kit-text-inverse: #0F172A;
+      --kit-border: #1C2235;
+      --kit-border-strong: #2A3148;
+      --kit-success: #34D399;
+      --kit-success-bg: #052E16;
+      --kit-error: #FB7185;
+      --kit-error-bg: #4C0519;
+      --kit-warning: #FBBF24;
+      --kit-warning-bg: #431407;
+      --kit-info: #60A5FA;
+      --kit-info-bg: #172554;
+
+      --kit-font: Inter, system-ui, -apple-system, sans-serif;
+      --kit-text-xs: 11px;
+      --kit-text-sm: 13px;
+      --kit-text-md: 15px;
+      --kit-text-lg: 17px;
+      --kit-text-xl: 20px;
+      --kit-text-2xl: 24px;
+      --kit-text-3xl: 32px;
+      --kit-text-4xl: 48px;
+
+      --kit-radius-sm: 8px;
+      --kit-radius: 12px;
+      --kit-radius-lg: 16px;
+      --kit-radius-xl: 20px;
+      --kit-radius-full: 9999px;
+
+      --kit-shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --kit-shadow: 0 4px 12px rgba(0,0,0,0.16);
+      --kit-shadow-lg: 0 8px 32px rgba(0,0,0,0.20);
+      --kit-shadow-xl: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--kit-font);
+      background: var(--kit-bg);
+      color: var(--kit-text);
+      -webkit-font-smoothing: antialiased;
+    }
+    .screen {
+      width: 390px;
+      min-height: 844px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      position: relative;
+      background: var(--kit-bg);
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+
+    <!-- iOS Status Bar -->
+    <div data-component="iOS Status Bar" style="height:44px; padding:14px 16px 0; display:flex; justify-content:space-between; align-items:center; background:var(--kit-bg); flex-shrink:0;">
+      <span style="font-size:var(--kit-text-md); font-weight:600; color:var(--kit-text);">9:41</span>
+      <div style="display:flex; gap:6px; align-items:center;">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="3" width="3" height="9" rx="1" fill="var(--kit-text)"/>
+          <rect x="4.5" y="2" width="3" height="10" rx="1" fill="var(--kit-text)"/>
+          <rect x="9" y="0" width="3" height="12" rx="1" fill="var(--kit-text)"/>
+          <rect x="13.5" y="0" width="3" height="12" rx="1" fill="var(--kit-text)" opacity="0.3"/>
+        </svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="var(--kit-text)"/>
+          <path d="M3.5 6.5A6.5 6.5 0 0 1 8 5a6.5 6.5 0 0 1 4.5 1.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1 3.5A10 10 0 0 1 8 1a10 10 0 0 1 7 2.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="var(--kit-text)" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="16" height="8" rx="2" fill="var(--kit-text)"/>
+          <path d="M23 4v4a2 2 0 0 0 0-4z" fill="var(--kit-text)" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <header data-component="Top Bar" style="height:56px; padding:0 20px; display:flex; align-items:center; justify-content:center; background:var(--kit-bg); flex-shrink:0;">
+      <h1 style="font-size:var(--kit-text-lg); font-weight:700; color:var(--kit-text); letter-spacing:-0.2px;">Profile</h1>
+    </header>
+
+    <!-- Scrollable Content -->
+    <main style="flex:1; overflow-y:auto; padding-bottom:100px;">
+
+      <!-- User Profile Header -->
+      <div data-component="User Profile Header" style="display:flex; flex-direction:column; align-items:center; padding:8px 20px 28px; gap:12px;">
+        <div style="width:80px; height:80px; border-radius:var(--kit-radius-full); overflow:hidden; border:3px solid var(--kit-primary); padding:2px; background:var(--kit-surface);">
+          <img src="https://placehold.jp/80x80.png" alt="Alex Morgan" style="width:100%; height:100%; border-radius:var(--kit-radius-full); object-fit:cover;" onerror="this.src='https://placehold.jp/80x80.png'">
+        </div>
+        <div style="text-align:center;">
+          <h2 style="font-size:var(--kit-text-xl); font-weight:700; color:var(--kit-text); margin-bottom:4px;">Alex Morgan</h2>
+          <p style="font-size:var(--kit-text-sm); color:var(--kit-text-3);">alex.morgan@email.com</p>
+        </div>
+        <button type="button" style="height:34px; padding:0 20px; background:transparent; color:var(--kit-primary); border:1.5px solid var(--kit-primary); border-radius:var(--kit-radius-full); font-size:var(--kit-text-sm); font-weight:600; font-family:var(--kit-font); cursor:pointer; display:flex; align-items:center; gap:6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          Edit Profile
+        </button>
+      </div>
+
+      <!-- Account Section -->
+      <section data-component="Account Section" style="padding:0 20px; margin-bottom:8px;">
+        <h3 style="font-size:var(--kit-text-xs); font-weight:600; color:var(--kit-text-3); text-transform:uppercase; letter-spacing:1px; padding:12px 0 8px;">Account</h3>
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); overflow:hidden; border:1px solid var(--kit-border);">
+          <!-- Personal Information -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Personal Information</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+          <!-- Linked Accounts -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Linked Accounts</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+          <!-- Subscription Plan -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px;">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500; display:flex; align-items:center; gap:8px;">
+              Subscription Plan
+              <span style="font-size:var(--kit-text-xs); font-weight:700; color:var(--kit-accent); background:var(--kit-warning-bg); padding:2px 8px; border-radius:var(--kit-radius-full); letter-spacing:0.5px;">PRO</span>
+            </span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Preferences Section -->
+      <section data-component="Preferences Section" style="padding:0 20px; margin-bottom:8px;">
+        <h3 style="font-size:var(--kit-text-xs); font-weight:600; color:var(--kit-text-3); text-transform:uppercase; letter-spacing:1px; padding:12px 0 8px;">Preferences</h3>
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); overflow:hidden; border:1px solid var(--kit-border);">
+          <!-- Currency -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Currency</span>
+            <span style="font-size:var(--kit-text-sm); color:var(--kit-text-3); margin-right:4px;">USD</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+          <!-- Notifications -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Notifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+          <!-- Appearance -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Appearance</span>
+            <span style="font-size:var(--kit-text-sm); color:var(--kit-text-3); margin-right:4px;">Dark</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+          <!-- Default Account -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px;">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Default Account</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Security Section -->
+      <section data-component="Security Section" style="padding:0 20px; margin-bottom:8px;">
+        <h3 style="font-size:var(--kit-text-xs); font-weight:600; color:var(--kit-text-3); text-transform:uppercase; letter-spacing:1px; padding:12px 0 8px;">Security</h3>
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); overflow:hidden; border:1px solid var(--kit-border);">
+          <!-- Change Password -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Change Password</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+          <!-- Biometric Login -->
+          <div style="display:flex; align-items:center; padding:14px 16px; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4"/>
+                <path d="M8 15c0-3.3 2.7-6 6-6"/>
+                <path d="M6 13a8 8 0 0 1 12-5"/>
+                <path d="M2 12a12 12 0 0 1 18-8"/>
+                <path d="M10 17c0-1 .4-3 2-5"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Biometric Login</span>
+            <!-- Toggle ON -->
+            <div style="width:48px; height:28px; background:var(--kit-primary); border-radius:var(--kit-radius-full); position:relative; cursor:pointer; flex-shrink:0;">
+              <div style="width:22px; height:22px; background:var(--kit-primary-text); border-radius:var(--kit-radius-full); position:absolute; top:3px; right:3px; box-shadow:var(--kit-shadow-sm);"></div>
+            </div>
+          </div>
+          <!-- Two-Factor Auth -->
+          <div style="display:flex; align-items:center; padding:14px 16px; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Two-Factor Auth</span>
+            <!-- Toggle OFF -->
+            <div style="width:48px; height:28px; background:var(--kit-surface-3); border-radius:var(--kit-radius-full); position:relative; cursor:pointer; flex-shrink:0;">
+              <div style="width:22px; height:22px; background:var(--kit-text-2); border-radius:var(--kit-radius-full); position:absolute; top:3px; left:3px; box-shadow:var(--kit-shadow-sm);"></div>
+            </div>
+          </div>
+          <!-- Privacy Settings -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px;">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Privacy Settings</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Support Section -->
+      <section data-component="Support Section" style="padding:0 20px; margin-bottom:8px;">
+        <h3 style="font-size:var(--kit-text-xs); font-weight:600; color:var(--kit-text-3); text-transform:uppercase; letter-spacing:1px; padding:12px 0 8px;">Support</h3>
+        <div style="background:var(--kit-surface); border-radius:var(--kit-radius-lg); overflow:hidden; border:1px solid var(--kit-border);">
+          <!-- Help Center -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">
+            <div style="width:36px; height:36px; border-radius:var(--kit-radius-sm); background:var(--kit-surface-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--kit-info)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <span style="flex:1; font-size:var(--kit-text-md); color:var(--kit-text); font-weight:500;">Help Center</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--kit-text-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </a>
+          <!-- Contact Support -->
+          <a href="#" style="display:flex; align-items:center; padding:14px 16px; text-decoration:none; gap:14px; border-bottom:1px solid var(--kit-border);">

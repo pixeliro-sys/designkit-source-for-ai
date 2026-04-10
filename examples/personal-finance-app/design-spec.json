@@ -1,0 +1,185 @@
+{
+  "project": "Personal Finance",
+  "platform": "mobile",
+  "mood": "Finance / Banking, dark professional with indigo accents — clean, trustworthy, data-rich",
+  "imageFolder": null,
+  "colors": {
+    "primary": "#818CF8",
+    "primaryText": "#FFFFFF",
+    "secondary": "#64748B",
+    "accent": "#F59E0B",
+    "bg": "#0B0F1A",
+    "surface": "#131825",
+    "surface2": "#1C2235",
+    "surface3": "#2A3148",
+    "text": "#F1F5F9",
+    "text2": "#94A3B8",
+    "text3": "#64748B",
+    "textInverse": "#0F172A",
+    "border": "#1C2235",
+    "borderStrong": "#2A3148",
+    "success": "#34D399",
+    "successBg": "#052E16",
+    "error": "#FB7185",
+    "errorBg": "#4C0519",
+    "warning": "#FBBF24",
+    "warningBg": "#431407",
+    "info": "#60A5FA",
+    "infoBg": "#172554"
+  },
+  "typography": {
+    "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+    "scale": {
+      "xs": "11px",
+      "sm": "13px",
+      "md": "15px",
+      "lg": "17px",
+      "xl": "20px",
+      "2xl": "24px",
+      "3xl": "32px",
+      "4xl": "48px"
+    }
+  },
+  "radius": {
+    "sm": "8px",
+    "md": "12px",
+    "lg": "16px",
+    "xl": "20px",
+    "full": "9999px"
+  },
+  "shadow": {
+    "sm": "0 1px 3px rgba(0,0,0,0.12)",
+    "md": "0 4px 12px rgba(0,0,0,0.16)",
+    "lg": "0 8px 32px rgba(0,0,0,0.20)",
+    "xl": "0 20px 60px rgba(0,0,0,0.25)"
+  },
+  "screens": [
+    {
+      "id": "home",
+      "name": "Home Dashboard",
+      "platform": "mobile",
+      "description": "Primary dashboard showing total balance across all accounts, income vs expense summary for the current month, quick action buttons, a mini spending-by-category donut chart, and the 5 most recent transactions.",
+      "components": [
+        "iOS Status Bar (light text)",
+        "Top Bar with greeting text (Good morning, Alex), notification bell icon with badge, and user avatar",
+        "Total Balance Card with gradient background (indigo to purple), showing total balance amount, and small month-over-month percentage change badge",
+        "Income / Expense Summary Row — two side-by-side mini cards showing monthly income (green arrow up) and monthly expenses (red arrow down)",
+        "Quick Actions Row — four circular icon buttons: Send, Request, Pay Bills, Top Up",
+        "Spending by Category Section — section header with 'See All' link, horizontal donut chart with legend showing top 4 categories (Food, Transport, Shopping, Entertainment) with amounts and percentages",
+        "Recent Transactions Section — section header with 'See All' link, list of 5 transactions each with category icon, merchant name, date, and amount (green for income, default for expense)",
+        "Bottom Tab Navigation — 5 tabs: Home (active), Transactions, Budgets, Analytics, Profile"
+      ],
+      "file": "home.html"
+    },
+    {
+      "id": "transactions",
+      "name": "Transactions",
+      "platform": "mobile",
+      "description": "Full scrollable transaction history with search bar, filter chips (All, Income, Expense, category filters), and transactions grouped by date. Each transaction shows icon, merchant, category tag, and amount.",
+      "components": [
+        "iOS Status Bar (light text)",
+        "Top Bar with screen title 'Transactions' and a filter/sort icon button",
+        "Search Bar with magnifying glass icon and placeholder text",
+        "Filter Chips Row — horizontally scrollable pills: All (active), Income, Expense, Food, Transport, Shopping, Bills, Entertainment",
+        "Monthly Summary Banner — compact card showing total spent this month, number of transactions, and average per day",
+        "Date Group Header — 'Today' label with daily total",
+        "Transaction List Items (3 items for Today) — each with category icon in colored circle, merchant name, category subtitle, timestamp, and amount with +/− sign",
+        "Date Group Header — 'Yesterday' label with daily total",
+        "Transaction List Items (4 items for Yesterday)",
+        "Date Group Header — 'Dec 18, 2024' label with daily total",
+        "Transaction List Items (3 items)",
+        "Bottom Tab Navigation — 5 tabs: Home, Transactions (active), Budgets, Analytics, Profile"
+      ],
+      "file": "transactions.html"
+    },
+    {
+      "id": "transaction-detail",
+      "name": "Transaction Detail",
+      "platform": "mobile",
+      "description": "Detail view for a single transaction showing full merchant info, amount, date/time, category, account used, location, attached receipt image, and notes. Includes edit and delete actions.",
+      "components": [
+        "iOS Status Bar (light text)",
+        "Top Bar with back arrow, title 'Transaction Detail', and three-dot menu icon",
+        "Large Amount Display — centered amount with expense/income color, and status badge (Completed)",
+        "Merchant Info Card — merchant logo/icon, merchant name, category tag pill, and date-time string",
+        "Detail Rows Section — labeled rows for: Category, Account (Visa •••4582), Payment Method, Reference Number",
+        "Location Row — map pin icon with address text",
+        "Notes Section — user-added note text in a surface card",
+        "Receipt Attachment — thumbnail of attached receipt image with 'View Receipt' label",
+        "Action Buttons Row — 'Edit Transaction' secondary button and 'Delete' error-colored text button",
+        "Bottom safe area spacer"
+      ],
+      "file": "transaction-detail.html"
+    },
+    {
+      "id": "budgets",
+      "name": "Budgets",
+      "platform": "mobile",
+      "description": "Budget management screen showing overall monthly budget progress bar, then individual category budgets as cards with progress bars, spent vs limit amounts, and color-coded status (on track, warning, exceeded).",
+      "components": [
+        "iOS Status Bar (light text)",
+        "Top Bar with screen title 'Budgets', month selector (December 2024 with arrows), and add (+) button",
+        "Overall Budget Card — large card with circular progress ring showing total spent vs total budget, remaining amount, and days left in month",
+        "Budget Category Cards (6 cards) — each card shows: category icon, category name, progress bar (color-coded: green under 70%, amber 70-90%, red over 90%), spent amount / budget limit, and a small remaining or exceeded label. Categories: Food & Dining ($420/$500), Transportation ($180/$200 — warning), Shopping ($310/$250 — exceeded with red), Entertainment ($85/$150), Bills & Utilities ($340/$350 — warning), Health & Fitness ($60/$100)",
+        "Add Budget Button — full-width secondary button at the bottom with + icon",
+        "Bottom Tab Navigation — 5 tabs: Home, Transactions, Budgets (active), Analytics, Profile"
+      ],
+      "file": "budgets.html"
+    },
+    {
+      "id": "analytics",
+      "name": "Analytics",
+      "platform": "mobile",
+      "description": "Visual analytics and insights screen with time-period selector, spending trend line chart, category breakdown bar chart, top merchants list, and smart insights/tips cards.",
+      "components": [
+        "iOS Status Bar (light text)",
+        "Top Bar with screen title 'Analytics' and export/share icon",
+        "Time Period Selector — segmented control: Week, Month (active), 3 Months, Year",
+        "Spending Trend Chart — line/area chart showing daily spending over the current month with a gradient fill, peak spending day highlighted, and average line",
+        "Income vs Expenses Comparison — two horizontal bars (green for income, red-ish for expenses) with amounts and net savings amount below",
+        "Category Breakdown — horizontal bar chart showing top 6 spending categories ranked by amount, each bar colored by category, with percentage and dollar amount",
+        "Top Merchants Section — ranked list of top 5 merchants by total spend, each with merchant icon, name, transaction count, and total amount",
+        "Smart Insights Card — surface card with lightbulb icon, insight title ('Spending Alert'), and description text about spending pattern (e.g., 'Your dining expenses are 23% higher than last month')",
+        "Bottom Tab Navigation — 5 tabs: Home, Transactions, Budgets, Analytics (active), Profile"
+      ],
+      "file": "analytics.html"
+    },
+    {
+      "id": "accounts",
+      "name": "Accounts & Cards",
+      "platform": "mobile",
+      "description": "Manage linked bank accounts and cards. Shows a horizontally scrollable carousel of card visuals, then a list of all linked accounts with balances, and an option to add new accounts.",
+      "components": [
+        "iOS Status Bar (light text)",
+        "Top Bar with back arrow and screen title 'Accounts & Cards'",
+        "Net Worth Summary — large text showing total net worth across all accounts",
+        "Cards Carousel — horizontally scrollable card visuals (2–3 cards): each card is a realistic credit/debit card shape with gradient background, masked card number (•••• 4582), cardholder name, expiry date, and card network logo placeholder. Cards have slightly different gradient colors",
+        "Card Details Row — for selected card: available balance, credit limit, and 'Manage Card' link",
+        "Linked Accounts Section Header — 'Bank Accounts' label",
+        "Account List Items (3 items) — each with bank icon, bank name, account type (Checking/Savings), account number masked, and balance. Accounts: Main Checking ($4,280.50), Savings Account ($12,840.00), Investment Account ($8,520.33)",
+        "Add Account Button — outlined button with + icon and 'Link New Account' text",
+        "Bottom safe area spacer"
+      ],
+      "file": "accounts.html"
+    },
+    {
+      "id": "profile",
+      "name": "Profile & Settings",
+      "platform": "mobile",
+      "description": "User profile screen with avatar, name, and email at top, followed by organized settings sections: Account, Preferences, Security, and Support. Each setting is a tappable row.",
+      "components": [
+        "iOS Status Bar (light text)",
+        "Top Bar with screen title 'Profile'",
+        "User Profile Header — centered layout with large avatar circle, user name (Alex Morgan), email (alex.morgan@email.com), and 'Edit Profile' small outlined button",
+        "Account Section — section header, then tappable rows: Personal Information (chevron), Linked Accounts (chevron), Subscription Plan with 'Pro' badge (chevron)",
+        "Preferences Section — section header, then tappable rows: Currency (USD), Notifications (chevron), Appearance with 'Dark' label (chevron), Default Account (chevron)",
+        "Security Section — section header, then tappable rows: Change Password (chevron), Biometric Login with toggle (on), Two-Factor Auth with toggle (off), Privacy Settings (chevron)",
+        "Support Section — section header, then tappable rows: Help Center (chevron), Contact Support (chevron), Rate the App (chevron), About (chevron)",
+        "Sign Out Button — full-width text button in error color at the bottom",
+        "App Version Label — small centered text 'Version 2.4.1'",
+        "Bottom Tab Navigation — 5 tabs: Home, Transactions, Budgets, Analytics, Profile (active)"
+      ],
+      "file": "profile.html"
+    }
+  ]
+}

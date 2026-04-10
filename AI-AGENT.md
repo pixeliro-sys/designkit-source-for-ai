@@ -6,6 +6,7 @@
 
 | Skill | File | What it does |
 |-------|------|-------------|
+| **AutoGen Design** | [skills/autogen-design.md](skills/autogen-design.md) | Generate a full design project: color spec + HTML for every screen/page |
 | **Design** | [skills/design.md](skills/design.md) | Generate a pixel-perfect single-file HTML screen or page |
 | **Contribute** | [skills/contribute.md](skills/contribute.md) | Create a valid new component or validate an existing one |
 | **React** | [skills/react.md](skills/react.md) | Convert to React TypeScript component (inline styles) |
@@ -21,7 +22,27 @@
 
 ## Usage
 
-### Design only
+### AutoGen — full design project (recommended for new projects)
+
+```
+Read skills/autogen-design.md, then generate a complete design project for:
+"Personal finance tracking app" — dark, professional
+Platform: mobile
+Screens: splash, home, transactions, cards, profile, settings
+Output to: output/finance-app/
+Use placehold.jp for images.
+```
+
+```
+Read skills/autogen-design.md, then generate a full design project for:
+"SaaS analytics dashboard" — clean, indigo
+Platform: web
+Screens: landing, dashboard, reports, settings, pricing, onboarding
+Output to: output/saas-dashboard/
+Images folder: ./assets/marketing/
+```
+
+### Design only — single screen
 
 ```
 Read skills/design.md, then design:

@@ -83,6 +83,38 @@ Output files: `tokens.css`, `tokens.js`, `tokens.ts`, or `tokens.json`
 
 ---
 
+## `designkit config`
+
+Get or set default values saved to `~/.designkit/config.json`.
+
+```bash
+# Show all config
+designkit config
+
+# Set default AI provider
+designkit config set provider anthropic
+designkit config set provider gemini
+designkit config set provider openai
+
+# Set default platform
+designkit config set platform mobile
+designkit config set platform web
+
+# Read a single value
+designkit config get provider
+```
+
+Config keys:
+
+| Key | Values | Default |
+|-----|--------|---------|
+| `provider` | `anthropic`, `gemini`, `openai` | `anthropic` |
+| `platform` | `mobile`, `web` | `mobile` |
+
+Once set, all AI commands (`design`, `convert`, `autogen`) use the saved default — no need to pass `--provider` every time.
+
+---
+
 ## AI Commands
 
 All AI commands require an API key set as an environment variable.
@@ -159,6 +191,50 @@ Options:
 
 ---
 
+### `designkit autogen <prompt>`
+
+Generate a complete multi-screen design project with consistent tokens and a gallery index.
+
+Uses a 2-phase pipeline:
+- **Phase 1** — 1 AI call → `design-spec.json` (color tokens, typography, screen list)
+- **Phase 2** — 1 AI call per screen → `.html` files with shared spec injected
+- **Gallery** — auto-generated `index.html` with iframe previews of all screens
+
+```bash
+# Mobile app, auto screens
+designkit autogen "Personal finance app" --platform mobile
+
+# Web app, specific pages
+designkit autogen "SaaS dashboard" --platform web \
+  --screens "landing,dashboard,reports,settings,pricing" \
+  --output output/saas
+
+# With real images folder
+designkit autogen "Travel app" --images ./assets/travel --output output/travel
+
+# Use a different AI provider
+designkit autogen "E-commerce store" --provider gemini
+```
+
+Options:
+- `--platform` — `mobile` or `web` (default: `web`)
+- `--screens` — Comma-separated screen names (default: AI decides based on prompt)
+- `-p, --provider` — AI provider: `anthropic`, `gemini`, `openai` (default: `anthropic`)
+- `--images` — Path to local image folder (used as `src` with `onerror` fallback to placehold.jp)
+- `-o, --output` — Output directory (default: `output/<slug>`)
+
+Output structure:
+```
+output/<project-name>/
+├── design-spec.json   ← Phase 1: token system + screen plan
+├── index.html         ← Gallery: iframe previews of all screens
+├── home.html
+├── dashboard.html
+└── ...
+```
+
+---
+
 ### `designkit imagine <prompt>`
 
 Generate images using Gemini Imagen 3 or DALL-E 3.
@@ -224,6 +300,17 @@ designkit add web/charts/area-chart --output src/components/
 
 # Generate matching tokens
 designkit init --format css --output src/
+```
+
+**Generate a complete app design**
+```bash
+# Full mobile app — AI picks screens automatically
+designkit autogen "Food delivery app, dark modern" --platform mobile --output output/food-app
+
+# Full web app — specify exact pages
+designkit autogen "SaaS analytics platform" --platform web \
+  --screens "landing,dashboard,reports,settings,pricing,login" \
+  --output output/analytics
 ```
 
 **Generate app assets**

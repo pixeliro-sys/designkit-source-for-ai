@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Budgets — Personal Finance</title>
+  <style>
+    :root {
+      --kit-primary:        #818CF8;
+      --kit-primary-text:   #FFFFFF;
+      --kit-secondary:      #64748B;
+      --kit-accent:         #F59E0B;
+      --kit-bg:             #0B0F1A;
+      --kit-surface:        #131825;
+      --kit-surface-2:      #1C2235;
+      --kit-surface-3:      #2A3148;
+      --kit-text:           #F1F5F9;
+      --kit-text-2:         #94A3B8;
+      --kit-text-3:         #64748B;
+      --kit-text-inverse:   #0F172A;
+      --kit-border:         #1C2235;
+      --kit-border-strong:  #2A3148;
+      --kit-success:        #34D399;
+      --kit-success-bg:     #052E16;
+      --kit-error:          #FB7185;
+      --kit-error-bg:       #4C0519;
+      --kit-warning:        #FBBF24;
+      --kit-warning-bg:     #431407;
+      --kit-info:           #60A5FA;
+      --kit-info-bg:        #172554;
+
+      --kit-font:        Inter, system-ui, -apple-system, sans-serif;
+      --kit-text-xs:     11px;
+      --kit-text-sm:     13px;
+      --kit-text-md:     15px;
+      --kit-text-lg:     17px;
+      --kit-text-xl:     20px;
+      --kit-text-2xl:    24px;
+      --kit-text-3xl:    32px;
+      --kit-text-4xl:    48px;
+
+      --kit-space-1:   4px;
+      --kit-space-2:   8px;
+      --kit-space-3:   12px;
+      --kit-space-4:   16px;
+      --kit-space-5:   20px;
+      --kit-space-6:   24px;
+      --kit-space-8:   32px;
+      --kit-space-10:  40px;
+      --kit-space-12:  48px;
+      --kit-space-16:  80px;
+
+      --kit-radius-sm:   8px;
+      --kit-radius:      12px;
+      --kit-radius-lg:   16px;
+      --kit-radius-xl:   20px;
+      --kit-radius-full: 9999px;
+
+      --kit-shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --kit-shadow:    0 4px 12px rgba(0,0,0,0.16);
+      --kit-shadow-lg: 0 8px 32px rgba(0,0,0,0.20);
+      --kit-shadow-xl: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--kit-font);
+      background: var(--kit-bg);
+      color: var(--kit-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .screen {
+      width: 390px;
+      min-height: 844px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      position: relative;
+      background: var(--kit-bg);
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+
+    <!-- iOS Status Bar -->
+    <div data-component="iOS Status Bar" style="
+      height: 44px;
+      padding: 14px 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--kit-bg);
+      flex-shrink: 0;
+    ">
+      <span style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text); letter-spacing: 0.5px;">9:41</span>
+      <div style="display: flex; gap: 6px; align-items: center;">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="3" width="3" height="9" rx="1" fill="var(--kit-text)"/>
+          <rect x="4.5" y="2" width="3" height="10" rx="1" fill="var(--kit-text)"/>
+          <rect x="9" y="0" width="3" height="12" rx="1" fill="var(--kit-text)"/>
+          <rect x="13.5" y="0" width="3" height="12" rx="1" fill="var(--kit-text)" opacity="0.3"/>
+        </svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" fill="var(--kit-text)"/>
+          <path d="M3.5 6.5A6.5 6.5 0 0 1 8 5a6.5 6.5 0 0 1 4.5 1.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M1 3.5A10 10 0 0 1 8 1a10 10 0 0 1 7 2.5" stroke="var(--kit-text)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="var(--kit-text)" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="16" height="8" rx="2" fill="var(--kit-text)"/>
+          <path d="M23 4v4a2 2 0 0 0 0-4z" fill="var(--kit-text)" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Top Bar -->
+    <header data-component="Top Bar" style="
+      padding: 8px 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--kit-bg);
+      flex-shrink: 0;
+    ">
+      <h1 style="font-size: var(--kit-text-2xl); font-weight: 700; color: var(--kit-text); letter-spacing: -0.3px;">Budgets</h1>
+      <button type="button" style="
+        width: 38px; height: 38px;
+        border-radius: var(--kit-radius-full);
+        background: var(--kit-surface-2);
+        border: 1px solid var(--kit-border-strong);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+      ">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 4v12M4 10h12" stroke="var(--kit-primary)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Month Selector -->
+    <div data-component="Month Selector" style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 4px 20px 16px;
+      flex-shrink: 0;
+    ">
+      <button type="button" style="
+        width: 32px; height: 32px;
+        border-radius: var(--kit-radius-full);
+        background: var(--kit-surface-2);
+        border: 1px solid var(--kit-border);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+      ">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 4L6 8l4 4" stroke="var(--kit-text-2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">December 2024</span>
+      <button type="button" style="
+        width: 32px; height: 32px;
+        border-radius: var(--kit-radius-full);
+        background: var(--kit-surface-2);
+        border: 1px solid var(--kit-border);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+      ">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 4l4 4-4 4" stroke="var(--kit-text-2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Content -->
+    <main style="
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 20px 100px;
+    ">
+
+      <!-- Overall Budget Card -->
+      <div data-component="Overall Budget Card" style="
+        background: linear-gradient(145deg, var(--kit-surface), var(--kit-surface-2));
+        border-radius: var(--kit-radius-xl);
+        padding: 24px;
+        border: 1px solid var(--kit-border-strong);
+        box-shadow: var(--kit-shadow-lg);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      ">
+        <!-- Circular Progress Ring -->
+        <div style="position: relative; flex-shrink: 0; width: 110px; height: 110px;">
+          <svg width="110" height="110" viewBox="0 0 110 110" style="transform: rotate(-90deg);">
+            <!-- Background ring -->
+            <circle cx="55" cy="55" r="46" fill="none" stroke="var(--kit-surface-3)" stroke-width="10" opacity="0.5"/>
+            <!-- Progress ring: 1395/1550 = ~90% ; circumference = 2*pi*46 = 289.03 ; dasharray = 289.03 ; dashoffset = 289.03 * (1 - 0.90) = 28.9 -->
+            <circle cx="55" cy="55" r="46" fill="none" stroke="var(--kit-warning)" stroke-width="10" stroke-linecap="round"
+              stroke-dasharray="289.03"
+              stroke-dashoffset="28.9"/>
+          </svg>
+          <div style="
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          ">
+            <span style="font-size: var(--kit-text-2xl); font-weight: 700; color: var(--kit-text); line-height: 1;">90%</span>
+            <span style="font-size: var(--kit-text-xs); color: var(--kit-text-3); margin-top: 2px;">used</span>
+          </div>
+        </div>
+
+        <!-- Budget Info -->
+        <div style="flex: 1; min-width: 0;">
+          <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; margin-bottom: 6px;">Total Budget</div>
+          <div style="font-size: var(--kit-text-xl); font-weight: 700; color: var(--kit-text); margin-bottom: 2px;">$1,395<span style="font-size: var(--kit-text-sm); color: var(--kit-text-3); font-weight: 500;"> / $1,550</span></div>
+          <div style="display: flex; align-items: center; gap: 6px; margin-top: 10px;">
+            <div style="
+              display: inline-flex;
+              align-items: center;
+              gap: 4px;
+              padding: 4px 10px;
+              border-radius: var(--kit-radius-full);
+              background: var(--kit-warning-bg);
+              border: 1px solid rgba(251, 191, 36, 0.2);
+            ">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 3v3.5M6 8.5h.005" stroke="var(--kit-warning)" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span style="font-size: var(--kit-text-xs); font-weight: 600; color: var(--kit-warning);">$155 remaining</span>
+            </div>
+          </div>
+          <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3); margin-top: 8px; display: flex; align-items: center; gap: 4px;">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <circle cx="6" cy="6" r="5" stroke="var(--kit-text-3)" stroke-width="1"/>
+              <path d="M6 3.5V6l2 1.5" stroke="var(--kit-text-3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            11 days left in December
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget Category Cards -->
+
+      <!-- Food & Dining — 84% warning/amber -->
+      <div data-component="Budget Category Card" style="
+        background: var(--kit-surface);
+        border-radius: var(--kit-radius-lg);
+        padding: 16px;
+        border: 1px solid var(--kit-border);
+        margin-bottom: 12px;
+      ">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 40px; height: 40px;
+              border-radius: var(--kit-radius);
+              background: rgba(251, 191, 36, 0.12);
+              display: flex; align-items: center; justify-content: center;
+            ">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3 10c0-1 .5-7 3-7s2 5 2 5h4s-.5-5 2-5 3 6 3 7v1a2 2 0 0 1-2 2v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4a2 2 0 0 1-2-2v-1z" stroke="var(--kit-warning)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">Food & Dining</div>
+              <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3); margin-top: 1px;">84% of budget used</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: var(--kit-text-md); font-weight: 700; color: var(--kit-text);">$420</div>
+            <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3);">of $500</div>
+          </div>
+        </div>
+        <!-- Progress bar -->
+        <div style="
+          width: 100%; height: 8px;
+          background: var(--kit-surface-3);
+          border-radius: var(--kit-radius-full);
+          overflow: hidden;
+        ">
+          <div style="
+            width: 84%; height: 100%;
+            background: var(--kit-warning);
+            border-radius: var(--kit-radius-full);
+          "></div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 6px;">
+          <span style="
+            font-size: var(--kit-text-xs);
+            font-weight: 500;
+            color: var(--kit-warning);
+          ">$80 remaining</span>
+        </div>
+      </div>
+
+      <!-- Transportation — 90% warning/amber -->
+      <div data-component="Budget Category Card" style="
+        background: var(--kit-surface);
+        border-radius: var(--kit-radius-lg);
+        padding: 16px;
+        border: 1px solid var(--kit-border);
+        margin-bottom: 12px;
+      ">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 40px; height: 40px;
+              border-radius: var(--kit-radius);
+              background: rgba(251, 191, 36, 0.12);
+              display: flex; align-items: center; justify-content: center;
+            ">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect x="2" y="4" width="16" height="10" rx="2" stroke="var(--kit-warning)" stroke-width="1.5"/>
+                <circle cx="6" cy="16" r="1.5" stroke="var(--kit-warning)" stroke-width="1.5"/>
+                <circle cx="14" cy="16" r="1.5" stroke="var(--kit-warning)" stroke-width="1.5"/>
+                <path d="M2 9h16" stroke="var(--kit-warning)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">Transportation</div>
+              <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3); margin-top: 1px;">90% of budget used</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: var(--kit-text-md); font-weight: 700; color: var(--kit-text);">$180</div>
+            <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3);">of $200</div>
+          </div>
+        </div>
+        <div style="
+          width: 100%; height: 8px;
+          background: var(--kit-surface-3);
+          border-radius: var(--kit-radius-full);
+          overflow: hidden;
+        ">
+          <div style="
+            width: 90%; height: 100%;
+            background: var(--kit-warning);
+            border-radius: var(--kit-radius-full);
+          "></div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 6px;">
+          <span style="
+            font-size: var(--kit-text-xs);
+            font-weight: 500;
+            color: var(--kit-warning);
+            display: flex; align-items: center; gap: 3px;
+          ">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M5 2v4M5 7.5h.005" stroke="var(--kit-warning)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            $20 remaining
+          </span>
+        </div>
+      </div>
+
+      <!-- Shopping — 124% exceeded/red -->
+      <div data-component="Budget Category Card" style="
+        background: var(--kit-surface);
+        border-radius: var(--kit-radius-lg);
+        padding: 16px;
+        border: 1px solid rgba(251, 113, 133, 0.25);
+        margin-bottom: 12px;
+      ">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 40px; height: 40px;
+              border-radius: var(--kit-radius);
+              background: rgba(251, 113, 133, 0.12);
+              display: flex; align-items: center; justify-content: center;
+            ">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 4h1.5l1.2 8.4a1.5 1.5 0 0 0 1.5 1.3h6.1a1.5 1.5 0 0 0 1.5-1.2L17 7H6" stroke="var(--kit-error)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8.5" cy="16.5" r="1" stroke="var(--kit-error)" stroke-width="1.2"/>
+                <circle cx="14.5" cy="16.5" r="1" stroke="var(--kit-error)" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">Shopping</div>
+              <div style="font-size: var(--kit-text-xs); color: var(--kit-error); margin-top: 1px; font-weight: 500;">124% — Exceeded!</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: var(--kit-text-md); font-weight: 700; color: var(--kit-error);">$310</div>
+            <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3);">of $250</div>
+          </div>
+        </div>
+        <div style="
+          width: 100%; height: 8px;
+          background: var(--kit-surface-3);
+          border-radius: var(--kit-radius-full);
+          overflow: hidden;
+        ">
+          <div style="
+            width: 100%; height: 100%;
+            background: var(--kit-error);
+            border-radius: var(--kit-radius-full);
+          "></div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 6px;">
+          <span style="
+            font-size: var(--kit-text-xs);
+            font-weight: 600;
+            color: var(--kit-error);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: var(--kit-radius-full);
+            background: var(--kit-error-bg);
+          ">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M5 3v2.5M5 7h.005" stroke="var(--kit-error)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            $60 over budget
+          </span>
+        </div>
+      </div>
+
+      <!-- Entertainment — 57% on track/green -->
+      <div data-component="Budget Category Card" style="
+        background: var(--kit-surface);
+        border-radius: var(--kit-radius-lg);
+        padding: 16px;
+        border: 1px solid var(--kit-border);
+        margin-bottom: 12px;
+      ">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="
+              width: 40px; height: 40px;
+              border-radius: var(--kit-radius);
+              background: rgba(52, 211, 153, 0.12);
+              display: flex; align-items: center; justify-content: center;
+            ">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <rect x="3" y="5" width="14" height="10" rx="2" stroke="var(--kit-success)" stroke-width="1.5"/>
+                <path d="M8.5 8.5l4 2.5-4 2.5v-5z" fill="var(--kit-success)"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-size: var(--kit-text-md); font-weight: 600; color: var(--kit-text);">Entertainment</div>
+              <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3); margin-top: 1px;">57% of budget used</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: var(--kit-text-md); font-weight: 700; color: var(--kit-text);">$85</div>
+            <div style="font-size: var(--kit-text-xs); color: var(--kit-text-3);">of $150</div>
+          </div>
+        </div>
+        <div style="
+          width: 100%; height: 8px;
+          background: var(--kit-surface-3);
+          border-radius: var(--kit-radius-full);
+          overflow: hidden;
+        ">
+          <div style="
+            width: 57%; height: 100%;
+            background: var(--kit-success);
+            border-radius: var(--kit-radius-full);
+          "></div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 6px;">
+          <span style="
+            font-size: var(--kit-text-xs);
+            font-weight: 500;
+            color: var(--kit-success);
+          ">$65 remaining</span>
+        </div>
+      </div>
+
+      <!-- Bills & Utilities — 97% warning/amber -->
+      <div data-component="Budget Category Card" style="
+        background: var(--kit-surface);
+        border-radius: var(--kit-radius-lg);
+        padding: 16px;
+        border: 1px solid rgba(251, 191, 36, 0.2);
+        margin-bottom: 12px;
+      ">
+        <div style="display: flex; align-items: center; justify-content: space-

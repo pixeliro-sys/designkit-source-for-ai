@@ -402,6 +402,7 @@ npm install -g designkit-ai
 | `designkit init` | Add design tokens (css / js / ts / json) |
 | `designkit design "<prompt>"` | Generate UI with AI (Claude / Gemini / GPT-4o) |
 | `designkit convert <file> --to <framework>` | Convert HTML to any framework with AI |
+| `designkit autogen "<prompt>"` | Generate a full multi-screen design project with gallery |
 | `designkit imagine "<prompt>"` | Generate images with Gemini Imagen 3 or DALL-E 3 |
 
 **→ Full CLI reference: [CLI.md](CLI.md)**
