@@ -38,7 +38,9 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.87.0",
-    "commander": "^12.1.0"
+    "@google/genai": "^1.49.0",
+    "commander": "^12.1.0",
+    "openai": "^6.34.0"
   },
   "engines": {
     "node": ">=18.0.0"

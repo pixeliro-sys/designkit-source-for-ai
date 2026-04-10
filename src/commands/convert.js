@@ -1,7 +1,8 @@
-import Anthropic from '@anthropic-ai/sdk'
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join, resolve, extname, basename } from 'path'
+import { streamText, PROVIDERS, stripCodeFences } from '../lib/providers.js'
+import { loadProjectConfig, buildProjectContext } from './project.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '../../')
@@ -30,14 +31,15 @@ function loadAgentContext() {
 }
 
 export async function convertCommand(file, options) {
-  const apiKey = process.env.ANTHROPIC_API_KEY
-  if (!apiKey) {
-    console.error('Error: ANTHROPIC_API_KEY environment variable is required')
-    console.error('Set it with: export ANTHROPIC_API_KEY=your_key_here')
+  const framework = options.to
+  const provider = options.provider || 'anthropic'
+  const validProviders = Object.keys(PROVIDERS)
+
+  if (!validProviders.includes(provider)) {
+    console.error(`Error: Unknown provider "${provider}". Available: ${validProviders.join(', ')}`)
     process.exit(1)
   }
 
-  const framework = options.to
   if (!framework) {
     console.error('Error: --to <framework> is required')
     console.error('Available: react, nextjs, vue, svelte, tailwind, flutter, swiftui, react-native')
@@ -65,21 +67,18 @@ export async function convertCommand(file, options) {
     process.exit(1)
   }
 
-  const systemPrompt = [
-    agentContext,
-    '---',
-    `# Active Skill: ${framework} (Convert mode)`,
-    skillContent
-  ].join('\n\n')
+  const projectConfig = loadProjectConfig()
+  const projectContext = buildProjectContext(projectConfig)
 
+  const systemParts = [agentContext, '---', `# Active Skill: ${framework} (Convert mode)`, skillContent]
+  if (projectContext) systemParts.push('---', projectContext)
+  const systemPrompt = systemParts.join('\n\n')
   const userMessage = `Convert the following HTML component to ${framework}.\n\nFollow the Convert mode instructions in the skill above.\n\n\`\`\`html\n${htmlContent}\n\`\`\``
 
-  const client = new Anthropic({ apiKey })
-
-  console.error(`\nConverting: ${file}`)
+  console.error(`\nProvider: ${PROVIDERS[provider].label}`)
+  console.error(`Converting: ${file}`)
   console.error(`Framework: ${framework}\n`)
 
-  // Determine output path
   let outputPath = options.output
   if (!outputPath) {
     const name = basename(inputPath, extname(inputPath))
@@ -92,29 +91,13 @@ export async function convertCommand(file, options) {
   const dir = dirname(outputPath)
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true })
 
-  let fullOutput = ''
-
-  const stream = client.messages.stream({
-    model: 'claude-opus-4-6',
-    max_tokens: 8000,
-    thinking: { type: 'adaptive' },
-    system: systemPrompt,
-    messages: [
-      { role: 'user', content: userMessage }
-    ]
+  const fullOutput = await streamText({
+    provider,
+    systemPrompt,
+    userMessage,
+    onText: (text) => process.stdout.write(text)
   })
 
-  stream.on('text', (text) => {
-    process.stdout.write(text)
-    fullOutput += text
-  })
-
-  await stream.finalMessage()
-
-  // Extract code block if present
-  const codeMatch = fullOutput.match(/```(?:\w+)?\n([\s\S]*?)```/)
-  const codeToWrite = codeMatch ? codeMatch[1] : fullOutput
-
-  writeFileSync(outputPath, codeToWrite, 'utf8')
+  writeFileSync(outputPath, stripCodeFences(fullOutput), 'utf8')
   console.error(`\n\nSaved to: ${outputPath}`)
 }

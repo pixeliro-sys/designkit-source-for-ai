@@ -1,7 +1,8 @@
-import Anthropic from '@anthropic-ai/sdk'
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join, resolve } from 'path'
+import { streamText, PROVIDERS, stripCodeFences } from '../lib/providers.js'
+import { loadProjectConfig, buildProjectContext } from './project.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '../../')
@@ -19,15 +20,15 @@ function loadAgentContext() {
 }
 
 export async function designCommand(prompt, options) {
-  const apiKey = process.env.ANTHROPIC_API_KEY
-  if (!apiKey) {
-    console.error('Error: ANTHROPIC_API_KEY environment variable is required')
-    console.error('Set it with: export ANTHROPIC_API_KEY=your_key_here')
+  const skill = options.skill || 'design'
+  const provider = options.provider || 'anthropic'
+  const validSkills = ['design', 'react', 'nextjs', 'vue', 'svelte', 'tailwind', 'flutter', 'swiftui', 'react-native']
+  const validProviders = Object.keys(PROVIDERS)
+
+  if (!validProviders.includes(provider)) {
+    console.error(`Error: Unknown provider "${provider}". Available: ${validProviders.join(', ')}`)
     process.exit(1)
   }
-
-  const skill = options.skill || 'design'
-  const validSkills = ['design', 'react', 'nextjs', 'vue', 'svelte', 'tailwind', 'flutter', 'swiftui', 'react-native']
 
   if (!validSkills.includes(skill)) {
     console.error(`Error: Unknown skill "${skill}". Available: ${validSkills.join(', ')}`)
@@ -42,46 +43,33 @@ export async function designCommand(prompt, options) {
     process.exit(1)
   }
 
-  const systemPrompt = [
-    agentContext,
-    '---',
-    `# Active Skill: ${skill}`,
-    skillContent
-  ].join('\n\n')
+  const projectConfig = loadProjectConfig()
+  const projectContext = buildProjectContext(projectConfig)
 
-  const client = new Anthropic({ apiKey })
+  const systemParts = [agentContext, '---', `# Active Skill: ${skill}`, skillContent]
+  if (projectContext) systemParts.push('---', projectContext)
+  const systemPrompt = systemParts.join('\n\n')
 
-  console.error(`\nDesigning with skill: ${skill}`)
+  console.error(`\nProvider: ${PROVIDERS[provider].label}`)
+  console.error(`Skill: ${skill}`)
+  if (projectConfig) console.error(`Project: ${projectConfig.name || projectConfig.framework || 'detected'}`)
   console.error(`Prompt: ${prompt}\n`)
 
   const outputFile = options.output
-
   if (outputFile) {
     const dir = resolve(dirname(outputFile))
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true })
   }
 
-  let fullOutput = ''
-
-  const stream = client.messages.stream({
-    model: 'claude-opus-4-6',
-    max_tokens: 8000,
-    thinking: { type: 'adaptive' },
-    system: systemPrompt,
-    messages: [
-      { role: 'user', content: prompt }
-    ]
+  const fullOutput = await streamText({
+    provider,
+    systemPrompt,
+    userMessage: prompt,
+    onText: (text) => process.stdout.write(text)
   })
-
-  stream.on('text', (text) => {
-    process.stdout.write(text)
-    fullOutput += text
-  })
-
-  await stream.finalMessage()
 
   if (outputFile) {
-    writeFileSync(resolve(outputFile), fullOutput, 'utf8')
+    writeFileSync(resolve(outputFile), stripCodeFences(fullOutput), 'utf8')
     console.error(`\n\nSaved to: ${outputFile}`)
   } else {
     process.stdout.write('\n')

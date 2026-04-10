@@ -391,32 +391,20 @@ then build this as a React Native app.
 ## CLI
 
 ```bash
-npx designkit-ai <command>
+npm install -g designkit-ai
 ```
 
 | Command | Description |
 |---------|-------------|
-| `designkit init` | Add tokens to your project (css / js / ts / json) |
 | `designkit list` | Browse all 502 components |
-| `designkit list --kit web --category cards` | Filter by kit and category |
 | `designkit search <query>` | Search by name or tag |
 | `designkit add <id>` | Copy a component to your project |
+| `designkit init` | Add design tokens (css / js / ts / json) |
+| `designkit design "<prompt>"` | Generate UI with AI (Claude / Gemini / GPT-4o) |
+| `designkit convert <file> --to <framework>` | Convert HTML to any framework with AI |
+| `designkit imagine "<prompt>"` | Generate images with Gemini Imagen 3 or DALL-E 3 |
 
-### Examples
-
-```bash
-# Get tokens in TypeScript
-npx designkit-ai init --format ts --output src/
-
-# Find pricing components
-npx designkit-ai search pricing
-
-# Copy a card component to your project
-npx designkit-ai add web/cards/card-pricing --output src/components/
-
-# List all mobile components
-npx designkit-ai list --kit app-mobile
-```
+**→ Full CLI reference: [CLI.md](CLI.md)**
 
 ---
 
