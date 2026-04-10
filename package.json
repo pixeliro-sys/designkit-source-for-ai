@@ -1,0 +1,46 @@
+{
+  "name": "designkit-ai",
+  "version": "1.0.0",
+  "description": "502 HTML UI components + AI skills for designing and building web and mobile apps",
+  "keywords": [
+    "design-system",
+    "ui-components",
+    "html",
+    "ai",
+    "claude",
+    "cursor",
+    "vibe-coding",
+    "react",
+    "nextjs",
+    "vue",
+    "flutter",
+    "swiftui"
+  ],
+  "homepage": "https://github.com/pixeliro-sys/designkit-source-for-ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixeliro-sys/designkit-source-for-ai.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "designkit": "./bin/designkit.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "components",
+    "skills",
+    "AI-AGENT.md"
+  ],
+  "scripts": {
+    "test": "node bin/designkit.js list"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.87.0",
+    "commander": "^12.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -7,6 +7,7 @@
 | Skill | File | What it does |
 |-------|------|-------------|
 | **Design** | [skills/design.md](skills/design.md) | Generate a pixel-perfect single-file HTML screen or page |
+| **Contribute** | [skills/contribute.md](skills/contribute.md) | Create a valid new component or validate an existing one |
 | **React** | [skills/react.md](skills/react.md) | Convert to React TypeScript component (inline styles) |
 | **Next.js** | [skills/nextjs.md](skills/nextjs.md) | Build with Next.js App Router + `lib/tokens.ts` |
 | **Vue 3** | [skills/vue.md](skills/vue.md) | Convert to Vue 3 `<script setup>` SFC |

@@ -1,5 +1,7 @@
 # DesignKit — HTML UI Component Library
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/pixeliro-sys/designkit-source-for-ai)
+
 > **502 ready-to-use HTML components** + **33 full-page design previews** for Web and Mobile.
 > Token-based design system. Works with any AI agent to generate beautiful single-file HTML designs.
 > Built by **[Pixeliro](https://pixeliro.com)** — AI-powered design tool for everyone.
@@ -310,7 +312,31 @@ Shared across both kits.
 
 ## Full Design Previews
 
-Pre-built complete designs with multiple pages, ready to open in browser.
+Pre-built complete designs, ready to open in browser. Two formats:
+
+- **Single-file** — one self-contained `.html` file, open instantly
+- **Multi-page** — full folder with multiple pages + tokenkit.json
+
+### Single-file designs
+
+Open directly in browser. No folder, no setup. Great as AI reference or starter.
+
+| File | Type | Description |
+|------|------|-------------|
+| [mobile-finance.html](previews/full-designs/mobile-finance.html) | Mobile | Finance app — dashboard, balance card, transactions |
+| [mobile-social.html](previews/full-designs/mobile-social.html) | Mobile | Social app — feed, stories, profile, chat |
+| [mobile-ecommerce.html](previews/full-designs/mobile-ecommerce.html) | Mobile | E-commerce — catalog, product, cart, checkout |
+| [web-dashboard.html](previews/full-designs/web-dashboard.html) | Web | Analytics dashboard — KPIs, charts, data table |
+| [web-blog.html](previews/full-designs/web-blog.html) | Web | Blog — home, article, category pages |
+| [web-saas-landing.html](previews/full-designs/web-saas-landing.html) | Web | SaaS landing — hero, features, pricing |
+
+**Use with AI:**
+```
+Read AI-AGENT.md and previews/full-designs/mobile-finance.html,
+then build this as a React Native app.
+```
+
+### Multi-page designs
 
 ### Mobile — Pixeliro App (12 screens)
 
@@ -359,6 +385,38 @@ Pre-built complete designs with multiple pages, ready to open in browser.
 📁 [`previews/full-designs/web/saas-landing/`](previews/full-designs/web/saas-landing/)
 
 ![SaaS Landing Preview](images/SaaS-src-1.png)
+
+---
+
+## CLI
+
+```bash
+npx designkit-ai <command>
+```
+
+| Command | Description |
+|---------|-------------|
+| `designkit init` | Add tokens to your project (css / js / ts / json) |
+| `designkit list` | Browse all 502 components |
+| `designkit list --kit web --category cards` | Filter by kit and category |
+| `designkit search <query>` | Search by name or tag |
+| `designkit add <id>` | Copy a component to your project |
+
+### Examples
+
+```bash
+# Get tokens in TypeScript
+npx designkit-ai init --format ts --output src/
+
+# Find pricing components
+npx designkit-ai search pricing
+
+# Copy a card component to your project
+npx designkit-ai add web/cards/card-pricing --output src/components/
+
+# List all mobile components
+npx designkit-ai list --kit app-mobile
+```
 
 ---
 
@@ -437,6 +495,16 @@ AI agents using this kit generate **self-contained single HTML files**:
 ## License
 
 MIT — free for personal and commercial use. No attribution required.
+
+---
+
+## Built with DesignKit
+
+Built something with DesignKit? Open a PR and add it here.
+
+| Project | Framework | Author |
+|---------|-----------|--------|
+| *Your project here* | — | — |
 
 ---
 

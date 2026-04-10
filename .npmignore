@@ -1,0 +1,16 @@
+# Dev files
+.claude
+launch
+examples/output
+images
+previews
+devto-post.md
+facebook-post.txt
+vibecode-post.md
+
+# Git
+.git
+.gitignore
+
+# Misc
+*.sh

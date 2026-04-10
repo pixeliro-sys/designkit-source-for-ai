@@ -24,6 +24,7 @@ Splash → Onboarding → Login → Home. Use React Navigation."
 | Skill | File | Output |
 |-------|------|--------|
 | Design | [design.md](design.md) | Single-file `.html` — pixel-perfect screen |
+| Contribute | [contribute.md](contribute.md) | Create a valid component or validate an existing one |
 | React | [react.md](react.md) | `.tsx` component with hooks |
 | Next.js | [nextjs.md](nextjs.md) | App Router page + components |
 | Vue 3 | [vue.md](vue.md) | `<script setup>` SFC |

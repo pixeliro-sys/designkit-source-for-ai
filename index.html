@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DesignKit — Quick Start</title>
+  <style>
+    :root {
+      --kit-primary:       #6366F1;
+      --kit-primary-text:  #FFFFFF;
+      --kit-bg:            #FFFFFF;
+      --kit-surface:       #F8FAFC;
+      --kit-surface-2:     #F1F5F9;
+      --kit-text:          #0F172A;
+      --kit-text-2:        #475569;
+      --kit-text-3:        #94A3B8;
+      --kit-border:        #E2E8F0;
+      --kit-radius-sm:     6px;
+      --kit-radius:        10px;
+      --kit-radius-lg:     14px;
+      --kit-radius-xl:     20px;
+      --kit-radius-full:   9999px;
+      --kit-shadow-sm:     0 1px 3px rgba(0,0,0,0.08);
+      --kit-shadow:        0 4px 12px rgba(0,0,0,0.10);
+      --kit-shadow-lg:     0 8px 32px rgba(0,0,0,0.12);
+      --kit-font:          'Inter', system-ui, -apple-system, sans-serif;
+      --kit-text-xs:       11px;
+      --kit-text-sm:       13px;
+      --kit-text-md:       15px;
+      --kit-text-lg:       17px;
+      --kit-text-xl:       20px;
+      --kit-text-2xl:      24px;
+      --kit-text-3xl:      32px;
+      --kit-space-2:       8px;
+      --kit-space-3:       12px;
+      --kit-space-4:       16px;
+      --kit-space-6:       24px;
+      --kit-space-8:       32px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--kit-font); background: var(--kit-bg); color: var(--kit-text); -webkit-font-smoothing: antialiased; }
+
+    .page { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+
+    /* Header */
+    .header { margin-bottom: 48px; }
+    .badge { display: inline-block; padding: 4px 12px; background: var(--kit-surface-2); border-radius: var(--kit-radius-full); font-size: var(--kit-text-xs); font-weight: 600; color: var(--kit-primary); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
+    .title { font-size: var(--kit-text-3xl); font-weight: 700; color: var(--kit-text); letter-spacing: -0.5px; margin-bottom: 12px; }
+    .subtitle { font-size: var(--kit-text-md); color: var(--kit-text-2); line-height: 1.6; max-width: 560px; }
+
+    /* Links */
+    .links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 16px; border-radius: var(--kit-radius); font-size: var(--kit-text-sm); font-weight: 500; text-decoration: none; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--kit-primary); color: var(--kit-primary-text); }
+    .btn-ghost { background: var(--kit-surface); color: var(--kit-text); border: 1px solid var(--kit-border); }
+
+    /* Stats */
+    .stats { display: flex; gap: 32px; padding: 20px 0; border-top: 1px solid var(--kit-border); border-bottom: 1px solid var(--kit-border); margin-bottom: 48px; flex-wrap: wrap; }
+    .stat-num { font-size: var(--kit-text-2xl); font-weight: 700; color: var(--kit-text); }
+    .stat-label { font-size: var(--kit-text-sm); color: var(--kit-text-2); margin-top: 2px; }
+
+    /* Section */
+    .section-title { font-size: var(--kit-text-lg); font-weight: 600; color: var(--kit-text); margin-bottom: 4px; }
+    .section-sub { font-size: var(--kit-text-sm); color: var(--kit-text-2); margin-bottom: 20px; }
+
+    /* Component preview */
+    .preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .preview-card { background: var(--kit-surface); border: 1px solid var(--kit-border); border-radius: var(--kit-radius-lg); overflow: hidden; }
+    .preview-frame { padding: 24px; background: var(--kit-bg); min-height: 100px; display: flex; align-items: center; justify-content: center; }
+    .preview-label { padding: 10px 14px; border-top: 1px solid var(--kit-border); font-size: var(--kit-text-xs); color: var(--kit-text-3); font-family: monospace; }
+
+    /* Skills grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-bottom: 48px; }
+    .skill-card { background: var(--kit-surface); border: 1px solid var(--kit-border); border-radius: var(--kit-radius); padding: 14px 16px; text-decoration: none; display: block; transition: border-color 0.15s, box-shadow 0.15s; }
+    .skill-card:hover { border-color: var(--kit-primary); box-shadow: var(--kit-shadow-sm); }
+    .skill-name { font-size: var(--kit-text-sm); font-weight: 600; color: var(--kit-text); margin-bottom: 2px; }
+    .skill-desc { font-size: var(--kit-text-xs); color: var(--kit-text-3); }
+
+    /* Prompt block */
+    .prompt { background: #0F172A; border-radius: var(--kit-radius-lg); padding: 20px 24px; margin-bottom: 48px; }
+    .prompt pre { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; color: #E2E8F0; line-height: 1.7; white-space: pre-wrap; }
+    .prompt-label { font-size: var(--kit-text-xs); color: #64748B; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--kit-border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px; }
+    .footer-text { font-size: var(--kit-text-sm); color: var(--kit-text-3); }
+    .footer a { color: var(--kit-primary); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">Open Source</div>
+    <h1 class="title">DesignKit</h1>
+    <p class="subtitle">502 HTML UI components + AI skills for designing and building web and mobile apps. Token-based. Framework-agnostic. Works with any AI agent.</p>
+    <div class="links">
+      <a href="https://github.com/pixeliro-sys/designkit-source-for-ai" class="btn btn-primary" target="_blank">GitHub Repo</a>
+      <a href="https://pixeliro.com/design/components" class="btn btn-ghost" target="_blank">Browse Components →</a>
+      <a href="AI-AGENT.md" class="btn btn-ghost">AI-AGENT.md</a>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div>
+      <div class="stat-num">502</div>
+      <div class="stat-label">HTML Components</div>
+    </div>
+    <div>
+      <div class="stat-num">9</div>
+      <div class="stat-label">Framework Skills</div>
+    </div>
+    <div>
+      <div class="stat-num">2</div>
+      <div class="stat-label">Full Designs</div>
+    </div>
+    <div>
+      <div class="stat-num">MIT</div>
+      <div class="stat-label">License</div>
+    </div>
+  </div>
+
+  <!-- Components preview -->
+  <div class="section-title">Components — pick any, copy the HTML</div>
+  <p class="section-sub">Open a file in <code>components/</code> — it works in any browser, no build step.</p>
+  <div class="preview-grid">
+
+    <div class="preview-card">
+      <div class="preview-frame">
+        <button type="button" style="height:40px;padding:0 20px;background:var(--kit-primary,#6366F1);color:var(--kit-primary-text,#FFF);border-radius:var(--kit-radius,10px);border:none;font-size:var(--kit-text-sm,13px);font-weight:500;cursor:pointer;font-family:inherit;">Get Started</button>
+      </div>
+      <div class="preview-label">components/web/buttons/button-primary.html</div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-frame">
+        <div style="background:var(--kit-surface,#F8FAFC);border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius-lg,14px);padding:16px;width:100%;box-shadow:var(--kit-shadow-sm);">
+          <div style="font-size:var(--kit-text-md,15px);font-weight:600;color:var(--kit-text,#0F172A);margin-bottom:4px;">Card Title</div>
+          <div style="font-size:var(--kit-text-sm,13px);color:var(--kit-text-2,#475569);">Supporting text goes here.</div>
+        </div>
+      </div>
+      <div class="preview-label">components/web/cards/card-basic.html</div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-frame">
+        <div style="background:linear-gradient(135deg,#6366F1,#8B5CF6);border-radius:var(--kit-radius-xl,20px);padding:16px;width:100%;color:#fff;">
+          <div style="font-size:11px;opacity:0.8;margin-bottom:4px;">Total Balance</div>
+          <div style="font-size:24px;font-weight:700;letter-spacing:-0.5px;">$12,450</div>
+          <div style="font-size:11px;opacity:0.7;margin-top:2px;">↑ 12.5% this month</div>
+        </div>
+      </div>
+      <div class="preview-label">components/app-mobile/patterns/balance-card.html</div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-frame" style="gap:8px;flex-direction:column;align-items:stretch;">
+        <input type="text" placeholder="Email address" style="height:40px;padding:0 12px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,10px);font-size:var(--kit-text-sm,13px);color:var(--kit-text,#0F172A);font-family:inherit;outline:none;background:var(--kit-surface,#F8FAFC);">
+        <input type="password" placeholder="Password" style="height:40px;padding:0 12px;border:1px solid var(--kit-border,#E2E8F0);border-radius:var(--kit-radius,10px);font-size:var(--kit-text-sm,13px);color:var(--kit-text,#0F172A);font-family:inherit;outline:none;background:var(--kit-surface,#F8FAFC);">
+      </div>
+      <div class="preview-label">components/web/inputs/text-input.html</div>
+    </div>
+
+  </div>
+
+  <!-- Skills -->
+  <div class="section-title">Skills — design, build, convert</div>
+  <p class="section-sub">Read a skill file → AI knows how to design or build using that framework.</p>
+  <div class="skills-grid">
+    <a href="skills/design.md" class="skill-card">
+      <div class="skill-name">Design</div>
+      <div class="skill-desc">Single-file HTML screen</div>
+    </a>
+    <a href="skills/react.md" class="skill-card">
+      <div class="skill-name">React</div>
+      <div class="skill-desc">TSX + CSS Modules / Tailwind</div>
+    </a>
+    <a href="skills/nextjs.md" class="skill-card">
+      <div class="skill-name">Next.js</div>
+      <div class="skill-desc">App Router + TypeScript</div>
+    </a>
+    <a href="skills/vue.md" class="skill-card">
+      <div class="skill-name">Vue 3</div>
+      <div class="skill-desc">&lt;script setup&gt; SFC</div>
+    </a>
+    <a href="skills/svelte.md" class="skill-card">
+      <div class="skill-name">Svelte 5</div>
+      <div class="skill-desc">Runes — $state, $props</div>
+    </a>
+    <a href="skills/tailwind.md" class="skill-card">
+      <div class="skill-name">Tailwind v4</div>
+      <div class="skill-desc">Utility classes</div>
+    </a>
+    <a href="skills/flutter.md" class="skill-card">
+      <div class="skill-name">Flutter</div>
+      <div class="skill-desc">Dart Widget tree</div>
+    </a>
+    <a href="skills/swiftui.md" class="skill-card">
+      <div class="skill-name">SwiftUI</div>
+      <div class="skill-desc">iOS View</div>
+    </a>
+    <a href="skills/react-native.md" class="skill-card">
+      <div class="skill-name">React Native</div>
+      <div class="skill-desc">StyleSheet component</div>
+    </a>
+    <a href="skills/contribute.md" class="skill-card">
+      <div class="skill-name">Contribute</div>
+      <div class="skill-desc">Create a new component</div>
+    </a>
+  </div>
+
+  <!-- Quick start prompt -->
+  <div class="section-title">Try it now</div>
+  <p class="section-sub">Paste this into Claude Code CLI, Cursor, or any AI coding agent:</p>
+  <div class="prompt">
+    <div class="prompt-label">Claude Code / Cursor / Copilot CLI</div>
+    <pre>Read AI-AGENT.md, then design:
+a SaaS dashboard with sidebar, KPI row, and data table.
+Desktop 1440px. Output to output/dashboard.html</pre>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-text">MIT License · Built by <a href="https://pixeliro.com" target="_blank">Pixeliro</a></div>
+    <div class="footer-text"><a href="https://github.com/pixeliro-sys/designkit-source-for-ai" target="_blank">GitHub</a> · <a href="https://pixeliro.com/design/components" target="_blank">Browse 502 components</a></div>
+  </div>
+
+</div>
+</body>
+</html>
