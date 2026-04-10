@@ -1,0 +1,11 @@
+{
+  "name": "designkit-ai",
+  "styling": "css modules",
+  "dependencies": [],
+  "language": "JavaScript",
+  "componentDir": "components",
+  "conventions": [
+    "Component files use PascalCase (e.g. PricingCard.tsx)",
+    "Import styles from a co-located .module.css file"
+  ]
+}

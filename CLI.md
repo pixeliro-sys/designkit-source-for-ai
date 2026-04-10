@@ -179,12 +179,24 @@ designkit imagine "ecommerce product card UI" --provider openai --size 1792x1024
 
 Options:
 - `-p, --provider` — Image provider: `gemini`, `openai` (default: `gemini`)
+- `-m, --model` — Gemini model (default: `gemini-2.5-flash`)
 - `-o, --output` — Output directory (default: current directory)
 - `-n, --name` — Output filename without extension (default: `image`)
 - `-c, --count` — Number of images to generate, 1–4 (default: `1`)
-- `--aspect` — Aspect ratio for Gemini: `1:1`, `16:9`, `9:16`, `4:3`, `3:4` (default: `1:1`)
+- `--aspect` — Aspect ratio: `1:1`, `16:9`, `9:16`, `4:3`, `3:4` (default: `1:1`)
 - `--size` — DALL-E size: `1024x1024`, `1792x1024`, `1024x1792` (default: `1024x1024`)
 - `--quality` — DALL-E quality: `standard`, `hd` (default: `standard`)
+
+Available Gemini models:
+
+| Model | Notes |
+|-------|-------|
+| `gemini-2.5-flash-image` | Default — fast, good quality |
+| `gemini-3.1-flash-image-preview` | Newer flash preview |
+| `gemini-3-pro-image-preview` | Pro quality |
+| `imagen-4.0-generate-001` | Imagen 4 — highest quality |
+| `imagen-4.0-fast-generate-001` | Imagen 4 Fast |
+| `imagen-4.0-ultra-generate-001` | Imagen 4 Ultra |
 
 ---
 

@@ -70,12 +70,14 @@ program
   .action(projectCommand)
 
 program
-  .command('imagine <prompt>')
-  .description('Generate an image with AI (Gemini Imagen 3 or DALL-E 3)')
+  .command('imagine [prompt]')
+  .description('Generate an image with AI (Gemini or DALL-E 3)')
   .option('-p, --provider <provider>', 'AI provider: gemini, openai', 'gemini')
   .option('-o, --output <dir>', 'Output directory', '.')
   .option('-n, --name <name>', 'Output filename (without extension)', 'image')
   .option('-c, --count <n>', 'Number of images to generate (1–4)', '1')
+  .option('-m, --model <model>', 'Gemini model to use (run --list-models to see all)')
+  .option('--list-models', 'Show all available image models')
   .option('--aspect <ratio>', 'Aspect ratio: 1:1, 16:9, 9:16, 4:3, 3:4', '1:1')
   .option('--size <size>', 'DALL-E size: 1024x1024, 1792x1024, 1024x1792', '1024x1024')
   .option('--quality <quality>', 'DALL-E quality: standard, hd', 'standard')
