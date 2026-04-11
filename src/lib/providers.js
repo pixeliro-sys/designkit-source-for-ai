@@ -1,6 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { GoogleGenAI } from '@google/genai'
 import OpenAI from 'openai'
+import { getApiKey } from './config.js'
 
 /**
  * Strip markdown code fences from AI output.
@@ -37,10 +38,11 @@ export const PROVIDERS = {
 
 export function checkApiKey(provider) {
   const { envKey, label } = PROVIDERS[provider]
-  const key = process.env[envKey]
+  const key = process.env[envKey] || getApiKey(provider)
   if (!key) {
     console.error(`Error: ${envKey} is required for ${label}`)
     console.error(`Set it with: export ${envKey}=your_key_here`)
+    console.error(`Or: designkit config set ${provider === 'anthropic' ? 'anthropicKey' : provider === 'gemini' ? 'geminiKey' : 'openaiKey'} your_key_here`)
     process.exit(1)
   }
   return key

@@ -83,6 +83,38 @@ Output files: `tokens.css`, `tokens.js`, `tokens.ts`, or `tokens.json`
 
 ---
 
+## `designkit studio`
+
+Open DesignKit Studio — a local web UI for generating and previewing designs in real time.
+
+```bash
+designkit studio
+designkit studio --platform web
+designkit studio --provider gemini --port 4000
+```
+
+Starts a local server at `http://localhost:3333` and opens it in your browser automatically.
+
+**UI layout:**
+- **Left panel** — prompt input, platform/provider selectors, screen list, live generation log
+- **Right panel** — `Code | Both | Preview` toggle
+
+**Modes:**
+| Mode | View |
+|------|------|
+| `Code` | Editable HTML source — edit live, preview updates instantly |
+| `Preview` | Rendered iframe at correct device size (390×844 mobile / 1280×900 web) |
+| `Both` | Side-by-side code + preview |
+
+**Keyboard shortcut:** `Cmd+Enter` (or `Ctrl+Enter`) in the prompt field to generate.
+
+Options:
+- `-p, --provider` — AI provider: `anthropic`, `gemini`, `openai` (reads from `designkit config`)
+- `--platform` — `mobile` or `web` (reads from `designkit config`)
+- `--port` — Port to listen on (default: `3333`)
+
+---
+
 ## `designkit config`
 
 Get or set default values saved to `~/.designkit/config.json`.

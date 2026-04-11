@@ -10,6 +10,7 @@ import { imagineCommand } from '../src/commands/imagine.js'
 import { projectCommand } from '../src/commands/project.js'
 import { autogenCommand } from '../src/commands/autogen.js'
 import { configCommand } from '../src/commands/config.js'
+import { studioCommand } from '../src/commands/studio.js'
 import { getDefaultProvider, getDefaultPlatform } from '../src/lib/config.js'
 import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
@@ -111,5 +112,13 @@ Examples:
   designkit config set platform web
   designkit config get provider`)
   .action(configCommand)
+
+program
+  .command('studio')
+  .description('Open DesignKit Studio — local web UI with live code + preview')
+  .option('-p, --provider <provider>', `AI provider: anthropic, gemini, openai (default: ${getDefaultProvider()})`)
+  .option('--platform <platform>', `Target platform: mobile, web (default: ${getDefaultPlatform()})`)
+  .option('--port <port>', 'Port to listen on', '3333')
+  .action(studioCommand)
 
 program.parse()
