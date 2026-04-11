@@ -23,9 +23,44 @@ npm install -g designkit-ai
 | `designkit design "<prompt>"` | Generate UI with AI (Claude / Gemini / GPT-4o) |
 | `designkit convert <file> --to <framework>` | Convert HTML to any framework with AI |
 | `designkit autogen "<prompt>"` | Generate a full multi-screen design project with gallery |
+| `designkit studio` | Local web UI — live stream + code editor + preview |
 | `designkit imagine "<prompt>"` | Generate images with Gemini Imagen 3 or DALL-E 3 |
 
 **→ Full CLI reference: [CLI.md](CLI.md)**
+
+---
+
+## DesignKit Studio
+
+Generate full app designs with a live browser UI — watch the AI build every screen in real time.
+
+```bash
+# Global install
+npm install -g designkit-ai
+designkit studio
+
+# Or run directly
+npx designkit-ai studio
+
+# Custom port or provider
+designkit studio --port 3333 --provider gemini --platform web
+```
+
+<video src="images/studio.mp4" autoplay loop muted playsinline width="100%"></video>
+
+**Left panel** — prompt input, platform & provider picker, screen list, live log
+
+**Right panel** — 4 modes:
+- `Stream` — watch the AI generate spec JSON, shared components, and screen HTML live
+- `Code` — editable HTML source, changes update preview instantly
+- `Preview` — rendered iframe at correct device size (390×844 mobile / 1280×900 web)
+- `Both` — side-by-side code + preview
+
+Set your API key once, never again:
+```bash
+designkit config set provider anthropic    # or gemini / openai
+# then open Studio → click "API Keys" → paste key → Save
+```
 
 ![AutoGen — Personal Finance App](images/app-fin.png)
 
