@@ -46,7 +46,7 @@ npx designkit-ai studio
 designkit studio --port 3333 --provider gemini --platform web
 ```
 
-<video src="images/studio.mp4" autoplay loop muted playsinline width="100%"></video>
+![designkit studio](images/studio-preview.png)
 
 **Left panel** — prompt input, platform & provider picker, screen list, live log
 
